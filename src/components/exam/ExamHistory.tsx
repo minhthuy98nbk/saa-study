@@ -10,7 +10,7 @@ interface ExamHistoryProps {
 export function ExamHistory({ history, onViewDetail }: ExamHistoryProps) {
   if (history.length === 0) {
     return (
-      <p className="text-center text-text-faint text-[13px] py-6">Chưa có lịch sử thi.</p>
+      <p className="text-center text-text-faint text-[13px] py-6">No history yet.</p>
     )
   }
 
@@ -21,7 +21,7 @@ export function ExamHistory({ history, onViewDetail }: ExamHistoryProps) {
     <div>
       <div className="flex items-center gap-1.5 text-[12px] text-text-muted mb-3">
         <Trophy size={13} className="text-brand-amber" />
-        Điểm cao nhất:
+        Best score:
         <span className="bg-light-amber text-brand-amber px-2 py-0.5 rounded-full text-[11px] font-bold">{best}%</span>
       </div>
       <div className="grid gap-1.5">
@@ -36,12 +36,12 @@ export function ExamHistory({ history, onViewDetail }: ExamHistoryProps) {
                 {attempt.pct}%
               </span>
               {i === bestIndex && (
-                <span className="text-[10.5px] bg-light-amber text-brand-amber px-2 py-0.5 rounded-full font-bold">Tốt nhất</span>
+                <span className="text-[10.5px] bg-light-amber text-brand-amber px-2 py-0.5 rounded-full font-bold">Best</span>
               )}
               <span className="text-[11px] text-text-faint ml-auto">{formatDate(attempt.date)}</span>
             </div>
             <p className="text-[11.5px] text-text-muted">
-              {attempt.okCount}/{attempt.total} câu đúng · Bấm để xem chi tiết →
+              {attempt.okCount}/{attempt.total} correct · Click to review →
             </p>
           </div>
         ))}

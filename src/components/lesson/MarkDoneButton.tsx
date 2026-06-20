@@ -9,7 +9,7 @@ export function MarkDoneButton({ done, onToggle }: MarkDoneButtonProps) {
   return (
     <div className="bg-card rounded-lg border border-border p-4 flex items-center justify-between gap-3">
       <p className="text-[13px] text-text-muted">
-        {done ? '✓ Bạn đã đánh dấu bài này hoàn thành' : 'Học xong bài này chưa?'}
+        {done ? '✓ Marked as complete' : 'Finished this lesson?'}
       </p>
       <button
         onClick={onToggle}
@@ -20,7 +20,7 @@ export function MarkDoneButton({ done, onToggle }: MarkDoneButtonProps) {
         }`}
       >
         {done ? <CheckCircle size={13} /> : <Circle size={13} />}
-        {done ? 'Đã xong' : 'Đánh dấu hoàn thành'}
+        {done ? 'Done' : 'Mark complete'}
       </button>
     </div>
   )

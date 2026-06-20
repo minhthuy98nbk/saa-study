@@ -71,19 +71,19 @@ export function ExamScreen({ type, chapterId, title, description, icon, question
                   <div className={cn('text-[21px] font-extrabold', best !== null ? scoreColor(best) : 'text-brand-blue')}>
                     {best !== null ? `${best}%` : '—'}
                   </div>
-                  <div className="text-[10.5px] text-text-faint mt-0.5 font-medium">Điểm cao nhất</div>
+                  <div className="text-[10.5px] text-text-faint mt-0.5 font-medium">Best score</div>
                 </div>
                 <div className="bg-card border border-border rounded px-4 py-2.5 text-center">
                   <div className="text-[21px] font-extrabold text-brand-blue">{history.length}</div>
-                  <div className="text-[10.5px] text-text-faint mt-0.5 font-medium">Lần đã thi</div>
+                  <div className="text-[10.5px] text-text-faint mt-0.5 font-medium">Attempts</div>
                 </div>
                 <div className="bg-card border border-border rounded px-4 py-2.5 text-center">
                   <div className="text-[21px] font-extrabold text-brand-blue">{questions.length}</div>
-                  <div className="text-[10.5px] text-text-faint mt-0.5 font-medium">Số câu</div>
+                  <div className="text-[10.5px] text-text-faint mt-0.5 font-medium">Questions</div>
                 </div>
                 <div className="bg-card border border-border rounded px-4 py-2.5 text-center">
                   <div className="text-[21px] font-extrabold text-brand-blue">{passScore}%</div>
-                  <div className="text-[10.5px] text-text-faint mt-0.5 font-medium">Điểm đậu</div>
+                  <div className="text-[10.5px] text-text-faint mt-0.5 font-medium">Pass score</div>
                 </div>
               </div>
 
@@ -91,7 +91,7 @@ export function ExamScreen({ type, chapterId, title, description, icon, question
                 onClick={() => setExamOpen(true)}
                 className={`text-white px-6 py-2.5 rounded text-[14px] font-bold transition-all shadow-lg ${btnClass}`}
               >
-                ▶ Bắt đầu thi
+                ▶ Start exam
               </button>
             </div>
 

@@ -104,8 +104,14 @@ export function LessonView({ lesson, progress, onMarkDone, onMarkUndone, onQuizC
         <div className="max-w-[860px] mx-auto px-4 py-4 pb-10">
           {/* Overview */}
           <div className="bg-gradient-to-br from-light-blue to-light-purple rounded-lg border border-blue-200 p-4 mb-3.5">
-            <p className="text-[10px] text-brand-blue uppercase tracking-widest font-bold mb-1.5">Bài này học gì?</p>
+            <p className="text-[10px] text-brand-blue uppercase tracking-widest font-bold mb-1.5">What you'll learn</p>
             <p className="text-[13px] leading-relaxed text-[#1A2A3A]">{lesson.overview}</p>
+            {bilingual && lesson.overviewVi && (
+              <div className="mt-2.5 pt-2.5 border-t border-dashed border-blue-200">
+                <p className="text-[10px] text-brand-blue/70 font-semibold mb-1">🇻🇳 Bài này học gì?</p>
+                <p className="text-[13px] leading-relaxed text-[#1A2A3A]/80">{lesson.overviewVi}</p>
+              </div>
+            )}
           </div>
 
           {/* Content sections */}
@@ -118,7 +124,7 @@ export function LessonView({ lesson, progress, onMarkDone, onMarkUndone, onQuizC
             />
           ))}
 
-          <SummaryCard items={lesson.summary} />
+          <SummaryCard items={lesson.summary} itemsVi={lesson.summaryVi} bilingual={bilingual} />
           <MarkDoneButton done={isDone} onToggle={isDone ? onMarkUndone : onMarkDone} />
         </div>
       </div>

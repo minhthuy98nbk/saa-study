@@ -3,9 +3,11 @@ import { AppShell } from '@/components/layout/AppShell'
 import { LessonPage } from '@/pages/LessonPage'
 import { ChapterTestPage } from '@/pages/ChapterTestPage'
 import { MockExamPage } from '@/pages/MockExamPage'
+import { ProgressProvider } from '@/contexts/ProgressContext'
 
 export default function App() {
   return (
+    <ProgressProvider>
     <HashRouter>
       <Routes>
         <Route path="/" element={<AppShell />}>
@@ -17,5 +19,6 @@ export default function App() {
         </Route>
       </Routes>
     </HashRouter>
+    </ProgressProvider>
   )
 }

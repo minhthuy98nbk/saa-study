@@ -1,14 +1,18 @@
 import { useParams, Navigate } from 'react-router-dom'
 import { LessonView } from '@/components/lesson/LessonView'
-import { useProgress } from '@/hooks/useProgress'
+import { useProgressContext } from '@/contexts/ProgressContext'
 import type { Lesson } from '@/types'
 import chapter1 from '@/data/chapters/chapter-1.json'
+import chapter2 from '@/data/chapters/chapter-2.json'
 
-const allLessons: Lesson[] = (chapter1 as { lessons: Lesson[] }).lessons
+const allLessons: Lesson[] = [
+  ...(chapter1 as { lessons: Lesson[] }).lessons,
+  ...(chapter2 as { lessons: Lesson[] }).lessons,
+]
 
 export function LessonPage() {
   const { lessonId } = useParams<{ lessonId: string }>()
-  const { progress, markDone, markUndone, saveQuizResult } = useProgress()
+  const { progress, markDone, markUndone, saveQuizResult } = useProgressContext()
 
   const lesson = allLessons.find(l => l.id === lessonId)
   if (!lesson) return <Navigate to="/lesson/1-1" replace />

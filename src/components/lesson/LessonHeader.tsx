@@ -28,17 +28,17 @@ export function LessonHeader({
         {/* Trái: tiêu đề + meta */}
         <div className="min-w-0">
           <p className="text-[10px] text-text-faint uppercase tracking-wider font-semibold mb-0.5">
-            Chương 1 · Bài học
+            Chapter {lesson.id.split('-')[0]} · Lesson
           </p>
           <h2 className="text-[16px] font-bold text-text truncate mb-1">{lesson.title}</h2>
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1 text-[11px] text-text-faint">
               <FileText size={11} />
-              {lesson.sections.length} phần
+              {lesson.sections.length} sections
             </span>
             <span className="flex items-center gap-1 text-[11px] text-text-faint">
               <HelpCircle size={11} />
-              {lesson.quiz.length} câu hỏi
+              {lesson.quiz.length} questions
             </span>
           </div>
         </div>
@@ -54,7 +54,7 @@ export function LessonHeader({
             }`}
           >
             <Languages size={12} />
-            Song ngữ
+            Bilingual
           </button>
 
           {/* Nút Làm bài tập — tích hợp score lần trước nếu có */}
@@ -63,7 +63,7 @@ export function LessonHeader({
             className="flex items-center gap-1.5 bg-brand-blue text-white px-2.5 py-1.5 rounded text-[11.5px] font-semibold hover:bg-blue-700 transition-all"
           >
             <Brain size={12} />
-            Làm bài tập
+            Practice Quiz
             {lastPct !== null && (
               <span className={cn('text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none', scoreBg(lastPct))}>
                 {lastPct}%
@@ -80,7 +80,7 @@ export function LessonHeader({
             }`}
           >
             {isDone ? <CheckCircle size={12} /> : <Circle size={12} />}
-            {isDone ? 'Đã xong' : 'Hoàn thành'}
+            {isDone ? 'Done' : 'Mark done'}
           </button>
         </div>
       </div>

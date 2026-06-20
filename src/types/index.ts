@@ -8,8 +8,10 @@ export interface Lesson {
   id: string
   title: string
   overview: string
+  overviewVi?: string
   sections: Section[]
   summary: string[]
+  summaryVi?: string[]
   quiz: Question[]
 }
 

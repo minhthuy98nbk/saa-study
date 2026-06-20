@@ -2,20 +2,24 @@ import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Topbar } from './Topbar'
 import { Sidebar } from './Sidebar'
-import { useProgress } from '@/hooks/useProgress'
+import { useProgressContext } from '@/contexts/ProgressContext'
 import { useExam } from '@/hooks/useExam'
 import type { Chapter, Lesson } from '@/types'
 import chaptersData from '@/data/chapters.json'
 import chapter1 from '@/data/chapters/chapter-1.json'
+import chapter2 from '@/data/chapters/chapter-2.json'
 
 const chapters = chaptersData as Chapter[]
 
 // Map chapter JSON data to Lesson array
-const allLessons: Lesson[] = (chapter1 as { lessons: Lesson[] }).lessons
+const allLessons: Lesson[] = [
+  ...(chapter1 as { lessons: Lesson[] }).lessons,
+  ...(chapter2 as { lessons: Lesson[] }).lessons,
+]
 
 export function AppShell() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
-  const { progress } = useProgress()
+  const { progress } = useProgressContext()
   const { getHistory, getBestScore } = useExam()
 
   const chTestHistory = getHistory('chapter', '1')

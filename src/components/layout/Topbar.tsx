@@ -21,7 +21,7 @@ export function Topbar({ sidebarOpen, onToggleSidebar }: TopbarProps) {
       <Award size={18} className="text-brand-blue" />
       <h1 className="text-sm font-semibold text-text whitespace-nowrap">AWS SAA-C03 Cert Prep</h1>
       <span className="bg-light-blue text-brand-blue text-[10.5px] px-2 py-0.5 rounded-full font-semibold tracking-wide">
-        Ch.1 · AWS Basics
+        SAA-C03 Study
       </span>
     </header>
   )

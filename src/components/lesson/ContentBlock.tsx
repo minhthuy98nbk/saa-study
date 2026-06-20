@@ -8,10 +8,10 @@ interface ContentBlockProps {
 }
 
 const LEVEL_CONFIG = {
-  intro: { bg: 'bg-[#E1F5EE] text-[#0F6E56]', label: 'Tổng quan' },
-  core: { bg: 'bg-light-blue text-brand-blue', label: 'Cốt lõi' },
-  deep: { bg: 'bg-light-amber text-brand-amber', label: 'Nâng cao' },
-  exam: { bg: 'bg-light-red text-[#A32D2D]', label: 'Hay thi' },
+  intro: { bg: 'bg-[#E1F5EE] text-[#0F6E56]', label: 'Overview' },
+  core: { bg: 'bg-light-blue text-brand-blue', label: 'Core' },
+  deep: { bg: 'bg-light-amber text-brand-amber', label: 'Deep Dive' },
+  exam: { bg: 'bg-light-red text-[#A32D2D]', label: 'Exam Focus' },
 }
 
 // Từ phổ biến không cần tra từ điển

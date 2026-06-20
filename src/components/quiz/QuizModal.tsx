@@ -36,7 +36,7 @@ export function QuizModal({ questions, title, onClose, onComplete }: QuizModalPr
         {/* Header */}
         <div className="sticky top-0 bg-card border-b border-border px-5 py-3.5 flex items-center gap-2 z-10">
           <span className="flex-1 text-[13.5px] font-bold text-text">
-            {isFinished ? 'Kết quả' : `${title} · Câu ${quiz.currentIndex + 1}/${quiz.total}`}
+            {isFinished ? 'Results' : `${title} · Question ${quiz.currentIndex + 1}/${quiz.total}`}
           </span>
           {!isFinished && (
             <button
@@ -44,7 +44,7 @@ export function QuizModal({ questions, title, onClose, onComplete }: QuizModalPr
               className="flex items-center gap-1 text-[11.5px] text-text-muted border border-border rounded px-2.5 py-1 hover:bg-secondary transition-colors"
             >
               <SendHorizontal size={12} />
-              Nộp bài
+              Submit
             </button>
           )}
           <button onClick={handleClose} className="text-text-faint hover:text-text transition-colors ml-1">

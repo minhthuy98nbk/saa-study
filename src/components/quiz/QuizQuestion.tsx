@@ -72,7 +72,7 @@ export function QuizQuestion({
         'inline-flex items-center text-[10px] font-bold px-2 py-0.5 rounded-full mb-2.5',
         isMulti ? 'bg-light-purple text-brand-purple' : 'bg-light-blue text-brand-blue'
       )}>
-        {isMulti ? `Chọn ${correctCount} đáp án đúng` : 'Chọn 1 đáp án đúng'}
+        {isMulti ? `Select ${correctCount} correct answers` : 'Select 1 correct answer'}
       </span>
 
       {/* Question text */}
@@ -110,7 +110,7 @@ export function QuizQuestion({
           onClick={onSubmit}
           className="bg-brand-purple text-white px-4 py-2 rounded text-[12.5px] font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#3C3489] transition-colors"
         >
-          Xác nhận ({selectedOptions.length}/{correctCount} đã chọn)
+          Submit ({selectedOptions.length}/{correctCount} selected)
         </button>
       )}
 
@@ -120,7 +120,7 @@ export function QuizQuestion({
           'text-[12.5px] px-3 py-2.5 rounded leading-relaxed mt-1',
           allCorrect ? 'bg-light-green text-[#085041]' : partial ? 'bg-light-amber text-[#854F0B]' : 'bg-light-red text-[#791F1F]'
         )}>
-          {allCorrect ? '✓ Chính xác! ' : partial ? '△ Đúng một phần. ' : '✗ Chưa đúng. '}
+          {allCorrect ? '✓ Correct! ' : partial ? '△ Partially correct. ' : '✗ Incorrect. '}
           {q.explanation}
         </div>
       )}
@@ -132,7 +132,7 @@ export function QuizQuestion({
             onClick={onNext}
             className="bg-brand-blue text-white px-4 py-2 rounded text-[13px] font-semibold hover:bg-blue-700 transition-colors"
           >
-            {isLast ? 'Xem kết quả →' : 'Câu tiếp →'}
+            {isLast ? 'See results →' : 'Next →'}
           </button>
         </div>
       )}
