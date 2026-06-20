@@ -1,25 +1,25 @@
 # AWS SAA-C03 Cert Prep
 
-Ứng dụng học và luyện thi chứng chỉ **AWS Solutions Architect Associate (SAA-C03)** — chạy hoàn toàn trên trình duyệt, không cần backend.
+A browser-based study app for the **AWS Solutions Architect Associate (SAA-C03)** exam — no backend required.
 
 **Live:** https://minhthuy98nbk.github.io/saa-study/
 
 ---
 
-## Tính năng
+## Features
 
-- Bài học tiếng Anh, bấm **Song ngữ** để hiện bản dịch tiếng Việt
-- Click vào từ bất kỳ để dịch sang tiếng Việt (MyMemory API)
-- Bài tập trắc nghiệm theo từng bài, xem lại kết quả lần làm gần nhất
-- Nộp bài sớm — câu chưa trả lời tính là sai
-- Chapter Test (20 câu) và SAA Mock Exam (65 câu)
-- Lưu tiến độ vào `localStorage`, không mất khi reload
+- Lessons in English with a **bilingual toggle** to show Vietnamese translations
+- Click any word to translate it to Vietnamese (MyMemory API)
+- Per-lesson quizzes with last attempt history
+- Submit early — unanswered questions count as wrong
+- Chapter Test (20 questions) and SAA Mock Exam (65 questions)
+- Progress saved to `localStorage`
 
 ---
 
-## Chạy local
+## Local setup
 
-**Yêu cầu:** Node.js 18+
+**Requires:** Node.js 18+
 
 ```bash
 git clone https://github.com/minhthuy98nbk/saa-study.git
@@ -28,21 +28,7 @@ npm install
 npm run dev
 ```
 
-Mở trình duyệt tại `http://localhost:5173`
-
----
-
-## Deploy lên GitHub Pages
-
-Mỗi lần push lên nhánh `main`, GitHub Actions tự động build và deploy.
-
-**Cấu hình lần đầu** (chỉ làm 1 lần):
-
-1. Vào **Settings → Pages**
-2. Source → **Deploy from a branch**
-3. Branch → **`gh-pages`** → folder **`/ (root)`** → Save
-
-Sau khoảng 1–2 phút, web live tại `https://minhthuy98nbk.github.io/saa-study/`
+Open `http://localhost:5173`
 
 ---
 
