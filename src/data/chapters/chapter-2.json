@@ -1,0 +1,789 @@
+{
+  "id": "2",
+  "title": "AWS Services Categories",
+  "lessons": [
+    {
+      "id": "2-1",
+      "title": "AWS Services Overview",
+      "overview": "Understand how AWS names its services — by function, by underlying open-source technology, or with non-obvious names like Route 53. This naming pattern is a key exam strategy for eliminating wrong answers.",
+      "overviewVi": "Tìm hiểu cách AWS đặt tên dịch vụ — theo chức năng, theo công nghệ open-source bên dưới, hoặc tên không trực quan như Route 53. Nắm được quy luật đặt tên là chiến lược quan trọng để loại trừ đáp án sai trong đề thi.",
+      "sections": [
+        {
+          "level": "intro",
+          "label": "Overview",
+          "heading": "How AWS Names Its Services",
+          "contentHtml": "<p>AWS offers hundreds of services across categories: compute, storage, database, networking, security, ML, IoT, and more. Service names often give you a direct hint about their category.</p><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">By function</span><span class=\"kv-v\">Amazon Elastic <strong>Compute</strong> Cloud → compute service</span></div><div class=\"kv-r\"><span class=\"kv-k\">By function</span><span class=\"kv-v\">Amazon Simple <strong>Storage</strong> Service → storage service</span></div><div class=\"kv-r\"><span class=\"kv-k\">By function</span><span class=\"kv-v\">Amazon <strong>Relational Database</strong> Service → relational DB</span></div></div><div class=\"tip\"><strong>Exam strategy:</strong> When you see a keyword in the question (\"container\", \"compute\", \"storage\"), you can eliminate options that clearly belong to a different category.</div>",
+          "contentVi": "AWS cung cấp hàng trăm dịch vụ thuộc nhiều danh mục: tính toán, lưu trữ, cơ sở dữ liệu, mạng, bảo mật, ML, IoT và nhiều hơn nữa. Tên dịch vụ thường cho biết trực tiếp về danh mục: theo chức năng — Amazon Elastic Compute Cloud → dịch vụ tính toán; Amazon Simple Storage Service → dịch vụ lưu trữ; Amazon Relational Database Service → cơ sở dữ liệu quan hệ. Chiến lược thi: khi thấy từ khóa trong câu hỏi ('container', 'compute', 'storage'), bạn có thể loại ngay các đáp án rõ ràng thuộc danh mục khác."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "Fully Managed Services",
+          "contentHtml": "<p>You will often hear <strong>\"managed\"</strong> or <strong>\"fully managed\"</strong> in AWS. This means AWS manages all underlying servers running that specific program — they handle maintenance, patching, and scaling so you focus on your application.</p><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">You do</span><span class=\"kv-v\">Configure the service, manage your data, write your code</span></div><div class=\"kv-r\"><span class=\"kv-k\">AWS does</span><span class=\"kv-v\">Server provisioning, OS patching, hardware maintenance, scaling</span></div></div><p><strong>Examples of fully managed services:</strong></p><ul><li class=\"ck\">Amazon Elastic Kubernetes Service (EKS) — fully managed Kubernetes</li><li class=\"ck\">Amazon Elasticsearch Service — fully managed Elasticsearch</li><li class=\"ck\">Amazon FSx for Lustre — fully managed Lustre file system</li></ul>",
+          "contentVi": "Trong AWS, 'managed' hoặc 'fully managed' nghĩa là AWS quản lý tất cả máy chủ bên dưới — họ lo bảo trì, vá lỗi và tự động mở rộng để bạn tập trung vào ứng dụng. Bạn làm: cấu hình dịch vụ, quản lý dữ liệu, viết code. AWS làm: cung cấp server, vá lỗi OS, bảo trì phần cứng, tự động mở rộng. Ví dụ fully managed: Amazon EKS (Kubernetes được quản lý hoàn toàn), Amazon Elasticsearch Service (Elasticsearch được quản lý), Amazon FSx for Lustre (hệ thống file Lustre được quản lý)."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "Naming by Open-Source Technology",
+          "contentHtml": "<p>Some AWS services are named after the open-source technology they use under the hood:</p><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Amazon EKS</span><span class=\"kv-v\"><strong>K</strong>ubernetes — open-source container orchestration for automating deployment, scaling, and management of containers</span></div><div class=\"kv-r\"><span class=\"kv-k\">Amazon FSx for Lustre</span><span class=\"kv-v\"><strong>Lustre</strong> — open-source parallel file system (Linux + cluster)</span></div><div class=\"kv-r\"><span class=\"kv-k\">Amazon Elasticsearch</span><span class=\"kv-v\"><strong>Elasticsearch</strong> — open-source search &amp; analytics engine on Apache Lucene</span></div></div>",
+          "contentVi": "Một số dịch vụ AWS được đặt tên theo công nghệ open-source họ sử dụng bên dưới. Amazon EKS — chữ K = Kubernetes, nền tảng orchestration container open-source dùng để tự động hóa deploy, scale và quản lý containers. Amazon FSx for Lustre — Lustre = hệ thống file song song open-source (Linux + cluster). Amazon Elasticsearch Service — Elasticsearch = công cụ tìm kiếm và phân tích open-source xây dựng trên Apache Lucene. Hiểu nguồn gốc tên giúp bạn biết dịch vụ làm gì và liên kết với kiến thức đã có."
+        },
+        {
+          "level": "deep",
+          "label": "Deep Dive",
+          "heading": "Non-Obvious Names: Route 53",
+          "contentHtml": "<p>Not all AWS names are intuitive. <strong>Amazon Route 53</strong> is a DNS (Domain Name Service) that routes traffic through a cloud architecture.</p><div class=\"note\"><strong>Why \"53\"?</strong> In computer networking, DNS sends responses over <strong>UDP port 53</strong>. If the DNS message exceeds 512 bytes, it uses <strong>TCP port 53</strong>. The number 53 = the DNS port number.</div><p>Route 53 can route incoming requests to EC2 instances, S3, load balancers, and other origins.</p>",
+          "contentVi": "Không phải tất cả tên AWS đều trực quan. Amazon Route 53 là dịch vụ DNS (Domain Name Service) định tuyến lưu lượng qua kiến trúc đám mây. Tại sao '53'? Trong mạng máy tính, DNS gửi phản hồi qua UDP port 53 (và TCP port 53 khi message DNS vượt quá 512 bytes). Con số 53 chính là số cổng DNS tiêu chuẩn — không phải ngẫu nhiên mà là tham chiếu kỹ thuật. Route 53 có thể định tuyến request đến EC2, S3, load balancers và các origin khác."
+        },
+        {
+          "level": "exam",
+          "label": "Exam Focus",
+          "heading": "Exam Elimination Strategy",
+          "contentHtml": "<p>Use service categories to eliminate wrong answers:</p><ul><li class=\"ck\">See keyword <strong>\"container\"</strong> → think ECS or EKS, eliminate S3/RDS/EC2</li><li class=\"ck\">See keyword <strong>\"compute\"</strong> → think EC2, Lambda — eliminate S3, Route 53</li><li class=\"ck\">See keyword <strong>\"relational database\"</strong> → think RDS, Aurora — eliminate DynamoDB (NoSQL)</li><li class=\"ck\">See keyword <strong>\"serverless\"</strong> → think Lambda, Fargate — eliminate EC2</li><li class=\"ck\">See keyword <strong>\"DNS / routing\"</strong> → think Route 53</li></ul><div class=\"tip\">When a service name includes the category word (Compute, Storage, Database), that's your strongest clue.</div>",
+          "contentVi": "Chiến lược loại trừ trong kỳ thi: thấy từ khóa 'container' → nghĩ đến ECS hoặc EKS, loại S3/RDS/EC2; thấy 'compute' → EC2, Lambda, loại S3, Route 53; thấy 'relational database' → RDS, Aurora, loại DynamoDB (NoSQL); thấy 'serverless' → Lambda, Fargate, loại EC2; thấy 'DNS / routing' → Route 53. Khi tên dịch vụ chứa từ danh mục (Compute, Storage, Database), đó là gợi ý mạnh nhất."
+        }
+      ],
+      "summary": [
+        "AWS names services by function (EC2, S3, RDS), by open-source technology (EKS=Kubernetes, FSx=Lustre), or with non-obvious names (Route 53=port 53)",
+        "Fully managed = AWS handles underlying servers, patching, and scaling; you configure and manage data",
+        "Route 53 is named after DNS port 53 — the standard UDP/TCP port for Domain Name Service",
+        "Exam strategy: use service category keywords to eliminate wrong answers — container→ECS/EKS, compute→EC2/Lambda, DNS→Route 53"
+      ],
+      "summaryVi": [
+        "AWS đặt tên dịch vụ theo chức năng (EC2, S3, RDS), theo công nghệ open-source (EKS=Kubernetes, FSx=Lustre), hoặc tên không rõ ràng (Route 53=port 53)",
+        "Fully managed = AWS lo toàn bộ server bên dưới, vá lỗi và tự động mở rộng; bạn chỉ cấu hình và quản lý dữ liệu",
+        "Route 53 được đặt tên theo DNS port 53 — cổng UDP/TCP tiêu chuẩn cho Domain Name Service",
+        "Chiến lược thi: dùng từ khóa danh mục để loại trừ đáp án — container→ECS/EKS, compute→EC2/Lambda, DNS→Route 53"
+      ],
+      "quiz": [
+        {
+          "id": "q2-1-1",
+          "type": "single",
+          "question": "Why is the AWS DNS service called Amazon Route 53?",
+          "options": ["It was the 53rd AWS service released", "DNS uses port 53 for UDP/TCP communication", "It supports 53 routing policies", "It was founded in 1953"],
+          "correctAnswers": [1],
+          "explanation": "DNS sends responses over UDP port 53 (and TCP port 53 when messages exceed 512 bytes). Route 53 is named after this standard DNS port number."
+        },
+        {
+          "id": "q2-1-2",
+          "type": "single",
+          "question": "What does 'fully managed service' mean in AWS?",
+          "options": ["The customer manages all server configurations", "AWS manages the underlying servers, patching, and scaling", "The service is free of charge", "The service runs only on dedicated hardware"],
+          "correctAnswers": [1],
+          "explanation": "A fully managed service means AWS manages all underlying servers — including maintenance, OS patching, and scaling. You are only responsible for configuring the service and managing your data — they just don't manage servers."
+        },
+        {
+          "id": "q2-1-3",
+          "type": "single",
+          "question": "Amazon Elastic Kubernetes Service (EKS) is named after which open-source technology?",
+          "options": ["Docker Swarm", "Apache Mesos", "Kubernetes", "OpenShift"],
+          "correctAnswers": [2],
+          "explanation": "EKS is named after Kubernetes — an open-source container system that automates deployment, scaling, and management of containerized applications."
+        },
+        {
+          "id": "q2-1-4",
+          "type": "single",
+          "question": "The name 'FSx for Lustre' comes from which open-source technology?",
+          "options": ["A Linux file system named LUSTRE for 'Luster'", "A parallel file system combining Linux + cluster", "An AWS proprietary storage format", "A Windows-based distributed file system"],
+          "correctAnswers": [1],
+          "explanation": "Lustre is an open-source parallel file system used for large-scale cluster computing. The name 'Lustre' is a combination of Linux and cluster."
+        },
+        {
+          "id": "q2-1-5",
+          "type": "single",
+          "question": "An exam question asks for a container orchestration service. Which option would you NOT eliminate?",
+          "options": ["Amazon S3", "Amazon ECS", "Amazon RDS", "Amazon Route 53"],
+          "correctAnswers": [1],
+          "explanation": "Amazon ECS (Elastic Container Service) is a container orchestration service. S3 is object storage, RDS is a relational database, and Route 53 is DNS — all can be eliminated when the question asks specifically for a container service."
+        },
+        {
+          "id": "q2-1-6",
+          "type": "single",
+          "question": "Which statement BEST describes a 'managed service' in AWS?",
+          "options": ["AWS owns the data stored in the service", "Customers cannot modify the service configuration", "AWS handles server infrastructure so customers focus on their application", "The service requires AWS Support to operate"],
+          "correctAnswers": [2],
+          "explanation": "Managed/fully managed means AWS handles server provisioning, patching, and scaling. Customers still configure the service and manage their data — they just don't manage servers."
+        },
+        {
+          "id": "q2-1-7",
+          "type": "multi",
+          "question": "Which TWO AWS services are named after the open-source technology they use? (Select 2)",
+          "options": ["Amazon EC2", "Amazon Elastic Kubernetes Service", "Amazon S3", "Amazon Elasticsearch Service", "Amazon RDS"],
+          "correctAnswers": [1, 3],
+          "explanation": "EKS is named after Kubernetes (open-source container orchestration) and Elasticsearch Service is named after Elasticsearch (open-source search engine on Apache Lucene). EC2, S3, and RDS are named by function, not by underlying technology."
+        },
+        {
+          "id": "q2-1-8",
+          "type": "single",
+          "question": "An exam question requires a 'compute service.' Which can you SAFELY eliminate?",
+          "options": ["Amazon EC2", "AWS Lambda", "Amazon S3", "AWS Elastic Beanstalk"],
+          "correctAnswers": [2],
+          "explanation": "Amazon S3 is an object storage service, not a compute service. EC2 (virtual machines), Lambda (serverless compute), and Elastic Beanstalk (orchestrated compute) are all compute services."
+        },
+        {
+          "id": "q2-1-9",
+          "type": "single",
+          "question": "Amazon Elasticsearch Service is based on which technology stack?",
+          "options": ["MySQL on Apache Tomcat", "Elasticsearch built on Apache Lucene", "Solr on Apache Kafka", "Kibana on Apache Hadoop"],
+          "correctAnswers": [1],
+          "explanation": "Amazon Elasticsearch Service is based on Elasticsearch, an open-source search and analytics engine built on Apache Lucene. AWS fully manages this open-source technology so you don't set up your own servers."
+        },
+        {
+          "id": "q2-1-10",
+          "type": "multi",
+          "question": "Which TWO categories does AWS list as service types in its platform? (Select 2)",
+          "options": ["Physical hardware procurement", "Machine Learning", "Employee HR management", "Networking", "Office productivity software"],
+          "correctAnswers": [1, 3],
+          "explanation": "AWS offers services in categories including Machine Learning and Networking (plus compute, storage, database, security, analytics, IoT, and more). Physical hardware procurement, HR, and productivity software are not AWS service categories."
+        }
+      ]
+    },
+    {
+      "id": "2-2",
+      "title": "AWS Compute Services",
+      "overview": "Explore AWS compute services across 4 categories: virtual machines (EC2, LightSail), serverless (Lambda), orchestration (Batch, Elastic Beanstalk), and hybrid (Outposts). Learn when to use each and their key differences.",
+      "overviewVi": "Khám phá các dịch vụ tính toán AWS trên 4 nhóm: máy ảo (EC2, LightSail), serverless (Lambda), orchestration (Batch, Elastic Beanstalk) và hybrid (Outposts). Tìm hiểu khi nào dùng từng loại và điểm khác biệt chính.",
+      "sections": [
+        {
+          "level": "intro",
+          "label": "Overview",
+          "heading": "4 Compute Categories",
+          "contentHtml": "<p>AWS compute services are grouped into four types:</p><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Virtual Machines</span><span class=\"kv-v\">EC2, Amazon LightSail — you choose OS, CPU, RAM, storage</span></div><div class=\"kv-r\"><span class=\"kv-k\">Serverless</span><span class=\"kv-v\">AWS Lambda — upload code, AWS manages everything</span></div><div class=\"kv-r\"><span class=\"kv-k\">Orchestration</span><span class=\"kv-v\">AWS Batch, Elastic Beanstalk — coordinate EC2 fleets</span></div><div class=\"kv-r\"><span class=\"kv-k\">Hybrid</span><span class=\"kv-v\">AWS Outposts — run AWS on your own data center</span></div></div><div class=\"note\">Container services (ECS, EKS, Fargate) are the 4th group covered in the next lesson.</div>",
+          "contentVi": "Các dịch vụ tính toán AWS được nhóm thành 4 loại: Máy ảo (Virtual Machines) — EC2 và Amazon LightSail, cho phép chọn OS, CPU, RAM, lưu trữ. Serverless — AWS Lambda, chỉ cần upload code, AWS lo toàn bộ. Orchestration — AWS Batch và Elastic Beanstalk điều phối đội máy EC2. Hybrid — AWS Outposts chạy AWS tại data center của bạn. Lưu ý: dịch vụ container (ECS, EKS, Fargate) là nhóm riêng biệt, được đề cập trong bài tiếp theo."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "Amazon EC2",
+          "contentHtml": "<p><strong>Amazon Elastic Compute Cloud (EC2)</strong> is a computing service that runs virtual servers in the cloud. It is classified as <strong>IaaS</strong> — the basic building block of cloud infrastructure.</p><ul><li class=\"ck\">Launch Linux or Windows virtual machines (\"instances\")</li><li class=\"ck\">Choose OS, storage, virtual CPUs (Intel, AMD, or AWS Graviton)</li><li class=\"ck\">Pay-as-you-go or reserve for a specific period</li><li class=\"ck\">Access and manage remotely via browser, CLI, or API</li></ul><div class=\"tip\"><strong>\"Elastic\"</strong> = the instance can be resized, customized, or scaled at any time. Auto Scaling can increase or decrease the number of instances based on traffic.</div><h4>Shared Responsibility on EC2</h4><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">AWS manages</span><span class=\"kv-v\">Data centers, hardware, host OS, hypervisor</span></div><div class=\"kv-r\"><span class=\"kv-k\">You manage</span><span class=\"kv-v\">Guest OS patching, security groups, IAM, your data</span></div></div>",
+          "contentVi": "Amazon Elastic Compute Cloud (EC2) là dịch vụ tính toán chạy máy ảo (virtual server) trên đám mây, được phân loại là IaaS — khối xây dựng cơ bản của hạ tầng đám mây. Bạn có thể: khởi chạy máy ảo Linux hoặc Windows ('instances'), chọn OS, lưu trữ, số CPU ảo (Intel, AMD hoặc AWS Graviton), trả theo sử dụng hoặc đặt trước trong thời gian cụ thể, truy cập và quản lý từ xa qua trình duyệt, CLI hoặc API. 'Elastic' = instance có thể thay đổi kích thước, tùy chỉnh hoặc scale bất cứ lúc nào. Auto Scaling tự động tăng/giảm số instance theo lưu lượng. Shared Responsibility: AWS quản lý data center, phần cứng, Host OS, hypervisor; bạn quản lý Guest OS, security groups, IAM và dữ liệu."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "AWS Lambda",
+          "contentHtml": "<p><strong>AWS Lambda</strong> is a <strong>serverless</strong> computing service — run code without managing any servers. You pay only for the compute time you consume.</p><ul><li class=\"ck\">Upload code → Lambda runs it as a <strong>Lambda function</strong></li><li class=\"ck\">Instantly scales to thousands of requests per second</li><li class=\"ck\">Supports Java, Go, Ruby, Node.js, Python, and more via runtimes</li><li class=\"xx\">You <strong>CANNOT</strong> access or manage the underlying servers (unlike EC2)</li></ul><div class=\"note\"><strong>Serverless ≠ no servers.</strong> Servers still exist, but AWS manages them entirely. Lambda is fully managed — you only own the function code.</div>",
+          "contentVi": "AWS Lambda là dịch vụ serverless — chạy code mà không cần quản lý bất kỳ server nào, chỉ trả tiền cho thời gian tính toán thực sự sử dụng. Cách dùng: upload code → Lambda chạy code đó dưới dạng 'Lambda function'. Tự động scale đến hàng nghìn request mỗi giây. Hỗ trợ Java, Go, Ruby, Node.js, Python và nhiều ngôn ngữ khác qua runtimes. Bạn KHÔNG THỂ truy cập hoặc quản lý các server bên dưới — khác với EC2. Lưu ý quan trọng: Serverless ≠ không có server. Server vẫn tồn tại nhưng AWS quản lý hoàn toàn. Lambda là fully managed — bạn chỉ sở hữu code hàm."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "AWS Batch & Elastic Beanstalk (Orchestration)",
+          "contentHtml": "<p>Both services <strong>orchestrate EC2 instances</strong> — they don't compute themselves but coordinate fleets of EC2 instances.</p><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">AWS Batch</span><span class=\"kv-v\">Runs batch computing workloads. Dynamically provisions the right EC2 quantity/type. No need to install batch software or manage server clusters.</span></div><div class=\"kv-r\"><span class=\"kv-k\">Elastic Beanstalk</span><span class=\"kv-v\">Automates app deployment: capacity provisioning, load balancing, DB setup, auto scaling, health monitoring. You just upload your app.</span></div></div><div class=\"tip\"><strong>Key difference from Lambda:</strong> With Batch and Elastic Beanstalk, you CAN access and manage the underlying EC2 instances. With Lambda, you cannot.</div>",
+          "contentVi": "Cả hai dịch vụ điều phối EC2 instances — chúng không tự tính toán mà phối hợp đội máy EC2. AWS Batch: chạy batch computing workload, tự động cung cấp đúng số lượng và loại EC2, không cần cài phần mềm batch hoặc quản lý server cluster. Elastic Beanstalk: tự động hóa deploy ứng dụng từ đầu đến cuối — cung cấp capacity, load balancing, setup DB, auto scaling, giám sát sức khỏe; bạn chỉ cần upload ứng dụng. Điểm khác biệt quan trọng so với Lambda: với Batch và Elastic Beanstalk, bạn VẪN CÓ THỂ truy cập và quản lý EC2 instances bên dưới. Với Lambda, bạn không thể."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "Amazon LightSail & AWS Outposts",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Amazon LightSail</span><span class=\"kv-v\">Virtual Private Server (VPS) solution. Deploy VMs for a <strong>low, predictable monthly price</strong>. Has its own separate console from AWS Management Console. Also supports databases, load balancers, DNS records.</span></div><div class=\"kv-r\"><span class=\"kv-k\">AWS Outposts</span><span class=\"kv-v\">Hybrid service. A physical server rack (~6.5 ft tall, 2 ft wide, 4 ft deep) delivered to your on-premises data center. Run EC2 and other AWS services locally. AWS delivers it fully assembled — plug in, configure, run.</span></div></div>",
+          "contentVi": "Amazon LightSail là giải pháp Virtual Private Server (VPS) — deploy máy ảo với giá hàng tháng thấp và cố định. Có console riêng tách biệt với AWS Management Console. Cũng hỗ trợ cơ sở dữ liệu, load balancer, DNS records. Phù hợp cho dự án đơn giản không cần toàn bộ tính năng AWS. AWS Outposts là dịch vụ hybrid — rack server vật lý cao ~2m, rộng 60cm, sâu 1.2m được AWS giao đến data center của bạn. Cho phép chạy EC2 và dịch vụ AWS khác ngay tại chỗ (on-premises). AWS giao đến đã lắp ráp sẵn — cắm điện, cấu hình và chạy ngay. Phù hợp cho tổ chức cần giữ một phần hạ tầng on-premises."
+        },
+        {
+          "level": "exam",
+          "label": "Exam Focus",
+          "heading": "Compute Services Comparison",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">EC2</span><span class=\"kv-v\">IaaS · VMs · access underlying server · you patch Guest OS</span></div><div class=\"kv-r\"><span class=\"kv-k\">Lambda</span><span class=\"kv-v\">Serverless · no server access · pay per execution time · fully managed</span></div><div class=\"kv-r\"><span class=\"kv-k\">Beanstalk</span><span class=\"kv-v\">Orchestration · EC2 under hood · full access retained · auto deploy</span></div><div class=\"kv-r\"><span class=\"kv-k\">Batch</span><span class=\"kv-v\">Orchestration · EC2 under hood · batch/scheduled workloads</span></div><div class=\"kv-r\"><span class=\"kv-k\">LightSail</span><span class=\"kv-v\">VPS · fixed monthly price · separate console</span></div><div class=\"kv-r\"><span class=\"kv-k\">Outposts</span><span class=\"kv-v\">Hybrid · physical rack · run AWS on-premises</span></div></div>",
+          "contentVi": "Bảng so sánh dịch vụ tính toán: EC2 = IaaS, máy ảo, có thể truy cập server, bạn tự vá Guest OS. Lambda = serverless, không thể truy cập server, trả tiền theo thời gian thực thi, fully managed. Elastic Beanstalk = orchestration, có EC2 bên dưới, vẫn truy cập được EC2, tự động deploy. Batch = orchestration, có EC2 bên dưới, xử lý batch/scheduled workload. LightSail = VPS giá cố định hàng tháng, console riêng, dành cho dự án đơn giản. Outposts = hybrid, rack vật lý, chạy AWS tại on-premises."
+        }
+      ],
+      "summary": [
+        "EC2 = IaaS virtual machines — elastic, customizable, you patch Guest OS; AWS manages Host OS and hypervisor",
+        "Lambda = serverless compute — pay per execution time, no server access, AWS fully manages underlying infrastructure",
+        "Batch & Elastic Beanstalk = orchestration services that coordinate EC2 fleets; unlike Lambda, you CAN access underlying EC2",
+        "LightSail = VPS with predictable monthly pricing and its own separate console",
+        "AWS Outposts = physical rack delivered to your on-premises data center to run AWS services locally (hybrid)"
+      ],
+      "summaryVi": [
+        "EC2 = IaaS máy ảo — elastic, tùy chỉnh được, bạn tự vá Guest OS; AWS quản lý Host OS và hypervisor",
+        "Lambda = serverless, trả tiền theo thời gian thực thi, không thể truy cập server, AWS quản lý hoàn toàn hạ tầng",
+        "Batch và Elastic Beanstalk = orchestration service điều phối EC2; khác Lambda, bạn VẪN có thể truy cập EC2",
+        "LightSail = VPS giá hàng tháng cố định, có console riêng, phù hợp dự án đơn giản",
+        "AWS Outposts = rack vật lý giao đến data center của bạn để chạy dịch vụ AWS tại chỗ (hybrid)"
+      ],
+      "quiz": [
+        {
+          "id": "q2-2-1",
+          "type": "single",
+          "question": "Which AWS compute service is classified as Infrastructure as a Service (IaaS)?",
+          "options": ["AWS Lambda", "Amazon EC2", "AWS Elastic Beanstalk", "Amazon LightSail"],
+          "correctAnswers": [1],
+          "explanation": "Amazon EC2 is IaaS — it provides raw virtual machine infrastructure that you customize and manage. Lambda is FaaS (serverless), Elastic Beanstalk is closer to PaaS, and LightSail is a VPS solution."
+        },
+        {
+          "id": "q2-2-2",
+          "type": "single",
+          "question": "A developer wants to run a function that executes for 30 seconds when triggered, without provisioning or managing any servers. Which service is BEST?",
+          "options": ["Amazon EC2", "AWS Elastic Beanstalk", "AWS Lambda", "AWS Batch"],
+          "correctAnswers": [2],
+          "explanation": "AWS Lambda is the serverless option — you upload function code and AWS manages all servers. You pay only for compute time consumed. Perfect for event-triggered, short-running functions."
+        },
+        {
+          "id": "q2-2-3",
+          "type": "single",
+          "question": "Why is Amazon EC2 described as 'elastic'?",
+          "options": ["It uses elastic network interfaces", "It can be resized, scaled, and customized at any time", "It automatically backs up data elastically", "It is priced on an elastic pricing model"],
+          "correctAnswers": [1],
+          "explanation": "EC2 is called 'elastic' because of its elasticity — instances can be resized, reconfigured, or scaled (via Auto Scaling) at any given point in time, unlike rigid physical servers."
+        },
+        {
+          "id": "q2-2-4",
+          "type": "single",
+          "question": "Can you directly access and manage the underlying servers that run your AWS Lambda functions?",
+          "options": ["Yes, via SSH like EC2", "No, Lambda is fully managed — underlying servers are inaccessible", "Yes, but only with root permissions", "Only with AWS Support assistance"],
+          "correctAnswers": [1],
+          "explanation": "Lambda is a fully managed service. Unlike EC2, you cannot access, SSH into, or manage the underlying servers. AWS handles all server management — you only manage your function code."
+        },
+        {
+          "id": "q2-2-5",
+          "type": "single",
+          "question": "Which compute service dynamically provisions EC2 instances for scheduled or batch processing jobs?",
+          "options": ["AWS Lambda", "Amazon LightSail", "AWS Batch", "AWS Outposts"],
+          "correctAnswers": [2],
+          "explanation": "AWS Batch dynamically provisions the optimal quantity and type of EC2 instances based on the volume and specific requirements of your batch computing workloads."
+        },
+        {
+          "id": "q2-2-6",
+          "type": "single",
+          "question": "A developer uploads an application to a service that automatically handles capacity provisioning, load balancing, auto scaling, and health monitoring. Which service is this?",
+          "options": ["Amazon EC2 with Auto Scaling", "AWS Elastic Beanstalk", "AWS Lambda", "Amazon ECS"],
+          "correctAnswers": [1],
+          "explanation": "AWS Elastic Beanstalk automates the entire deployment pipeline — you upload your app and it handles provisioning, load balancing, database, auto scaling, and health monitoring automatically."
+        },
+        {
+          "id": "q2-2-7",
+          "type": "single",
+          "question": "How does AWS Outposts differ from Amazon EC2?",
+          "options": ["Outposts provides virtual machines while EC2 provides containers", "Outposts is a physical server rack deployed in your on-premises data center", "Outposts is cheaper than EC2", "Outposts only supports Windows workloads"],
+          "correctAnswers": [1],
+          "explanation": "AWS Outposts is a physical rack server (≈6.5ft tall) delivered to your on-premises data center. It lets you run AWS services like EC2 locally — a hybrid cloud solution. Regular EC2 runs in AWS data centers."
+        },
+        {
+          "id": "q2-2-8",
+          "type": "single",
+          "question": "With AWS Elastic Beanstalk, can you access the underlying EC2 instances?",
+          "options": ["No, they are fully abstracted like Lambda", "Yes, developers retain full control over the underlying EC2 instances", "Only read-only access is available", "Only through AWS Systems Manager"],
+          "correctAnswers": [1],
+          "explanation": "Unlike Lambda, Elastic Beanstalk allows developers to retain full control over the underlying EC2 instances — you can SSH in, modify configs, etc. Beanstalk just automates the orchestration."
+        },
+        {
+          "id": "q2-2-9",
+          "type": "multi",
+          "question": "Which TWO compute services use Amazon EC2 instances as their underlying compute layer? (Select 2)",
+          "options": ["AWS Lambda", "AWS Batch", "AWS Elastic Beanstalk", "Amazon LightSail", "AWS Outposts"],
+          "correctAnswers": [1, 2],
+          "explanation": "AWS Batch and Elastic Beanstalk are orchestration services that provision and coordinate Amazon EC2 instances. Lambda uses AWS-managed servers (not EC2 you control). LightSail runs its own VPS infrastructure. Outposts is on-premises hardware."
+        },
+        {
+          "id": "q2-2-10",
+          "type": "single",
+          "question": "A startup wants a VPS solution with a predictable, low monthly price and a simplified management console. Which service fits?",
+          "options": ["Amazon EC2", "Amazon LightSail", "AWS Outposts", "AWS Lambda"],
+          "correctAnswers": [1],
+          "explanation": "Amazon LightSail is a VPS solution with a low, predictable monthly price. It has its own separate console from the main AWS Management Console, making it simpler for smaller projects."
+        },
+        {
+          "id": "q2-2-11",
+          "type": "single",
+          "question": "Which processor types can you choose for Amazon EC2 instances?",
+          "options": ["Only Intel processors", "Intel, AMD, or AWS Graviton", "Only ARM-based processors", "Only AMD EPYC processors"],
+          "correctAnswers": [1],
+          "explanation": "EC2 lets you choose from Intel, AMD, or AWS Graviton (AWS's custom ARM-based processor). Different instance families use different processor types optimized for different workloads."
+        },
+        {
+          "id": "q2-2-12",
+          "type": "single",
+          "question": "Which statement about AWS Lambda's pricing model is CORRECT?",
+          "options": ["You pay a fixed monthly fee per function", "You pay for allocated memory regardless of execution", "You pay only for the compute time actually consumed", "You pay per number of function deployments"],
+          "correctAnswers": [2],
+          "explanation": "Lambda uses a pay-per-use model — you pay only for the compute time consumed during execution. There is no charge when your code is not running."
+        }
+      ]
+    },
+    {
+      "id": "2-3",
+      "title": "AWS Container Services",
+      "overview": "Learn AWS container services: ECS for Docker orchestration, EKS for Kubernetes (cloud-agnostic), Fargate for serverless containers, ECR for image storage, and migration tools App2Container and Copilot.",
+      "overviewVi": "Tìm hiểu các dịch vụ container AWS: ECS cho Docker orchestration, EKS cho Kubernetes (cloud-agnostic), Fargate cho serverless container, ECR để lưu images, và các công cụ migration App2Container và Copilot.",
+      "sections": [
+        {
+          "level": "intro",
+          "label": "Overview",
+          "heading": "Container vs Virtual Machine",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Virtual Machine</span><span class=\"kv-v\">Emulates an entire computer including a full Guest OS. Requires a <strong>hypervisor</strong>. Heavier, more resource-intensive.</span></div><div class=\"kv-r\"><span class=\"kv-k\">Container</span><span class=\"kv-v\">Emulates only the <strong>application</strong> and its dependencies — not the full OS. Lightweight. Uses <strong>Docker</strong> or <strong>Kubernetes</strong>.</span></div></div><div class=\"tip\">Containers are ideal for <strong>microservices architecture</strong> — package an application with its runtime dependencies into a portable, isolated unit.</div>",
+          "contentVi": "Máy ảo mô phỏng toàn bộ máy tính bao gồm cả Guest OS đầy đủ — cần hypervisor, nặng và tốn nhiều tài nguyên hơn. Container chỉ mô phỏng ứng dụng và dependencies của nó — không cần Guest OS riêng, nhẹ hơn nhiều, dùng Docker hoặc Kubernetes. Container lý tưởng cho microservices architecture — đóng gói ứng dụng cùng runtime dependencies thành một đơn vị portable và cô lập."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "Amazon ECS (Elastic Container Service)",
+          "contentHtml": "<p>Amazon ECS is a highly scalable container orchestration service for <strong>Docker containers</strong>. It manages the cluster of servers that power your containers.</p><ul><li class=\"ck\">Containers are defined in a <strong>task definition</strong> — used to run individual tasks or grouped as a service</li><li class=\"ck\">Runs on <strong>AWS Fargate</strong> (serverless) or <strong>Amazon EC2</strong> (you manage)</li><li class=\"ck\">Specify an <strong>IAM role</strong> for containers in an ECS task</li><li class=\"ck\">Integrates with EFS/FSx (storage), SQS/Kinesis (messaging), ECS Auto Scaling</li></ul><div class=\"note\">ECS uses Docker, which means it is <strong>not cloud-agnostic</strong> — it's tightly coupled with the AWS ecosystem.</div>",
+          "contentVi": "Amazon ECS là dịch vụ orchestration container có khả năng mở rộng cao dành cho Docker containers. Nó quản lý cluster các server chạy containers. Containers được định nghĩa trong task definition — dùng để chạy tasks đơn lẻ hoặc nhóm thành service. Có thể chạy trên AWS Fargate (serverless) hoặc Amazon EC2 (bạn quản lý). Bạn chỉ định IAM role cho containers trong ECS task. Tích hợp với EFS/FSx (lưu trữ), SQS/Kinesis (messaging), ECS Auto Scaling. ECS dùng Docker nên không cloud-agnostic — gắn chặt với hệ sinh thái AWS."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "Amazon EKS (Elastic Kubernetes Service)",
+          "contentHtml": "<p>Amazon EKS is a <strong>fully managed Kubernetes service</strong>. Kubernetes is an open-source platform for managing containerized workloads.</p><ul><li class=\"ck\">Containers are grouped into <strong>pods</strong> — the basic operational unit in Kubernetes</li><li class=\"ck\">Pods can run on <strong>AWS Fargate</strong> or <strong>Amazon EC2</strong></li><li class=\"ck\">Kubernetes is <strong>cloud-agnostic</strong> — containers can migrate to Azure, GCP, or on-premises</li></ul><div class=\"tip\"><strong>ECS vs EKS:</strong> ECS uses Docker (AWS-native), EKS uses Kubernetes (portable). If you need to move containers to other clouds, use EKS/Kubernetes.</div>",
+          "contentVi": "Amazon EKS là dịch vụ Kubernetes được quản lý hoàn toàn. Kubernetes là nền tảng open-source để quản lý containerized workloads. Containers được nhóm thành pods — đơn vị vận hành cơ bản trong Kubernetes. Pods có thể chạy trên AWS Fargate hoặc Amazon EC2. Kubernetes là cloud-agnostic — containers có thể di chuyển sang Azure, GCP hoặc on-premises dễ dàng. So sánh ECS và EKS: ECS dùng Docker (native AWS), EKS dùng Kubernetes (portable). Nếu cần chuyển containers sang cloud khác, hãy dùng EKS/Kubernetes."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "AWS Fargate",
+          "contentHtml": "<p>AWS Fargate is a <strong>serverless compute engine for containers</strong>. It works with both <strong>Amazon ECS</strong> and <strong>Amazon EKS</strong>.</p><ul><li class=\"ck\">No server provisioning, scaling, or management needed</li><li class=\"ck\">Pay only for the resources required to run your containers</li><li class=\"ck\">Each ECS task or Kubernetes pod runs in its own <strong>isolated kernel</strong></li><li class=\"ck\">Avoids over-provisioning — no idle EC2 instances to pay for</li></ul><div class=\"note\">Fargate is to containers what Lambda is to functions — serverless, fully managed, no underlying server access.</div>",
+          "contentVi": "AWS Fargate là serverless compute engine cho containers, hoạt động với cả Amazon ECS và Amazon EKS. Không cần cung cấp, scale hoặc quản lý server. Chỉ trả tiền cho tài nguyên cần thiết để chạy containers. Mỗi ECS task hoặc Kubernetes pod chạy trong kernel cô lập riêng — cô lập tốt hơn so với chia sẻ EC2 host. Tránh over-provisioning — không có EC2 nhàn rỗi phải trả tiền. Fargate với container = Lambda với function — serverless, fully managed, không thể truy cập server bên dưới."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "ECR, App2Container & Copilot",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Amazon ECR</span><span class=\"kv-v\">Fully managed <strong>Docker container registry</strong> — store, manage, and deploy Docker images. Integrated with ECS. IAM provides resource-level control per repository.</span></div><div class=\"kv-r\"><span class=\"kv-k\">AWS App2Container (A2C)</span><span class=\"kv-v\">CLI tool to modernize <strong>.NET and Java</strong> apps into containers. Analyzes running apps, packages artifacts + dependencies into Docker images, generates ECS task / Kubernetes pod definitions.</span></div><div class=\"kv-r\"><span class=\"kv-k\">AWS Copilot</span><span class=\"kv-v\">CLI to quickly launch and manage containerized applications on AWS. Automates entire deployment lifecycle: task definition → cluster → image push to registry.</span></div></div>",
+          "contentVi": "Amazon ECR là registry Docker container được quản lý hoàn toàn — lưu trữ, quản lý và deploy Docker images. Tích hợp với ECS. IAM cung cấp kiểm soát cấp resource theo từng repository. AWS App2Container (A2C) là công cụ CLI để hiện đại hóa ứng dụng .NET và Java thành container. A2C phân tích ứng dụng đang chạy, đóng gói artifacts và dependencies thành Docker images, tạo ECS task definition hoặc Kubernetes pod definitions. AWS Copilot là CLI để nhanh chóng khởi chạy và quản lý containerized applications trên AWS — tự động hóa toàn bộ deployment lifecycle: từ task definition đến cluster đến push image lên registry."
+        },
+        {
+          "level": "exam",
+          "label": "Exam Focus",
+          "heading": "Container Service Comparison",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">ECS</span><span class=\"kv-v\">Docker · AWS-native · task definition · Fargate or EC2</span></div><div class=\"kv-r\"><span class=\"kv-k\">EKS</span><span class=\"kv-v\">Kubernetes · cloud-agnostic · pods · Fargate or EC2</span></div><div class=\"kv-r\"><span class=\"kv-k\">Fargate</span><span class=\"kv-v\">Serverless containers · works with ECS &amp; EKS · isolated kernel per task</span></div><div class=\"kv-r\"><span class=\"kv-k\">ECR</span><span class=\"kv-v\">Docker image registry · integrated with ECS · IAM per repo</span></div></div><ul><li class=\"ck\">Need <strong>cloud-agnostic</strong> containers? → EKS (Kubernetes)</li><li class=\"ck\">Need <strong>serverless</strong> containers? → Fargate</li><li class=\"ck\">Need to <strong>store Docker images</strong>? → ECR</li><li class=\"ck\">Migrating <strong>.NET/Java</strong> to containers? → App2Container</li></ul>",
+          "contentVi": "Cloud-agnostic containers → EKS (Kubernetes). Serverless containers → Fargate. Lưu Docker images → ECR. Di chuyển .NET/Java sang container → App2Container. ECS và EKS đều có thể dùng Fargate (serverless) hoặc EC2 (bạn quản lý) làm compute engine. Câu hỏi thi: cần di chuyển sang cloud khác → EKS; cần serverless → Fargate; cần chạy Docker native AWS → ECS."
+        }
+      ],
+      "summary": [
+        "Container = lightweight application emulation (no full Guest OS); VM = full computer emulation. Containers are ideal for microservices.",
+        "ECS = Docker orchestration (AWS-native). EKS = Kubernetes (cloud-agnostic, portable to other clouds). Both support Fargate or EC2.",
+        "Fargate = serverless compute for containers (ECS + EKS); no server management, isolated kernel per task, pay per use",
+        "ECR = Docker container registry. App2Container = migrate .NET/Java to containers. Copilot = CLI for full container deployment lifecycle."
+      ],
+      "summaryVi": [
+        "Container = mô phỏng ứng dụng nhẹ (không cần Guest OS đầy đủ); VM = mô phỏng toàn bộ máy tính. Container lý tưởng cho microservices.",
+        "ECS = Docker orchestration (AWS-native). EKS = Kubernetes (cloud-agnostic, di chuyển sang cloud khác được). Cả hai hỗ trợ Fargate hoặc EC2.",
+        "Fargate = serverless compute cho containers (ECS + EKS); không quản lý server, kernel cô lập mỗi task, trả theo sử dụng",
+        "ECR = Docker container registry. App2Container = di chuyển .NET/Java sang container. Copilot = CLI cho toàn bộ deployment lifecycle."
+      ],
+      "quiz": [
+        {
+          "id": "q2-3-1",
+          "type": "single",
+          "question": "How does a container differ from a virtual machine?",
+          "options": ["A container emulates an entire operating system including hardware", "A container emulates only the application and its dependencies, not the full OS", "Containers require a hypervisor to run", "Containers are slower but more secure than VMs"],
+          "correctAnswers": [1],
+          "explanation": "A container emulates only the application and its dependencies — NOT the full OS. VMs emulate an entire computer including a Guest OS and require a hypervisor. Containers are lighter and faster to start."
+        },
+        {
+          "id": "q2-3-2",
+          "type": "single",
+          "question": "Amazon ECS is designed to orchestrate which type of containers?",
+          "options": ["Kubernetes pods", "Docker containers", "LXC containers", "OpenShift containers"],
+          "correctAnswers": [1],
+          "explanation": "Amazon ECS (Elastic Container Service) is a Docker container orchestration service. It manages clusters of servers running Docker containers defined in task definitions."
+        },
+        {
+          "id": "q2-3-3",
+          "type": "single",
+          "question": "Why is Kubernetes (used by Amazon EKS) described as 'cloud-agnostic'?",
+          "options": ["It runs without any cloud provider", "Containers can be migrated to other clouds or on-premises without being tightly coupled to AWS", "It does not use the internet", "It only runs on open-source hardware"],
+          "correctAnswers": [1],
+          "explanation": "Kubernetes is cloud-agnostic because your containers aren't locked into AWS. You can move EKS workloads to Azure, GCP, or on-premises Kubernetes clusters. Docker/ECS is more AWS-specific."
+        },
+        {
+          "id": "q2-3-4",
+          "type": "single",
+          "question": "What is the basic operational unit in Kubernetes?",
+          "options": ["Container", "Task", "Pod", "Node"],
+          "correctAnswers": [2],
+          "explanation": "A pod is the basic operational unit in Kubernetes. A pod groups one or more containers with shared storage and network resources. Amazon EKS runs pods on Fargate or EC2."
+        },
+        {
+          "id": "q2-3-5",
+          "type": "single",
+          "question": "AWS Fargate works as a serverless compute engine for which services?",
+          "options": ["Amazon ECS only", "Amazon EKS only", "Both Amazon ECS and Amazon EKS", "Amazon EC2 and ECS"],
+          "correctAnswers": [2],
+          "explanation": "AWS Fargate is a serverless compute engine that works with BOTH Amazon ECS and Amazon EKS, removing the need to manage the underlying EC2 servers for either container orchestrator."
+        },
+        {
+          "id": "q2-3-6",
+          "type": "single",
+          "question": "A company wants to store and manage Docker container images in AWS. Which service should they use?",
+          "options": ["Amazon ECS", "Amazon EKS", "Amazon ECR", "AWS Fargate"],
+          "correctAnswers": [2],
+          "explanation": "Amazon ECR (Elastic Container Registry) is a fully managed Docker container registry for storing, managing, and deploying Docker images. ECS/EKS run containers; ECR stores the images."
+        },
+        {
+          "id": "q2-3-7",
+          "type": "single",
+          "question": "A company has legacy .NET applications running on VMs and wants to containerize them for ECS. Which tool BEST automates this?",
+          "options": ["AWS Copilot", "AWS App2Container (A2C)", "Amazon ECR", "AWS Elastic Beanstalk"],
+          "correctAnswers": [1],
+          "explanation": "AWS App2Container (A2C) is a CLI tool specifically designed to modernize .NET and Java applications into Docker containers. It analyzes the app, packages dependencies, and generates ECS task/Kubernetes pod definitions."
+        },
+        {
+          "id": "q2-3-8",
+          "type": "single",
+          "question": "A company requires containers to run in complete isolation from other containers, each in its own kernel. Which service provides this?",
+          "options": ["Amazon ECS on EC2", "Amazon EKS on EC2", "AWS Fargate", "Amazon ECR"],
+          "correctAnswers": [2],
+          "explanation": "AWS Fargate runs each ECS task or Kubernetes pod in its own isolated kernel, providing task and pod-level compute isolation — stronger isolation than sharing an EC2 host."
+        },
+        {
+          "id": "q2-3-9",
+          "type": "single",
+          "question": "A team needs to deploy containers today on AWS but may need to move them to Azure next year. Which container orchestrator minimizes re-work?",
+          "options": ["Amazon ECS (Docker)", "Amazon EKS (Kubernetes)", "AWS Fargate", "Amazon ECR"],
+          "correctAnswers": [1],
+          "explanation": "Amazon EKS uses Kubernetes, which is cloud-agnostic. Since Azure (AKS) and GCP (GKE) also support Kubernetes, your workloads can be ported with minimal changes. ECS/Docker is more AWS-native."
+        },
+        {
+          "id": "q2-3-10",
+          "type": "multi",
+          "question": "Which TWO compute options can Amazon EKS use to run Kubernetes pods? (Select 2)",
+          "options": ["AWS Lambda", "Amazon EC2", "Amazon LightSail", "AWS Fargate", "Amazon ECR"],
+          "correctAnswers": [1, 3],
+          "explanation": "Amazon EKS can run Kubernetes pods on either Amazon EC2 (where you manage the underlying nodes) or AWS Fargate (serverless — AWS manages the compute). Lambda and LightSail are not EKS compute options. ECR is a registry, not compute."
+        }
+      ]
+    },
+    {
+      "id": "2-4",
+      "title": "AWS Storage Services",
+      "overview": "Master all AWS storage categories: block storage (EC2 Instance Store, EBS), object storage (S3, S3 Glacier), shared file storage (EFS, FSx), backup (AWS Backup), and hybrid integration (Storage Gateway).",
+      "overviewVi": "Nắm vững tất cả loại lưu trữ AWS: block storage (EC2 Instance Store, EBS), object storage (S3, S3 Glacier), shared file storage (EFS, FSx), backup (AWS Backup) và hybrid integration (Storage Gateway).",
+      "sections": [
+        {
+          "level": "intro",
+          "label": "Overview",
+          "heading": "Storage Types at a Glance",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Block Storage</span><span class=\"kv-v\">EC2 Instance Store (ephemeral) · Amazon EBS (persistent)</span></div><div class=\"kv-r\"><span class=\"kv-k\">Object Storage</span><span class=\"kv-v\">Amazon S3 · Amazon S3 Glacier (archival)</span></div><div class=\"kv-r\"><span class=\"kv-k\">File Storage</span><span class=\"kv-v\">Amazon EFS (Linux/NFS) · FSx for Lustre (HPC/Linux) · FSx for Windows (SMB)</span></div><div class=\"kv-r\"><span class=\"kv-k\">Backup</span><span class=\"kv-v\">AWS Backup (centralized, automated)</span></div><div class=\"kv-r\"><span class=\"kv-k\">Hybrid</span><span class=\"kv-v\">AWS Storage Gateway (connects on-premises to S3)</span></div></div>",
+          "contentVi": "Tổng quan các loại lưu trữ AWS: Block Storage — EC2 Instance Store (tạm thời, mất khi dừng) và Amazon EBS (persistent, tồn tại sau stop). Object Storage — Amazon S3 (không giới hạn) và S3 Glacier (archive). File Storage — Amazon EFS (Linux/NFS, chia sẻ giữa nhiều EC2 khác AZ), FSx for Lustre (HPC Linux hiệu năng cao), FSx for Windows (SMB cho Windows). Backup — AWS Backup (tập trung, tự động). Hybrid — AWS Storage Gateway (kết nối on-premises với S3)."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "EC2 Instance Store vs Amazon EBS",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">EC2 Instance Store</span><span class=\"kv-v\"><strong>Temporary/ephemeral</strong> block storage physically attached to the host server. Low-latency access. Data is <strong>permanently deleted</strong> when the EC2 instance is stopped or terminated. Ideal for buffers, caches, scratch data.</span></div><div class=\"kv-r\"><span class=\"kv-k\">Amazon EBS</span><span class=\"kv-v\"><strong>Persistent</strong> block storage. Data survives stop/restart/terminate. Attached over network. <strong>Zonal</strong> — must be in the same AZ as the EC2 instance. Encrypted via AWS KMS.</span></div></div><h4>EBS Volume Types</h4><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">General Purpose SSD</span><span class=\"kv-v\">Balanced IOPS and cost — most common</span></div><div class=\"kv-r\"><span class=\"kv-k\">Provisioned IOPS SSD</span><span class=\"kv-v\">High IOPS — databases, I/O-intensive workloads</span></div><div class=\"kv-r\"><span class=\"kv-k\">Throughput Optimized HDD</span><span class=\"kv-v\">High throughput (MB/s) — big data, streaming</span></div><div class=\"kv-r\"><span class=\"kv-k\">Cold HDD</span><span class=\"kv-v\">Lowest cost — infrequently accessed cold data</span></div></div><div class=\"note\"><strong>EBS Multi-Attach:</strong> Attach one Provisioned IOPS volume to multiple EC2 instances — BUT instances CANNOT concurrently modify the same file. Use EFS if you need concurrent writes.</div>",
+          "contentVi": "EC2 Instance Store là lưu trữ block tạm thời gắn trực tiếp vào host server — truy cập nhanh, độ trễ thấp. Dữ liệu bị xóa vĩnh viễn khi EC2 instance bị dừng hoặc terminate. Phù hợp cho buffer, cache, scratch data. Amazon EBS là lưu trữ block persistent — dữ liệu tồn tại sau khi stop/restart/terminate. Kết nối qua mạng, là zonal (phải cùng AZ với EC2). Mã hóa qua AWS KMS. Bốn loại EBS: General Purpose SSD (cân bằng IOPS và chi phí, phổ biến nhất), Provisioned IOPS SSD (IOPS cao cho database và workload I/O intensive), Throughput Optimized HDD (throughput MB/s cao cho big data, streaming), Cold HDD (rẻ nhất cho dữ liệu truy cập không thường xuyên). EBS Multi-Attach: gắn một volume Provisioned IOPS vào nhiều EC2 nhưng KHÔNG thể ghi đồng thời cùng file — dùng EFS nếu cần concurrent writes."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "Amazon S3 (Simple Storage Service)",
+          "contentHtml": "<p>S3 is an <strong>object storage service</strong> with virtually unlimited capacity. Files (objects) are stored in <strong>buckets</strong> and accessed via REST API.</p><h4>Storage Classes</h4><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">S3 Standard</span><span class=\"kv-v\">Frequently accessed data</span></div><div class=\"kv-r\"><span class=\"kv-k\">S3 Intelligent-Tiering</span><span class=\"kv-v\">Changing or unknown access patterns</span></div><div class=\"kv-r\"><span class=\"kv-k\">S3 Standard-IA</span><span class=\"kv-v\">Long-lived, infrequently accessed</span></div><div class=\"kv-r\"><span class=\"kv-k\">S3 One Zone-IA</span><span class=\"kv-v\">Infrequent access, single AZ (lower cost)</span></div><div class=\"kv-r\"><span class=\"kv-k\">S3 Glacier</span><span class=\"kv-v\">Archival — min <strong>90 days</strong></span></div><div class=\"kv-r\"><span class=\"kv-k\">S3 Glacier Deep Archive</span><span class=\"kv-v\">7–10 year archival — min <strong>180 days</strong>, cheapest</span></div></div><h4>Key Features</h4><ul><li class=\"ck\">Lifecycle Policy — auto-transition between storage classes</li><li class=\"ck\">Cross-Region Replication (CRR) — replicate to another region</li><li class=\"ck\">Versioning + MFA Delete — prevent accidental deletion</li><li class=\"ck\">S3 Transfer Acceleration + Multipart Upload — faster uploads</li></ul>",
+          "contentVi": "S3 là dịch vụ object storage với dung lượng gần như không giới hạn. Files (objects) lưu trong buckets và truy cập qua REST API. Sáu storage class: S3 Standard (dữ liệu truy cập thường xuyên), S3 Intelligent-Tiering (access pattern thay đổi hoặc chưa biết), S3 Standard-IA (lâu dài, truy cập không thường xuyên), S3 One Zone-IA (không thường xuyên, một AZ, rẻ hơn), S3 Glacier (archive tối thiểu 90 ngày), S3 Glacier Deep Archive (archive 7-10 năm, tối thiểu 180 ngày, rẻ nhất). Tính năng quan trọng: Lifecycle Policy — tự động chuyển giữa các storage class; Cross-Region Replication (CRR) — sao chép sang region khác; Versioning + MFA Delete — chống xóa nhầm; S3 Transfer Acceleration + Multipart Upload — upload nhanh hơn."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "S3 Glacier — Archival Storage",
+          "contentHtml": "<p>S3 Glacier stores <strong>cold (rarely accessed) data</strong> at very low cost. Files are called <strong>vaults</strong>.</p><div class=\"warn\"><strong>Minimum storage durations (exam trap):</strong><br>• S3 Glacier: <strong>90 days</strong> — delete before 90 days = charged for the full 90 days<br>• S3 Glacier Deep Archive: <strong>180 days</strong> — cheapest for 7–10 year archives</div><h4>Retrieval Options</h4><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Expedited</span><span class=\"kv-v\">1–5 minutes (highest cost)</span></div><div class=\"kv-r\"><span class=\"kv-k\">Standard</span><span class=\"kv-v\">3–5 hours</span></div><div class=\"kv-r\"><span class=\"kv-k\">Bulk</span><span class=\"kv-v\">5–12 hours (lowest cost)</span></div></div><div class=\"tip\">If you store temporary data (hours/days), use S3 Standard — Glacier's minimum duration charges make it more expensive for short-lived data.</div>",
+          "contentVi": "S3 Glacier lưu trữ dữ liệu cold (hiếm khi truy cập) với chi phí rất thấp. Files được gọi là vaults. Thời gian lưu trữ tối thiểu là bẫy thi hay gặp: S3 Glacier tối thiểu 90 ngày — xóa trước 90 ngày vẫn bị tính phí cho đủ 90 ngày. S3 Glacier Deep Archive tối thiểu 180 ngày — rẻ nhất cho archive 7-10 năm. Ba lựa chọn retrieval: Expedited (1-5 phút, chi phí cao nhất), Standard (3-5 giờ), Bulk (5-12 giờ, rẻ nhất). Lưu ý: nếu dữ liệu chỉ lưu vài giờ/ngày, hãy dùng S3 Standard — thời gian tối thiểu của Glacier khiến nó đắt hơn cho dữ liệu ngắn hạn."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "EFS & FSx — Shared File Systems",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Amazon EFS</span><span class=\"kv-v\">Shared <strong>Linux</strong> file system. POSIX-compliant, uses <strong>NFS</strong> protocol. Mountable to multiple EC2 instances across <strong>different AZs</strong>. Supports concurrent writes. Standard and Infrequent Access classes.</span></div><div class=\"kv-r\"><span class=\"kv-k\">FSx for Lustre</span><span class=\"kv-v\">High-performance parallel file system for <strong>Linux only</strong>. Used for HPC, ML. Hundreds of GB/s throughput and millions of IOPS. Mounts to EC2 or EKS containers via CSI.</span></div><div class=\"kv-r\"><span class=\"kv-k\">FSx for Windows Server</span><span class=\"kv-v\">Fully managed <strong>Windows</strong> file server. Uses <strong>SMB</strong> protocol. Integrates with Active Directory. For SharePoint, SQL Server, Windows containers.</span></div></div><div class=\"note\">EFS and FSx for Lustre = Linux only. FSx for Windows = Windows only. Need concurrent writes across multiple EC2? → EFS (not EBS Multi-Attach).</div>",
+          "contentVi": "Amazon EFS là hệ thống file Linux dùng chung, tuân thủ POSIX, dùng giao thức NFS. Có thể mount cho nhiều EC2 ở các AZ khác nhau. Hỗ trợ concurrent writes. Có hai storage class: Standard và Infrequent Access. Amazon FSx for Lustre là hệ thống file song song hiệu năng cao chỉ dành cho Linux — dùng cho HPC và ML. Throughput hàng trăm GB/s và hàng triệu IOPS. Mount vào EC2 hoặc EKS containers qua CSI. Amazon FSx for Windows Server là file server Windows được quản lý hoàn toàn, dùng giao thức SMB, tích hợp với Active Directory. Dành cho SharePoint, SQL Server, Windows containers. Tóm tắt: EFS và FSx Lustre = chỉ Linux. FSx Windows = chỉ Windows. Cần concurrent writes nhiều EC2 → EFS, không phải EBS Multi-Attach."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "AWS Backup & Storage Gateway",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">AWS Backup</span><span class=\"kv-v\">Centralized backup service. Automates server and DB backups. RDS default max retention = <strong>35 days</strong>; AWS Backup allows <strong>90+ days or years</strong>. Lifecycle policy to move backups to cold storage.</span></div></div><h4>AWS Storage Gateway (Hybrid)</h4><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">File Gateway</span><span class=\"kv-v\">Store/retrieve objects in S3 via <strong>NFS or SMB</strong> from on-premises</span></div><div class=\"kv-r\"><span class=\"kv-k\">Volume Gateway</span><span class=\"kv-v\">Block storage via <strong>iSCSI</strong>. Cache mode (data in S3, hot cache local) or Stored mode (full dataset on-prem, async backup to S3)</span></div><div class=\"kv-r\"><span class=\"kv-k\">Tape Gateway</span><span class=\"kv-v\">Virtual tape library (VTL) — replace physical tapes. Archives to S3 Glacier or Deep Archive.</span></div></div><div class=\"note\"><strong>Storage Gateway vs DataSync:</strong> Gateway = active hybrid (on-prem sends data to AWS). DataSync = full migration (decommission on-prem storage).</div>",
+          "contentVi": "AWS Backup là dịch vụ backup tập trung — tự động hóa backup cho server và database. RDS mặc định chỉ giữ tối đa 35 ngày; AWS Backup cho phép giữ 90 ngày đến nhiều năm. Có lifecycle policy để chuyển backup sang cold storage. AWS Storage Gateway (Hybrid) có 3 loại: File Gateway — lưu trữ và truy xuất objects trong S3 qua NFS hoặc SMB từ on-premises; Volume Gateway — block storage qua iSCSI với Cache mode (dữ liệu trong S3, hot cache lưu tại local) hoặc Stored mode (toàn bộ dataset on-premises, async backup lên S3); Tape Gateway — virtual tape library (VTL) thay thế băng vật lý, archive lên S3 Glacier hoặc Deep Archive. Phân biệt quan trọng: Storage Gateway = hybrid đang hoạt động (on-premises tiếp tục gửi dữ liệu lên AWS). DataSync = di chuyển toàn bộ để loại bỏ on-premises storage."
+        },
+        {
+          "level": "exam",
+          "label": "Exam Focus",
+          "heading": "Storage Decision Guide",
+          "contentHtml": "<ul><li class=\"ck\">Temporary EC2 storage, lost on stop? → <strong>Instance Store</strong></li><li class=\"ck\">Persistent block storage for 1 EC2? → <strong>EBS</strong></li><li class=\"ck\">Shared block storage for multiple EC2 (no concurrent writes)? → <strong>EBS Multi-Attach (PIOPS only)</strong></li><li class=\"ck\">Shared file system, concurrent writes, Linux? → <strong>EFS</strong></li><li class=\"ck\">Shared file system, Windows? → <strong>FSx for Windows</strong></li><li class=\"ck\">Object storage, unlimited? → <strong>S3</strong></li><li class=\"ck\">Long-term archive &gt;90 days? → <strong>S3 Glacier</strong></li><li class=\"ck\">7–10 year archive, cheapest? → <strong>S3 Glacier Deep Archive</strong></li><li class=\"ck\">Hybrid: connect on-prem to cloud? → <strong>Storage Gateway</strong></li><li class=\"ck\">Full migration to cloud? → <strong>DataSync</strong></li></ul>",
+          "contentVi": "Bảng quyết định lưu trữ nhanh: EC2 tạm thời mất khi dừng → Instance Store. Block storage persistent cho 1 EC2 → EBS. Shared block storage nhiều EC2 (không ghi đồng thời) → EBS Multi-Attach (chỉ PIOPS). Hệ thống file chia sẻ, ghi đồng thời, Linux → EFS. Hệ thống file Windows → FSx for Windows. Object storage không giới hạn → S3. Archive dài hạn >90 ngày → S3 Glacier. Archive 7-10 năm, rẻ nhất → S3 Glacier Deep Archive. Hybrid kết nối on-premises với cloud → Storage Gateway. Di chuyển toàn bộ lên cloud → DataSync."
+        }
+      ],
+      "summary": [
+        "Instance Store = ephemeral (lost on stop/terminate); EBS = persistent, zonal, SSD (IOPS) or HDD (throughput), 4 types",
+        "EBS Multi-Attach: Provisioned IOPS only, no concurrent file writes — use EFS for concurrent writes",
+        "S3 Glacier minimum 90 days; Deep Archive minimum 180 days — early deletion still billed for full period",
+        "EFS = shared Linux NFS (multi-AZ concurrent); FSx for Lustre = HPC Linux; FSx for Windows = SMB + Active Directory",
+        "Storage Gateway (hybrid active) vs DataSync (full migration) — critical distinction for hybrid scenarios"
+      ],
+      "summaryVi": [
+        "Instance Store = tạm thời (mất khi stop/terminate); EBS = persistent, zonal, SSD (IOPS) hoặc HDD (throughput), 4 loại",
+        "EBS Multi-Attach: chỉ Provisioned IOPS, không ghi đồng thời cùng file — dùng EFS cho concurrent writes",
+        "S3 Glacier tối thiểu 90 ngày; Deep Archive tối thiểu 180 ngày — xóa sớm vẫn tính phí cho cả kỳ tối thiểu",
+        "EFS = Linux NFS chia sẻ (nhiều AZ, concurrent); FSx for Lustre = HPC Linux; FSx for Windows = SMB + Active Directory",
+        "Storage Gateway (hybrid đang hoạt động) so với DataSync (di chuyển toàn bộ) — phân biệt quan trọng cho tình huống hybrid"
+      ],
+      "quiz": [
+        {
+          "id": "q2-4-1",
+          "type": "single",
+          "question": "What happens to data in an EC2 Instance Store when the instance is stopped?",
+          "options": ["Data persists until manually deleted", "Data is automatically backed up to S3", "Data is permanently deleted", "Data moves to an EBS snapshot"],
+          "correctAnswers": [2],
+          "explanation": "EC2 Instance Store is ephemeral — data is permanently deleted when the EC2 instance is stopped or terminated. It works like RAM: fast, temporary storage that doesn't survive shutdown."
+        },
+        {
+          "id": "q2-4-2",
+          "type": "single",
+          "question": "An EBS volume must be attached to an EC2 instance in which location?",
+          "options": ["Any AZ in the same region", "The same Availability Zone as the EC2 instance", "Any region globally", "The same data center building as EC2"],
+          "correctAnswers": [1],
+          "explanation": "EBS volumes are zonal — they can only be attached to EC2 instances in the same Availability Zone. If you need cross-AZ access, use EFS or S3 instead."
+        },
+        {
+          "id": "q2-4-3",
+          "type": "single",
+          "question": "Which EBS volume type is required for the Multi-Attach feature?",
+          "options": ["General Purpose SSD (gp2/gp3)", "Throughput Optimized HDD (st1)", "Provisioned IOPS SSD (io1/io2)", "Cold HDD (sc1)"],
+          "correctAnswers": [2],
+          "explanation": "EBS Multi-Attach is only supported on Provisioned IOPS (io1/io2) volumes with Nitro-based EC2 instances. Other volume types do not support Multi-Attach."
+        },
+        {
+          "id": "q2-4-4",
+          "type": "single",
+          "question": "Multiple EC2 instances across different Availability Zones need to read and WRITE to the same file system simultaneously. Which service should be used?",
+          "options": ["EBS with Multi-Attach", "Amazon EFS", "Amazon S3", "EC2 Instance Store"],
+          "correctAnswers": [1],
+          "explanation": "Amazon EFS supports concurrent reads and writes from multiple EC2 instances in different AZs. EBS Multi-Attach doesn't support concurrent file modifications. S3 is object storage, not a file system."
+        },
+        {
+          "id": "q2-4-5",
+          "type": "single",
+          "question": "What is the minimum storage duration for objects in Amazon S3 Glacier?",
+          "options": ["30 days", "60 days", "90 days", "180 days"],
+          "correctAnswers": [2],
+          "explanation": "S3 Glacier has a minimum storage duration of 90 days. If you store and delete an object before 90 days, you're still charged for the full 90-day period. S3 Glacier Deep Archive has a 180-day minimum."
+        },
+        {
+          "id": "q2-4-6",
+          "type": "single",
+          "question": "A company needs to archive compliance data for exactly 15 days then delete it. Which S3 storage class is CHEAPEST overall?",
+          "options": ["S3 Glacier (90-day minimum)", "S3 Glacier Deep Archive (180-day minimum)", "S3 Standard", "S3 Standard-IA"],
+          "correctAnswers": [2],
+          "explanation": "For data stored only 15 days, S3 Standard is cheapest because Glacier (90-day min) and Deep Archive (180-day min) would charge you for much longer. Glacier is only cheaper when you store for many months/years."
+        },
+        {
+          "id": "q2-4-7",
+          "type": "single",
+          "question": "Which service provides a shared file system for Windows workloads that integrates with Microsoft Active Directory?",
+          "options": ["Amazon EFS", "Amazon FSx for Lustre", "Amazon FSx for Windows File Server", "Amazon EBS"],
+          "correctAnswers": [2],
+          "explanation": "Amazon FSx for Windows File Server is a fully managed Windows file server using the SMB protocol. It integrates with Microsoft Active Directory and supports SharePoint, SQL Server, and Windows containers."
+        },
+        {
+          "id": "q2-4-8",
+          "type": "single",
+          "question": "A company wants to automatically back up RDS databases and retain them for 6 months (180 days). The default RDS backup only retains 35 days. What should they use?",
+          "options": ["Enable Multi-AZ for the RDS instance", "Configure the RDS retention period to 180 days", "Use AWS Backup with a custom retention policy", "Export backups to S3 manually"],
+          "correctAnswers": [2],
+          "explanation": "RDS automated backups max out at 35 days. AWS Backup is a centralized service that allows custom retention periods (90 days, 1 year, or longer) and lifecycle policies to move backups to cold storage."
+        },
+        {
+          "id": "q2-4-9",
+          "type": "single",
+          "question": "An on-premises application needs to access objects in Amazon S3 using NFS or SMB protocols without code changes. Which AWS Storage Gateway type should be used?",
+          "options": ["Volume Gateway", "Tape Gateway", "File Gateway", "Transfer Gateway"],
+          "correctAnswers": [2],
+          "explanation": "File Gateway allows on-premises applications to store and retrieve objects in S3 via NFS and SMB protocols — just like accessing a regular network file share, no code changes needed."
+        },
+        {
+          "id": "q2-4-10",
+          "type": "single",
+          "question": "A company wants to replace its physical tape backup library with a cloud-based virtual solution. Which Storage Gateway type is appropriate?",
+          "options": ["File Gateway", "Volume Gateway", "Tape Gateway", "Transit Gateway"],
+          "correctAnswers": [2],
+          "explanation": "Tape Gateway provides a cloud-based virtual tape library (VTL) as an iSCSI device. On-premises backup software connects to it exactly like a physical tape library, while tapes are stored in S3 or archived to Glacier."
+        },
+        {
+          "id": "q2-4-11",
+          "type": "single",
+          "question": "A company is fully decommissioning its on-premises storage and migrating all data to AWS. Which service is MOST appropriate?",
+          "options": ["AWS Storage Gateway", "AWS DataSync", "AWS Backup", "Amazon S3 Transfer Acceleration"],
+          "correctAnswers": [1],
+          "explanation": "AWS DataSync is designed for full data migration — transferring large amounts of data to AWS and decommissioning on-premises storage. Storage Gateway is for active hybrid environments where on-premises systems keep sending data to AWS."
+        },
+        {
+          "id": "q2-4-12",
+          "type": "multi",
+          "question": "Which TWO features help prevent accidental deletion of objects in Amazon S3? (Select 2)",
+          "options": ["S3 Intelligent-Tiering", "S3 Versioning", "S3 Transfer Acceleration", "S3 MFA Delete", "S3 Cross-Region Replication"],
+          "correctAnswers": [1, 3],
+          "explanation": "S3 Versioning retains previous versions of objects so deleted objects can be recovered. MFA Delete adds an extra authentication step before objects can be permanently deleted. CRR copies to another region (DR, not deletion protection)."
+        }
+      ]
+    },
+    {
+      "id": "2-5",
+      "title": "AWS Database Services",
+      "overview": "Compare all AWS database types: relational (RDS, Aurora, Redshift), NoSQL (DynamoDB, DocumentDB), in-memory/caching (ElastiCache Redis vs Memcached), and purpose-built (Neptune, Timestream, QLDB, Keyspaces). Know when to use each.",
+      "overviewVi": "So sánh tất cả các loại database AWS: quan hệ (RDS, Aurora, Redshift), NoSQL (DynamoDB, DocumentDB), in-memory/caching (ElastiCache Redis và Memcached), và chuyên biệt (Neptune, Timestream, QLDB, Keyspaces). Biết khi nào dùng loại nào.",
+      "sections": [
+        {
+          "level": "intro",
+          "label": "Overview",
+          "heading": "Database Categories",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Relational (ACID)</span><span class=\"kv-v\">RDS, Aurora (OLTP) · Redshift (OLAP/data warehouse)</span></div><div class=\"kv-r\"><span class=\"kv-k\">NoSQL</span><span class=\"kv-v\">DynamoDB (key-value/document) · DocumentDB (MongoDB-compatible)</span></div><div class=\"kv-r\"><span class=\"kv-k\">In-Memory</span><span class=\"kv-v\">ElastiCache for Redis · ElastiCache for Memcached</span></div><div class=\"kv-r\"><span class=\"kv-k\">Specialized</span><span class=\"kv-v\">Neptune (graph) · Timestream (time series) · QLDB (ledger) · Keyspaces (Cassandra)</span></div></div><div class=\"tip\"><strong>ACID</strong> = Atomicity, Consistency, Isolation, Durability — the four properties that guarantee transactional data integrity in relational databases.</div>",
+          "contentVi": "Bốn loại database AWS: Quan hệ/ACID — RDS và Aurora cho OLTP (e-commerce, giao dịch thường xuyên); Redshift cho OLAP (phân tích, data warehouse). NoSQL — DynamoDB (key-value và document, schema linh hoạt); DocumentDB (tương thích MongoDB). In-Memory/Caching — ElastiCache Redis (có replication, high availability) và Memcached (đơn giản, không có replication). Chuyên biệt — Neptune (graph database), Timestream (time series), QLDB (ledger database), Keyspaces (Cassandra). ACID = Atomicity (tính nguyên tử), Consistency (nhất quán), Isolation (cô lập), Durability (bền vững) — bốn thuộc tính đảm bảo tính toàn vẹn giao dịch trong database quan hệ."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "Amazon RDS & Amazon Aurora",
+          "contentHtml": "<p>Both are <strong>relational databases</strong> supporting OLTP workloads (e-commerce, transactions).</p><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Amazon RDS</span><span class=\"kv-v\">Managed relational DB. Supports MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Aurora. You choose EC2 instance type and storage. Single-AZ or <strong>Multi-AZ</strong> deployment.</span></div><div class=\"kv-r\"><span class=\"kv-k\">Amazon Aurora</span><span class=\"kv-v\">Fully managed by AWS. Compatible with <strong>MySQL and PostgreSQL</strong>. Auto-scales storage. Faster, cheaper, better than RDS. Deployed as a <strong>cluster</strong> (primary + Aurora replicas).</span></div></div><h4>Multi-AZ vs Read Replica</h4><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Standby (Multi-AZ)</span><span class=\"kv-v\">Same region only. For <strong>high availability / automatic failover</strong> — NOT for read scaling</span></div><div class=\"kv-r\"><span class=\"kv-k\">Read Replica</span><span class=\"kv-v\">Can be <strong>cross-region</strong>. For <strong>offloading read traffic</strong> from the primary instance</span></div></div>",
+          "contentVi": "Cả hai đều là relational database hỗ trợ OLTP. Amazon RDS là managed relational DB hỗ trợ MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Aurora. Bạn chọn loại EC2 instance và lưu trữ. Triển khai Single-AZ hoặc Multi-AZ. Amazon Aurora là fully managed bởi AWS, chỉ tương thích với MySQL và PostgreSQL, tự động scale lưu trữ, nhanh hơn và rẻ hơn RDS, triển khai dạng cluster (primary + Aurora replicas). Phân biệt Multi-AZ và Read Replica: Standby Multi-AZ — chỉ trong cùng region, dùng cho high availability và automatic failover, KHÔNG dùng để scale reads. Read Replica — có thể cross-region, dùng để offload read traffic từ primary instance. Đây là câu bẫy HAY xuất hiện trong đề thi."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "Amazon Redshift — Data Warehouse",
+          "contentHtml": "<p>Amazon Redshift is a <strong>fully managed data warehouse</strong> for <strong>OLAP</strong> (analytical queries, reporting, BI tools).</p><ul><li class=\"ck\">Analyze large datasets using standard SQL and existing BI tools</li><li class=\"ck\"><strong>Concurrency Scaling</strong> — virtually unlimited concurrent users and queries</li><li class=\"ck\"><strong>Redshift Spectrum</strong> — query structured/semi-structured data in S3 without loading it into Redshift first</li></ul><div class=\"note\"><strong>OLTP vs OLAP:</strong><br>OLTP (RDS, Aurora) = frequent read/write transactions (e-commerce, banking)<br>OLAP (Redshift) = complex analytical queries on large historical datasets</div>",
+          "contentVi": "Amazon Redshift là data warehouse được quản lý hoàn toàn dành cho OLAP (phân tích, báo cáo, BI tools). Phân tích tập dữ liệu lớn bằng SQL tiêu chuẩn và các công cụ BI hiện có. Concurrency Scaling — cho phép gần như vô số users và queries đồng thời. Redshift Spectrum — truy vấn dữ liệu có cấu trúc/bán cấu trúc trong S3 mà không cần load vào Redshift trước. Phân biệt OLTP và OLAP: OLTP (RDS, Aurora) = đọc/ghi thường xuyên (e-commerce, ngân hàng). OLAP (Redshift) = truy vấn phân tích phức tạp trên tập dữ liệu lịch sử lớn."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "DynamoDB & DocumentDB (NoSQL)",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Amazon DynamoDB</span><span class=\"kv-v\">Fully managed <strong>NoSQL</strong> (key-value + document). Tables, items (rows), attributes (columns). <strong>No rigid schema</strong> — add/remove attributes without affecting other tables. No table joins or foreign keys. Store complex hierarchical data within a single item.</span></div><div class=\"kv-r\"><span class=\"kv-k\">Amazon DocumentDB</span><span class=\"kv-v\">Fully managed <strong>MongoDB-compatible</strong> database. Stores, queries, and indexes <strong>JSON documents</strong>. Uses MongoDB terminology: collection (table), document (row), field (column).</span></div></div><div class=\"tip\">NoSQL advantage: flexible schema — a relational DB change to one column can cascade failures; in DynamoDB you can safely add/remove attributes at any time.</div>",
+          "contentVi": "Amazon DynamoDB là NoSQL được quản lý hoàn toàn (key-value + document). Có Tables, items (hàng) và attributes (cột). Không có schema cứng — có thể thêm/xóa attributes mà không ảnh hưởng items khác. Không có table joins hay foreign keys. Có thể lưu dữ liệu phân cấp phức tạp trong một item. Amazon DocumentDB là database tương thích MongoDB được quản lý hoàn toàn. Lưu trữ, truy vấn và index JSON documents. Dùng thuật ngữ MongoDB: collection (table), document (hàng), field (cột). Lợi thế NoSQL: schema linh hoạt — thay đổi một cột trong relational DB có thể gây cascade failures; trong DynamoDB bạn có thể thêm/xóa attributes bất cứ lúc nào an toàn."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "Amazon ElastiCache — In-Memory Caching",
+          "contentHtml": "<p>ElastiCache reduces database load by caching frequently repeated queries in-memory (sub-millisecond latency).</p><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">ElastiCache for Memcached</span><span class=\"kv-v\">Simple, scalable caching layer. <strong>Multi-threaded</strong> (utilizes multiple CPU cores). <strong>No data replication</strong> — lower availability. Best for simple caching of data-intensive apps.</span></div><div class=\"kv-r\"><span class=\"kv-k\">ElastiCache for Redis</span><span class=\"kv-v\">Advanced features: <strong>data replication</strong>, cluster mode (multi-AZ), PUB/SUB messaging, geospatial, point-in-time snapshots. Best when high availability is needed.</span></div></div><div class=\"note\"><strong>Key difference:</strong> Redis has <strong>data replication</strong> (HA) — Memcached does NOT. If the question mentions high availability or failover for cache → choose Redis.</div>",
+          "contentVi": "ElastiCache giảm tải database bằng cách cache các query lặp lại thường xuyên trong bộ nhớ (độ trễ dưới millisecond). ElastiCache for Memcached: caching layer đơn giản, có thể mở rộng, multi-threaded (tận dụng nhiều CPU cores), KHÔNG có data replication — tính sẵn sàng thấp hơn. Tốt nhất cho caching đơn giản. ElastiCache for Redis: tính năng nâng cao — data replication, cluster mode (multi-AZ), PUB/SUB messaging, geospatial, point-in-time snapshots. Tốt nhất khi cần high availability cho cache. Điểm khác biệt then chốt: Redis CÓ data replication (HA) — Memcached KHÔNG CÓ. Câu hỏi nhắc high availability hoặc failover cho cache → chọn Redis."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "Purpose-Built Databases",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Amazon Keyspaces</span><span class=\"kv-v\"><strong>Apache Cassandra</strong>-compatible. Serverless, scalable wide-column store for large datasets. No server management.</span></div><div class=\"kv-r\"><span class=\"kv-k\">Amazon Neptune</span><span class=\"kv-v\"><strong>Graph database</strong>. Store billions of relationships, query with millisecond latency. Uses nodes (entities) and edges (relationships).</span></div><div class=\"kv-r\"><span class=\"kv-k\">Amazon Timestream</span><span class=\"kv-v\"><strong>Time series database</strong>. Serverless, for IoT and operational apps. Track stock prices, CPU utilization, sensor readings over time.</span></div><div class=\"kv-r\"><span class=\"kv-k\">Amazon QLDB</span><span class=\"kv-v\"><strong>Ledger database</strong>. Provides a transparent, immutable, cryptographically verifiable transaction log. Audit every change ever made to application data.</span></div></div>",
+          "contentVi": "Các database chuyên biệt: Amazon Keyspaces tương thích Apache Cassandra — serverless, scalable wide-column store cho tập dữ liệu lớn, không cần quản lý server. Amazon Neptune là graph database — lưu hàng tỷ mối quan hệ, truy vấn với độ trễ millisecond, dùng nodes (thực thể) và edges (mối quan hệ), lý tưởng cho mạng xã hội, phát hiện gian lận. Amazon Timestream là time series database serverless dành cho IoT và ứng dụng vận hành — theo dõi giá cổ phiếu, sử dụng CPU, số liệu cảm biến theo thời gian. Amazon QLDB là ledger database — cung cấp transaction log minh bạch, bất biến, có thể verify bằng mật mã, ghi lại và không thể thay đổi mọi thay đổi dữ liệu, dùng cho audit tài chính."
+        },
+        {
+          "level": "exam",
+          "label": "Exam Focus",
+          "heading": "Database Selection Guide",
+          "contentHtml": "<ul><li class=\"ck\">OLTP, ACID, relational? → <strong>RDS or Aurora</strong> (Aurora = better performance)</li><li class=\"ck\">Data warehouse, analytics, BI? → <strong>Redshift</strong> (OLAP)</li><li class=\"ck\">NoSQL, flexible schema, millisecond latency? → <strong>DynamoDB</strong></li><li class=\"ck\">MongoDB-compatible, JSON documents? → <strong>DocumentDB</strong></li><li class=\"ck\">In-memory cache, high availability? → <strong>ElastiCache for Redis</strong></li><li class=\"ck\">In-memory cache, simple, multi-threaded? → <strong>ElastiCache for Memcached</strong></li><li class=\"ck\">Graph database (social networks, relationships)? → <strong>Neptune</strong></li><li class=\"ck\">Time series (IoT, metrics over time)? → <strong>Timestream</strong></li><li class=\"ck\">Immutable audit log? → <strong>QLDB</strong></li><li class=\"ck\">Apache Cassandra workloads? → <strong>Keyspaces</strong></li><li class=\"xx\">RDS Multi-AZ standby ≠ read scaling (that's read replica)</li></ul>",
+          "contentVi": "Bảng chọn database nhanh: OLTP, ACID, quan hệ → RDS hoặc Aurora (Aurora = hiệu năng tốt hơn). Data warehouse, phân tích, BI → Redshift (OLAP). NoSQL, schema linh hoạt, độ trễ millisecond → DynamoDB. Tương thích MongoDB, JSON documents → DocumentDB. In-memory cache, high availability → ElastiCache Redis. In-memory cache, đơn giản, multi-threaded → ElastiCache Memcached. Graph database (mạng xã hội, quan hệ phức tạp) → Neptune. Time series (IoT, metrics theo thời gian) → Timestream. Audit log bất biến → QLDB. Apache Cassandra workloads → Keyspaces. Nhớ quan trọng: RDS Multi-AZ standby ≠ scale reads — đó là read replica!"
+        }
+      ],
+      "summary": [
+        "RDS = managed relational DB (multiple engines). Aurora = fully managed MySQL/PostgreSQL-compatible, faster and cheaper than RDS",
+        "Multi-AZ standby = high availability (same region, auto failover). Read replica = read scaling (can be cross-region) — NOT interchangeable",
+        "Redshift = OLAP data warehouse (complex analytics/BI). RDS/Aurora = OLTP (frequent transactions like e-commerce)",
+        "DynamoDB = NoSQL, no rigid schema, no joins. DocumentDB = MongoDB-compatible JSON document store",
+        "ElastiCache Redis = in-memory cache WITH replication (HA). Memcached = simple cache WITHOUT replication",
+        "Specialized: Neptune (graph), Timestream (time series/IoT), QLDB (immutable ledger/audit), Keyspaces (Cassandra)"
+      ],
+      "summaryVi": [
+        "RDS = managed relational DB (nhiều engine). Aurora = fully managed MySQL/PostgreSQL, nhanh hơn và rẻ hơn RDS",
+        "Multi-AZ standby = high availability (cùng region, auto failover). Read replica = scale reads (có thể cross-region) — KHÔNG giống nhau",
+        "Redshift = OLAP data warehouse (phân tích/BI phức tạp). RDS/Aurora = OLTP (giao dịch thường xuyên như e-commerce)",
+        "DynamoDB = NoSQL, không rigid schema, không joins. DocumentDB = tương thích MongoDB, lưu JSON document",
+        "ElastiCache Redis = in-memory cache CÓ replication (HA). Memcached = cache đơn giản KHÔNG CÓ replication",
+        "Chuyên biệt: Neptune (graph), Timestream (time series/IoT), QLDB (ledger bất biến/audit), Keyspaces (Cassandra)"
+      ],
+      "quiz": [
+        {
+          "id": "q2-5-1",
+          "type": "single",
+          "question": "What does ACID stand for in the context of relational databases?",
+          "options": ["Availability, Consistency, Isolation, Durability", "Atomicity, Consistency, Isolation, Durability", "Atomicity, Concurrency, Integration, Durability", "Availability, Concurrency, Isolation, Distribution"],
+          "correctAnswers": [1],
+          "explanation": "ACID = Atomicity, Consistency, Isolation, Durability — the four properties that guarantee data integrity in relational database transactions. Supported by RDS, Aurora, and Redshift."
+        },
+        {
+          "id": "q2-5-2",
+          "type": "single",
+          "question": "An RDS database has Multi-AZ enabled with a standby replica. What is the PRIMARY purpose of the standby replica?",
+          "options": ["Scale read traffic from the application", "Provide automatic failover for high availability", "Replicate data to a different region", "Provide a read-only analytics endpoint"],
+          "correctAnswers": [1],
+          "explanation": "Multi-AZ standby replicas are for HIGH AVAILABILITY and automatic failover — NOT for read scaling. To offload reads, use read replicas. This is a very common exam trap."
+        },
+        {
+          "id": "q2-5-3",
+          "type": "single",
+          "question": "Which RDS replica type CAN be deployed in a different AWS Region?",
+          "options": ["Multi-AZ standby replica", "Read replica", "Aurora replica", "Cross-AZ replica"],
+          "correctAnswers": [1],
+          "explanation": "Read replicas can be deployed in a different AWS Region (cross-region read replica). Multi-AZ standby replicas are confined to the same region. Cross-region read replicas also serve as disaster recovery resources."
+        },
+        {
+          "id": "q2-5-4",
+          "type": "single",
+          "question": "How does Amazon Aurora differ from Amazon RDS?",
+          "options": ["Aurora supports more database engines than RDS", "Aurora is not managed by AWS", "Aurora is fully managed, auto-scales storage, and performs faster at lower cost than standard RDS", "Aurora only supports Oracle database"],
+          "correctAnswers": [2],
+          "explanation": "Aurora is fully managed by AWS, auto-scales storage as needed, and outperforms standard RDS in both speed and cost. It only supports MySQL and PostgreSQL, but is otherwise superior to RDS for those engines."
+        },
+        {
+          "id": "q2-5-5",
+          "type": "single",
+          "question": "A data analytics team wants to run complex SQL queries on petabytes of historical sales data using BI tools. Which AWS service is MOST appropriate?",
+          "options": ["Amazon RDS (MySQL)", "Amazon Aurora", "Amazon Redshift", "Amazon DynamoDB"],
+          "correctAnswers": [2],
+          "explanation": "Amazon Redshift is a fully managed data warehouse optimized for OLAP (analytical queries on large datasets). RDS and Aurora are OLTP databases for frequent transactional reads/writes. DynamoDB is NoSQL."
+        },
+        {
+          "id": "q2-5-6",
+          "type": "single",
+          "question": "An application requires a database that supports a flexible schema — adding new attributes to some records without affecting others. Which is MOST appropriate?",
+          "options": ["Amazon RDS (MySQL)", "Amazon Aurora (PostgreSQL)", "Amazon DynamoDB", "Amazon Redshift"],
+          "correctAnswers": [2],
+          "explanation": "DynamoDB is a NoSQL database with a flexible schema — you can add, remove, or modify attributes without affecting other items or tables. Relational databases (RDS, Aurora, Redshift) enforce rigid schemas."
+        },
+        {
+          "id": "q2-5-7",
+          "type": "single",
+          "question": "A company migrates from MongoDB to AWS and wants maximum compatibility. Which service should they use?",
+          "options": ["Amazon DynamoDB", "Amazon DocumentDB", "Amazon Neptune", "Amazon Keyspaces"],
+          "correctAnswers": [1],
+          "explanation": "Amazon DocumentDB is MongoDB-compatible — existing MongoDB code, drivers, and tools work with DocumentDB with little or no change. DynamoDB is a different NoSQL type; Neptune is a graph database."
+        },
+        {
+          "id": "q2-5-8",
+          "type": "single",
+          "question": "An application's read-heavy database is bottlenecking due to repeated identical queries. Which service provides sub-millisecond caching with HIGH AVAILABILITY through data replication?",
+          "options": ["Amazon ElastiCache for Memcached", "Amazon ElastiCache for Redis", "Amazon DynamoDB Accelerator (DAX)", "Amazon CloudFront"],
+          "correctAnswers": [1],
+          "explanation": "ElastiCache for Redis provides data replication and cluster mode (multi-AZ) for high availability — making it the right choice when the caching layer itself needs to be highly available. Memcached lacks replication."
+        },
+        {
+          "id": "q2-5-9",
+          "type": "single",
+          "question": "A social network application needs to store and query billions of connections between users with millisecond latency. Which database is BEST?",
+          "options": ["Amazon DynamoDB", "Amazon Redshift", "Amazon Neptune", "Amazon QLDB"],
+          "correctAnswers": [2],
+          "explanation": "Amazon Neptune is a graph database designed to store billions of relationships and query highly connected datasets with millisecond latency. It uses nodes (entities) and edges (relationships) — ideal for social networks."
+        },
+        {
+          "id": "q2-5-10",
+          "type": "single",
+          "question": "A financial services company needs an immutable, cryptographically verifiable audit log of all transactions. Which service provides this?",
+          "options": ["Amazon DynamoDB Streams", "Amazon RDS with audit logging", "Amazon QLDB", "Amazon Neptune"],
+          "correctAnswers": [2],
+          "explanation": "Amazon QLDB is a fully managed ledger database that provides a transparent, immutable, cryptographically verifiable transaction log. Every change to data is recorded and cannot be altered — ideal for financial audit trails."
+        },
+        {
+          "id": "q2-5-11",
+          "type": "single",
+          "question": "An IoT platform collects temperature sensor readings every second from 10,000 devices. Which database is MOST appropriate for storing and querying this time-stamped data?",
+          "options": ["Amazon RDS", "Amazon DynamoDB", "Amazon Timestream", "Amazon Neptune"],
+          "correctAnswers": [2],
+          "explanation": "Amazon Timestream is a serverless time series database designed for IoT and operational applications — storing sequences of data points recorded over time (sensor readings, stock prices, CPU metrics)."
+        },
+        {
+          "id": "q2-5-12",
+          "type": "multi",
+          "question": "Which TWO databases support OLTP (Online Transaction Processing) workloads? (Select 2)",
+          "options": ["Amazon Redshift", "Amazon RDS", "Amazon Aurora", "Amazon Timestream", "Amazon Keyspaces"],
+          "correctAnswers": [1, 2],
+          "explanation": "Amazon RDS and Amazon Aurora are both relational databases designed for OLTP — frequent transactional reads and writes (e.g., e-commerce orders). Redshift is OLAP (data warehouse). Timestream is time series. Keyspaces is wide-column NoSQL."
+        }
+      ]
+    }
+  ]
+}
