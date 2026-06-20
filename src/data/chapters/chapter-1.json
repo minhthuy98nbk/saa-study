@@ -1,0 +1,715 @@
+{
+  "id": "1",
+  "title": "Amazon Web Services Basics",
+  "lessons": [
+    {
+      "id": "1-1",
+      "title": "AWS Overview",
+      "overview": "Learn the basics of Amazon Web Services: what it is, when it started, why it dominates the cloud industry, and how the pay-as-you-go model works.",
+      "sections": [
+        {
+          "level": "intro",
+          "label": "Overview",
+          "heading": "What is AWS?",
+          "contentHtml": "<p><strong>AWS</strong> stands for <strong>Amazon Web Services</strong> — a cloud platform owned by Amazon Incorporated, the world's largest online retailer.</p><div class=\"note\"><strong>Important distinction:</strong> amazon.com (the e-commerce retail site) is completely separate from AWS (the cloud platform). Two distinct business units.</div><p>The term <strong>web services</strong> refers to software or resources you can access over the Internet. AWS lets you use remote computing resources to:</p><ul><li class=\"ck\">Store and retrieve files and large datasets</li><li class=\"ck\">Host and run websites and applications</li><li class=\"ck\">Manage virtual machines (VMs)</li><li class=\"ck\">Process complex machine learning algorithms</li><li class=\"ck\">Handle databases, messaging, analytics, and hundreds more tasks</li></ul>",
+          "contentVi": "AWS là viết tắt của Amazon Web Services — nền tảng đám mây do Amazon Inc. sở hữu, hoàn toàn tách biệt với website bán lẻ amazon.com. Thuật ngữ 'web services' chỉ các tài nguyên phần mềm có thể truy cập qua Internet, cho phép bạn lưu trữ file, chạy ứng dụng, quản lý máy ảo và xử lý thuật toán học máy."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "What is a Cloud Service Provider?",
+          "contentHtml": "<p>AWS is a <strong>cloud service provider</strong> — a third-party company that provides cloud-based computing resources to enterprises, startups, and individuals. Instead of buying and maintaining physical servers, you <strong>rent virtual servers</strong> you access online at a fraction of the cost.</p><div class=\"tip\"><strong>Car rental analogy:</strong> If you're visiting a city for one week, it makes no sense to buy a car. You simply rent one and pay only for the days you use it. AWS works the same way — rent computing resources, pay only for what you use.</div><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Virtual servers</span><span class=\"kv-v\">Amazon EC2</span></div><div class=\"kv-r\"><span class=\"kv-k\">Storage</span><span class=\"kv-v\">Amazon S3, EBS, EFS</span></div><div class=\"kv-r\"><span class=\"kv-k\">Database</span><span class=\"kv-v\">Amazon RDS, DynamoDB</span></div><div class=\"kv-r\"><span class=\"kv-k\">Networking</span><span class=\"kv-v\">Amazon VPC, Route 53, CloudFront</span></div></div><p>Some organizations adopt a <strong>multi-cloud strategy</strong>, using two or more cloud providers simultaneously — such as AWS, Microsoft Azure, Google Cloud Platform, Alibaba Cloud, or IBM Cloud.</p>",
+          "contentVi": "AWS là nhà cung cấp dịch vụ đám mây — một công ty bên thứ ba cho thuê tài nguyên tính toán qua Internet thay vì bắt bạn phải mua và bảo trì phần cứng riêng. Giống như thuê xe thay vì mua xe, bạn chỉ trả tiền cho những gì bạn thực sự sử dụng. Một số tổ chức dùng chiến lược multi-cloud, tức là sử dụng từ hai nhà cung cấp đám mây trở lên cùng một lúc."
+        },
+        {
+          "level": "core",
+          "label": "History",
+          "heading": "AWS Timeline",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">2004</span><span class=\"kv-v\">AWS was an internal Amazon department — a collection of web APIs for the amazon.com catalog, used for internal processing only, not a public service</span></div><div class=\"kv-r\"><span class=\"kv-k\">2006</span><span class=\"kv-v\">AWS officially launched as a public cloud service provider. <strong>Amazon S3</strong> was the first public service, followed by <strong>Amazon SQS</strong> in the same year</span></div><div class=\"kv-r\"><span class=\"kv-k\">Today</span><span class=\"kv-v\">200+ fully-featured services available globally; millions of customers in 190+ countries; compute, storage, database, analytics, AI/ML, security, and more</span></div></div><div class=\"warn\"><strong>Common exam trap:</strong> AWS went <em>public</em> in <strong>2006</strong>, NOT 2004. In 2004 it was still an internal department.</div>",
+          "contentVi": "Năm 2004, AWS chỉ là một bộ phận nội bộ của Amazon, cung cấp các web API để truy cập danh mục sản phẩm amazon.com — chưa phải dịch vụ công cộng. Đến năm 2006, AWS chính thức ra mắt dịch vụ đám mây công cộng với Amazon S3 là dịch vụ đầu tiên, tiếp theo là Amazon SQS cùng năm đó. Ngày nay, AWS cung cấp hơn 200 dịch vụ cho hàng triệu khách hàng tại hơn 190 quốc gia."
+        },
+        {
+          "level": "exam",
+          "label": "Exam Focus",
+          "heading": "Key Facts for the SAA Exam",
+          "contentHtml": "<ul><li class=\"ck\">AWS launched publicly in <strong>2006</strong> (2004 = internal Amazon department only)</li><li class=\"ck\"><strong>Amazon S3</strong> was the very first publicly released AWS service</li><li class=\"ck\">AWS is classified primarily as <strong>IaaS</strong>, but also offers PaaS and SaaS products</li><li class=\"ck\"><strong>Multi-cloud</strong> = using 2+ public cloud providers simultaneously</li><li class=\"xx\"><strong>Hybrid cloud ≠ Multi-cloud:</strong> Hybrid cloud = on-premises infrastructure + public cloud</li><li class=\"ck\">Pay-as-you-go: customers pay only for resources they actually consume</li></ul><div class=\"tip\"><strong>Remember:</strong> The exam often tests the 2004 vs 2006 date distinction and the multi-cloud vs hybrid cloud difference.</div>",
+          "contentVi": "Các điểm quan trọng hay xuất hiện trong đề thi SAA: AWS ra mắt công khai năm 2006 (không phải 2004), Amazon S3 là dịch vụ đầu tiên, và multi-cloud khác với hybrid cloud. Multi-cloud dùng từ hai nhà cung cấp đám mây công cộng trở lên, còn hybrid cloud là kết hợp hạ tầng on-premises với đám mây công cộng."
+        }
+      ],
+      "summary": [
+        "AWS = Amazon Web Services, the world's leading cloud provider — completely separate from amazon.com retail",
+        "Launched publicly in 2006 with S3 (first service) and SQS — in 2004 it was still an internal Amazon department",
+        "Pay-as-you-go model: rent computing resources on demand instead of purchasing physical hardware",
+        "Multi-cloud ≠ Hybrid cloud: Multi-cloud = 2+ public cloud providers; Hybrid = on-premises + public cloud",
+        "AWS is primarily IaaS, also offering PaaS (e.g., Elastic Beanstalk) and SaaS (e.g., Amazon Chime)"
+      ],
+      "quiz": [
+        {
+          "id": "q1-1-1",
+          "type": "single",
+          "question": "What year did AWS officially launch as a public cloud service provider?",
+          "options": ["2002", "2004", "2006", "2010"],
+          "correctAnswers": [2],
+          "explanation": "AWS launched publicly in 2006. In 2004 it was still an internal Amazon department. Don't confuse the two dates."
+        },
+        {
+          "id": "q1-1-2",
+          "type": "single",
+          "question": "Which was the FIRST service AWS publicly released?",
+          "options": ["Amazon EC2", "Amazon SQS", "Amazon RDS", "Amazon S3"],
+          "correctAnswers": [3],
+          "explanation": "Amazon S3 was the first public AWS service (2006), followed by Amazon SQS in the same year."
+        },
+        {
+          "id": "q1-1-3",
+          "type": "single",
+          "question": "A company simultaneously uses AWS, Google Cloud, and Azure. What strategy is this?",
+          "options": ["Hybrid cloud", "Multi-cloud", "Private cloud", "Federated cloud"],
+          "correctAnswers": [1],
+          "explanation": "Multi-cloud = using two or more cloud providers at the same time. Hybrid cloud = combining on-premises infrastructure with public cloud."
+        },
+        {
+          "id": "q1-1-4",
+          "type": "multi",
+          "question": "Which TWO statements correctly describe the AWS cloud model? (Select 2)",
+          "options": ["Customers must purchase physical servers", "Customers pay only for resources they consume", "AWS is classified only as SaaS", "Customers can scale resources on demand", "All data must be stored on-premises"],
+          "correctAnswers": [1, 3],
+          "explanation": "The AWS model is pay-as-you-go (no upfront hardware purchase), and resources can be scaled up or down on demand. AWS is primarily IaaS, not only SaaS."
+        },
+        {
+          "id": "q1-1-5",
+          "type": "single",
+          "question": "Which classification BEST describes AWS as a cloud platform?",
+          "options": ["Primarily SaaS with some IaaS", "Primarily IaaS, also offering PaaS and SaaS", "Exclusively PaaS", "On-premises software vendor"],
+          "correctAnswers": [1],
+          "explanation": "AWS is primarily IaaS (Infrastructure as a Service), but also offers PaaS (e.g., Elastic Beanstalk) and SaaS (e.g., Amazon Chime) products."
+        },
+        {
+          "id": "q1-1-6",
+          "type": "single",
+          "question": "Which statement about the relationship between amazon.com and AWS is TRUE?",
+          "options": ["They are the same company using the same infrastructure", "amazon.com runs exclusively on AWS", "AWS is a completely separate business unit from the amazon.com e-commerce site", "AWS was created solely to support amazon.com"],
+          "correctAnswers": [2],
+          "explanation": "AWS is owned by Amazon Inc. but operates as a completely separate business from the amazon.com retail website."
+        },
+        {
+          "id": "q1-1-7",
+          "type": "multi",
+          "question": "Which TWO correctly describe differences between Multi-cloud and Hybrid cloud? (Select 2)",
+          "options": ["Multi-cloud uses 2+ public cloud providers simultaneously", "Hybrid cloud combines on-premises with public cloud", "Multi-cloud always includes private cloud", "Hybrid cloud means using 3+ public clouds", "Multi-cloud and Hybrid cloud are the same"],
+          "correctAnswers": [0, 1],
+          "explanation": "Multi-cloud = 2+ public cloud providers. Hybrid cloud = on-premises infrastructure combined with at least one public cloud. These are distinct strategies."
+        },
+        {
+          "id": "q1-1-8",
+          "type": "single",
+          "question": "Before 2006, what was AWS primarily used for?",
+          "options": ["Public cloud services for all companies", "Internal web APIs to access the amazon.com catalog", "A competitor to Microsoft Azure", "A data center for Amazon employees only"],
+          "correctAnswers": [1],
+          "explanation": "Before going public in 2006, AWS was a collection of internal web APIs for accessing amazon.com's catalog — used mainly for internal processing."
+        },
+        {
+          "id": "q1-1-9",
+          "type": "single",
+          "question": "Which statement about AWS is INCORRECT?",
+          "options": ["AWS started as an internal Amazon department in 2004", "Amazon S3 was the first publicly released AWS service", "AWS launched publicly in 2004", "AWS serves millions of customers in 190+ countries"],
+          "correctAnswers": [2],
+          "explanation": "AWS launched publicly in 2006, NOT 2004. In 2004, AWS was still an internal department. Classic exam trap."
+        },
+        {
+          "id": "q1-1-10",
+          "type": "single",
+          "question": "An organization runs applications entirely on its own physical servers with no cloud. What is this called?",
+          "options": ["Hybrid cloud", "Private cloud", "On-premises", "Multi-cloud"],
+          "correctAnswers": [2],
+          "explanation": "On-premises = running infrastructure on your own physical servers in your own facilities, with no cloud provider involved."
+        },
+        {
+          "id": "q1-1-11",
+          "type": "multi",
+          "question": "Which TWO are examples of what AWS customers can do with cloud resources? (Select 2)",
+          "options": ["Purchase physical servers", "Process machine learning algorithms", "Store and retrieve files", "Own data center buildings", "Install firmware on AWS hardware"],
+          "correctAnswers": [1, 2],
+          "explanation": "AWS customers can process ML algorithms and store/retrieve files. Purchasing hardware, owning data centers, and installing firmware are AWS's responsibilities."
+        },
+        {
+          "id": "q1-1-12",
+          "type": "single",
+          "question": "A startup wants to avoid buying physical servers and access computing resources over the Internet. Which term BEST describes what AWS provides?",
+          "options": ["On-premises computing", "Cloud services", "Dedicated hardware", "Colocation hosting"],
+          "correctAnswers": [1],
+          "explanation": "Cloud services = providing computing resources over the Internet on a pay-per-use rental basis. This is exactly what AWS does as a cloud service provider."
+        }
+      ]
+    },
+    {
+      "id": "1-2",
+      "title": "AWS Global Infrastructure",
+      "overview": "Understand how AWS organizes its global infrastructure: Data Centers, Availability Zones, Regions, and Edge Locations — the building blocks for designing highly available and fault-tolerant architectures.",
+      "sections": [
+        {
+          "level": "intro",
+          "label": "Overview",
+          "heading": "The 3-Tier AWS Infrastructure",
+          "contentHtml": "<p>AWS provides the most extensive global cloud infrastructure of any cloud provider. It serves over <strong>1 million active customers in 190+ countries</strong>. The global infrastructure is organized into three main components:</p><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Data Center</span><span class=\"kv-v\">Physical facility housing hundreds of servers, networking devices, and storage appliances</span></div><div class=\"kv-r\"><span class=\"kv-k\">Availability Zone (AZ)</span><span class=\"kv-v\">Cluster of one or more data centers with independent power, networking, and connectivity; DCs within 100 km of each other</span></div><div class=\"kv-r\"><span class=\"kv-k\">Region</span><span class=\"kv-v\">Group of multiple AZs within the same geographic area (same country)</span></div><div class=\"kv-r\"><span class=\"kv-k\">Edge Location / POP</span><span class=\"kv-v\">CDN cache point — delivers content with low latency to global end users</span></div></div><div class=\"tip\">Deploy across multiple AZs and Regions to achieve both <strong>High Availability</strong> and <strong>Disaster Recovery</strong>.</div>",
+          "contentVi": "AWS có hạ tầng toàn cầu lớn nhất trong các nhà cung cấp đám mây, phục vụ hơn 1 triệu khách hàng tại hơn 190 quốc gia. Hạ tầng được tổ chức từ nhỏ đến lớn: Data Center (tòa nhà vật lý) → Availability Zone (cụm data center) → Region (nhóm AZ trong cùng khu vực) → Edge Location (điểm cache CDN)."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "Availability Zone (AZ)",
+          "contentHtml": "<p>An <strong>Availability Zone (AZ)</strong> consists of one or more physically separate data centers, each with:</p><ul><li class=\"ck\">Resident power, networking, and connectivity</li><li class=\"ck\">Data centers within <strong>100 km (60 miles)</strong> of each other</li><li class=\"ck\">Completely independent power and network connections</li><li class=\"ck\">A failure in one AZ does <strong>NOT</strong> affect other AZs</li></ul><div class=\"tip\">Deploying across <strong>2 or more AZs</strong> achieves <strong>High Availability (HA)</strong> — the baseline recommended architecture for production workloads.</div><p>Since a region has multiple AZs, your system can remain running even if three or more data centers experience simultaneous outages.</p>",
+          "contentVi": "Một Availability Zone gồm một hoặc nhiều data center có nguồn điện và kết nối mạng hoàn toàn độc lập. Các data center trong cùng một AZ nằm trong phạm vi 100 km. Khi một AZ gặp sự cố, các AZ khác không bị ảnh hưởng. Triển khai ứng dụng trên hai AZ trở lên giúp đạt được High Availability — tức là hệ thống vẫn hoạt động dù một AZ bị lỗi."
+        },
+        {
+          "level": "core",
+          "label": "Core Concept",
+          "heading": "AWS Regions",
+          "contentHtml": "<p>An <strong>AWS Region</strong> consists of multiple Availability Zones. Regions span North America, South America, Europe, Asia Pacific, and the Middle East.</p><ul><li class=\"ck\">Each Region contains <strong>2 or more AZs</strong></li><li class=\"ck\">AZs within a Region are separated by tens to hundreds of kilometers</li><li class=\"ck\">All AZs remain <strong>within the same country</strong> to comply with data sovereignty laws</li></ul><div class=\"note\"><strong>Data Sovereignty:</strong> Laws in some countries require data to remain within national borders. AWS ensures AZs within a Region stay in the same country to meet these compliance requirements.</div><h4>Multi-Region = Disaster Recovery</h4><ul><li class=\"ck\">Replicating data to 2+ Regions protects against region-wide disasters (power outages, natural events)</li><li class=\"xx\"><strong>Multi-AZ ≠ Multi-Region:</strong> Multi-AZ = High Availability; Multi-Region = Disaster Recovery</li></ul>",
+          "contentVi": "Một Region AWS gồm nhiều Availability Zone trong cùng một quốc gia, đảm bảo tuân thủ các luật về chủ quyền dữ liệu yêu cầu dữ liệu không rời khỏi lãnh thổ quốc gia. Triển khai trên nhiều AZ trong cùng Region đạt được High Availability, còn sao chép dữ liệu sang nhiều Region khác nhau đạt được Disaster Recovery — hai khái niệm hoàn toàn khác nhau."
+        },
+        {
+          "level": "deep",
+          "label": "Deep Dive",
+          "heading": "Edge Location / Point of Presence (POP)",
+          "contentHtml": "<p>The <strong>Edge Network (Point of Presence)</strong> consists of <strong>Edge Locations</strong> and <strong>Regional Edge Caches</strong>. These enable distributing content with low latency to global end users.</p><div class=\"tip\"><strong>Example:</strong> High-resolution images stored on a server in California can be cached at an Edge Location in Singapore. Users in Vietnam retrieve the images from Singapore instead of California — dramatically faster load times.</div><ul><li class=\"ck\">A POP acts as an access point that allows two different networks to communicate</li><li class=\"ck\">Cached content is served from the nearest Edge Location, not the origin server</li><li class=\"ck\">This is the mechanism behind <strong>Amazon CloudFront</strong> (CDN)</li><li class=\"ck\">Also used by: Route 53, Lambda@Edge, AWS Shield</li></ul><div class=\"note\"><strong>Edge Location ≠ AZ ≠ Region</strong> — these are three completely different infrastructure concepts. A common exam trap!</div>",
+          "contentVi": "Edge Location (hay Point of Presence) là điểm cache nội dung CDN — không phải AZ hay Region. Thay vì người dùng ở châu Á phải tải dữ liệu từ server ở Mỹ, nội dung được lưu cache tại Edge Location gần họ, giúp giảm độ trễ đáng kể. Đây là cơ chế hoạt động của Amazon CloudFront."
+        },
+        {
+          "level": "exam",
+          "label": "Exam Focus",
+          "heading": "Common Mistakes and Key Distinctions",
+          "contentHtml": "<h4>Infrastructure Hierarchy (small to large)</h4><ul><li>1. <strong>Data Center</strong> — physical building</li><li>2. <strong>Availability Zone</strong> — cluster of DCs, ≤100 km between DCs</li><li>3. <strong>Region</strong> — multiple AZs within one country</li><li>4. <strong>Edge Location</strong> — separate CDN cache point (not part of the AZ/Region hierarchy)</li></ul><h4>Key Distinctions</h4><ul><li class=\"xx\">Edge Location is <strong>NOT</strong> an AZ</li><li class=\"xx\">Multi-AZ ≠ Multi-Region (different goals)</li><li class=\"ck\">Deploy across 2+ AZs = <strong>High Availability</strong></li><li class=\"ck\">Replicate across 2+ Regions = <strong>Disaster Recovery</strong></li><li class=\"ck\">Data sovereignty → AZs stay within the same country</li></ul>",
+          "contentVi": "Phân biệt bốn thành phần hạ tầng AWS: Data Center (nhỏ nhất) → AZ → Region → Edge Location (tách biệt, chỉ dùng cho CDN). Triển khai nhiều AZ cho High Availability; sao chép nhiều Region cho Disaster Recovery. Đây là những điểm phân biệt quan trọng nhất trong đề thi."
+        }
+      ],
+      "summary": [
+        "AWS infrastructure hierarchy: Data Center → AZ (DCs within 100 km) → Region (multiple AZs, same country) → Edge Location (CDN cache)",
+        "Deploy across 2+ AZs = High Availability | Replicate across 2+ Regions = Disaster Recovery",
+        "Edge Location / POP = CDN cache point used by CloudFront — NOT an AZ or Region",
+        "Data sovereignty: AWS keeps AZs within the same country to comply with data storage laws"
+      ],
+      "quiz": [
+        {
+          "id": "q1-2-1",
+          "type": "single",
+          "question": "What is the correct hierarchy of AWS infrastructure from SMALLEST to LARGEST?",
+          "options": ["Region → AZ → Data Center", "Data Center → AZ → Region", "AZ → Data Center → Region", "Edge Location → AZ → Region"],
+          "correctAnswers": [1],
+          "explanation": "Correct: Data Center → AZ (one or more DCs) → Region (multiple AZs). Edge Locations are separate CDN cache points."
+        },
+        {
+          "id": "q1-2-2",
+          "type": "single",
+          "question": "How far apart are data centers within a SINGLE Availability Zone?",
+          "options": ["Within 10 km", "Within 100 km (60 miles)", "Within 500 km", "Same building"],
+          "correctAnswers": [1],
+          "explanation": "Data centers within a single AZ are within 100 km (60 miles) of each other, with independent power and networking."
+        },
+        {
+          "id": "q1-2-3",
+          "type": "single",
+          "question": "Deploying across multiple AZs within the SAME Region achieves what?",
+          "options": ["Disaster Recovery from natural disasters", "High Availability against data center failures", "Lower data transfer costs", "GDPR compliance"],
+          "correctAnswers": [1],
+          "explanation": "Multi-AZ = High Availability. For Disaster Recovery from regional events, you need multi-Region deployment."
+        },
+        {
+          "id": "q1-2-4",
+          "type": "single",
+          "question": "A company wants to protect against an ENTIRE AWS Region going down. What should they implement?",
+          "options": ["Deploy across 3 AZs", "Cross-region replication", "More EC2 instances", "Enable Auto Scaling"],
+          "correctAnswers": [1],
+          "explanation": "Cross-region replication protects against full region outages. Multi-AZ only protects against AZ-level failures."
+        },
+        {
+          "id": "q1-2-5",
+          "type": "multi",
+          "question": "Which TWO correctly describe Edge Locations? (Select 2)",
+          "options": ["Same as Availability Zones", "Cache content closer to end users", "Used by Amazon CloudFront", "Provide compute capacity like EC2", "Exist within AWS Regions"],
+          "correctAnswers": [1, 2],
+          "explanation": "Edge Locations cache content close to users (CDN) and are used by CloudFront. They are NOT AZs and do NOT provide compute like EC2."
+        },
+        {
+          "id": "q1-2-6",
+          "type": "single",
+          "question": "Why do AZs within a Region remain within the same country?",
+          "options": ["Reduce inter-AZ costs", "Comply with data sovereignty", "Share the same power grid", "Lower latency between AZs"],
+          "correctAnswers": [1],
+          "explanation": "AZs stay within the same country to comply with data sovereignty laws — data can't cross national borders without regulatory approval."
+        },
+        {
+          "id": "q1-2-7",
+          "type": "single",
+          "question": "Users in Southeast Asia report slow loading of video stored in US-East-1. What AWS feature BEST reduces latency?",
+          "options": ["More EC2 in US-East-1", "Amazon CloudFront Edge Locations in Asia", "More AZs in US-East-1", "Cross-Region Replication"],
+          "correctAnswers": [1],
+          "explanation": "CloudFront uses Edge Locations to cache content near users. Caching video at an Asian Edge Location means users retrieve it locally instead of from US-East-1."
+        },
+        {
+          "id": "q1-2-8",
+          "type": "multi",
+          "question": "Which TWO are valid reasons to deploy across MULTIPLE AWS Regions? (Select 2)",
+          "options": ["Basic High Availability", "Data sovereignty for different countries", "Lower EC2 costs", "Disaster Recovery against regional outages", "Increase AZ count"],
+          "correctAnswers": [1, 3],
+          "explanation": "Multi-Region: (1) data sovereignty — keeping data within specific countries, (2) Disaster Recovery — protecting against full Region failures. Basic HA only requires multi-AZ."
+        },
+        {
+          "id": "q1-2-9",
+          "type": "single",
+          "question": "Which AWS service primarily uses Edge Locations?",
+          "options": ["Amazon EC2", "Amazon S3", "Amazon CloudFront", "AWS Lambda"],
+          "correctAnswers": [2],
+          "explanation": "Amazon CloudFront is AWS's CDN that uses Edge Locations worldwide to cache and deliver content with low latency."
+        },
+        {
+          "id": "q1-2-10",
+          "type": "single",
+          "question": "What is the PRIMARY benefit of AZs having independent power and networking?",
+          "options": ["Lower cost", "Fault isolation — DC failures don't cascade", "Faster compute performance", "Easier resource management"],
+          "correctAnswers": [1],
+          "explanation": "Independent power and networking ensures fault isolation — a failure in one DC/AZ doesn't cascade to others, enabling HA architectures."
+        },
+        {
+          "id": "q1-2-11",
+          "type": "single",
+          "question": "Which statement about AWS Regions is INCORRECT?",
+          "options": ["Each Region has multiple AZs", "Regions are geographically isolated", "All Regions share the same data centers", "Data can replicate across Regions for DR"],
+          "correctAnswers": [2],
+          "explanation": "Each AWS Region has its own isolated set of data centers. Regions do NOT share physical data centers — this isolation enables true cross-region DR."
+        },
+        {
+          "id": "q1-2-12",
+          "type": "single",
+          "question": "A data center is BEST described as:",
+          "options": ["A virtual machine in the cloud", "A physical facility housing servers and network devices", "An AZ with multiple Regions", "A CDN cache point"],
+          "correctAnswers": [1],
+          "explanation": "A data center is a physical building housing hundreds of physical servers, network devices, and storage appliances — the foundational physical infrastructure of AWS."
+        }
+      ]
+    },
+    {
+      "id": "1-3",
+      "title": "AWS Shared Responsibility",
+      "overview": "The Shared Responsibility Model is one of the most heavily tested topics on the SAA exam. Learn exactly what AWS is responsible for versus what the customer must manage.",
+      "sections": [
+        {
+          "level": "intro",
+          "label": "Overview",
+          "heading": "What is the Shared Responsibility Model?",
+          "contentHtml": "<p>The <strong>AWS Shared Responsibility Model</strong> defines exactly which security and compliance tasks belong to AWS and which belong to the customer. The key phrase to remember:</p><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">AWS</span><span class=\"kv-v\">Security <strong>OF</strong> the cloud — protects the physical infrastructure that runs all AWS services</span></div><div class=\"kv-r\"><span class=\"kv-k\">Customer</span><span class=\"kv-v\">Security <strong>IN</strong> the cloud — protects data, configurations, and applications they run on AWS</span></div></div><div class=\"warn\"><strong>Exam trap:</strong> \"OF\" and \"IN\" look nearly identical but mean completely different things. Memorize this distinction — it appears in nearly every version of the exam.</div><p>The model also defines <strong>three types of IT controls</strong>: inherited, shared, and customer-specific.</p>",
+          "contentVi": "Mô hình Shared Responsibility chia rõ trách nhiệm bảo mật giữa AWS và khách hàng. AWS chịu trách nhiệm bảo mật 'OF' (của) đám mây — tức là bảo vệ toàn bộ hạ tầng vật lý. Khách hàng chịu trách nhiệm bảo mật 'IN' (trong) đám mây — tức là bảo vệ dữ liệu và cấu hình của mình. Sự khác biệt giữa 'OF' và 'IN' là điểm mấu chốt hay xuất hiện trong đề thi."
+        },
+        {
+          "level": "core",
+          "label": "AWS Responsibilities",
+          "heading": "Security OF the Cloud (AWS)",
+          "contentHtml": "<p>AWS is responsible for protecting the entire physical infrastructure that powers the AWS Cloud — everything the customer cannot touch or see:</p><ul><li class=\"ck\">Physical security of all <strong>data centers</strong> (guards, cameras, access controls)</li><li class=\"ck\">All hardware: <strong>servers, networking devices, storage appliances</strong></li><li class=\"ck\">The <strong>Host Operating System</strong> and <strong>Hypervisor</strong> (virtualization layer)</li><li class=\"ck\">Firmware updates on computing and networking hardware</li><li class=\"ck\">Availability, reliability, and scalability of cloud services</li></ul><h4>For Abstracted Services (S3, DynamoDB, Lambda)</h4><ul><li class=\"ck\">AWS also manages: OS, runtime, platform, and all underlying software layers</li><li class=\"ck\">The customer has no visibility into or control over these layers</li></ul><div class=\"tip\">The more abstracted the service, the more AWS takes responsibility for. Lambda = AWS manages everything except your function code.</div>",
+          "contentVi": "AWS chịu trách nhiệm bảo mật toàn bộ hạ tầng vật lý: data center, phần cứng, Host OS và Hypervisor. Đối với các dịch vụ trừu tượng (abstracted services) như S3, DynamoDB và Lambda, AWS còn quản lý thêm OS, runtime và nền tảng — khách hàng không cần lo đến bất kỳ tầng cơ sở hạ tầng nào."
+        },
+        {
+          "level": "core",
+          "label": "Customer Responsibilities",
+          "heading": "Security IN the Cloud (Customer)",
+          "contentHtml": "<h4>For Amazon EC2 (IaaS — most customer responsibility)</h4><ul><li class=\"ck\">Patching the <strong>Guest OS</strong> (Linux or Windows inside the EC2 instance)</li><li class=\"ck\">Configuring <strong>Security Groups</strong> (virtual firewall) and <strong>Network ACLs</strong></li><li class=\"ck\">Managing <strong>IAM</strong> — users, roles, policies, access keys, and secret keys</li><li class=\"ck\">Enabling and managing <strong>data encryption</strong> (client-side and server-side)</li><li class=\"ck\"><strong>Zone security</strong> — controlling network routing to prevent unauthorized access</li></ul><h4>For Abstracted Services (S3, DynamoDB)</h4><ul><li class=\"ck\">Configuring <strong>IAM policies</strong> and bucket/resource policies</li><li class=\"ck\">Enabling <strong>encryption at rest and in transit</strong></li><li class=\"ck\">Configuring endpoints and fine-grained access permissions</li></ul><div class=\"tip\"><strong>Rule of thumb:</strong> EC2 (IaaS) = customer has the most responsibility. S3/Lambda (abstracted) = AWS handles the most.</div>",
+          "contentVi": "Khách hàng chịu trách nhiệm bảo mật những gì họ kiểm soát trong đám mây. Với EC2, điều này bao gồm: vá lỗi Guest OS, cấu hình Security Group và Network ACL, quản lý IAM, bật mã hóa dữ liệu và kiểm soát zone security. Với các dịch vụ trừu tượng như S3, trách nhiệm khách hàng chủ yếu là cấu hình IAM policy và bật mã hóa."
+        },
+        {
+          "level": "exam",
+          "label": "Quick Reference",
+          "heading": "Who Is Responsible for What?",
+          "contentHtml": "<h4>AWS Only</h4><div class=\"tags\"><span class=\"tag\">Physical data center security</span><span class=\"tag\">Host OS patching</span><span class=\"tag\">Hypervisor</span><span class=\"tag\">Hardware firmware</span><span class=\"tag\">Lambda server infrastructure</span></div><h4>Customer Only</h4><div class=\"tags\"><span class=\"tag\">Guest OS patching (EC2)</span><span class=\"tag\">Security Groups</span><span class=\"tag\">Network ACLs</span><span class=\"tag\">IAM users and access keys</span><span class=\"tag\">Data encryption</span><span class=\"tag\">Zone security routing</span></div><h4>Shared Controls</h4><div class=\"tags\"><span class=\"tag\">Patch management</span><span class=\"tag\">Configuration management</span><span class=\"tag\">Awareness and training</span></div><div class=\"note\"><strong>Shared patch management:</strong> AWS patches Host OS; customer patches Guest OS and applications.</div>",
+          "contentVi": "Bảng tóm tắt nhanh: AWS chịu hạ tầng vật lý, Host OS, Hypervisor và máy chủ Lambda. Khách hàng chịu Guest OS, Security Group, Network ACL, IAM và mã hóa dữ liệu. Patch management, configuration management và training là các IT controls được chia sẻ giữa hai bên."
+        }
+      ],
+      "summary": [
+        "AWS = Security OF the cloud: physical infrastructure, host OS, hypervisor, data center physical security",
+        "Customer = Security IN the cloud: guest OS, security groups, IAM, data encryption, zone security",
+        "EC2 (IaaS): customer bears the most responsibility | S3/DynamoDB (abstracted): AWS handles most layers",
+        "Three IT control types: Inherited (from AWS) | Shared (both parties) | Customer-specific"
+      ],
+      "quiz": [
+        {
+          "id": "q1-3-1",
+          "type": "single",
+          "question": "Who patches the HOST OS of an EC2 instance?",
+          "options": ["The customer", "AWS", "Both", "Auto Scaling"],
+          "correctAnswers": [1],
+          "explanation": "AWS patches the Host OS and Hypervisor. The CUSTOMER patches the Guest OS inside their EC2."
+        },
+        {
+          "id": "q1-3-2",
+          "type": "single",
+          "question": "Who configures Security Groups on an EC2 instance?",
+          "options": ["AWS", "The customer", "AWS Support", "VPC automatically"],
+          "correctAnswers": [1],
+          "explanation": "Security Groups are a virtual firewall the CUSTOMER configures — 'security IN the cloud'."
+        },
+        {
+          "id": "q1-3-3",
+          "type": "single",
+          "question": "Which phrase is AWS's responsibility in the Shared Responsibility Model?",
+          "options": ["Security in the cloud", "Security of the cloud", "Security around the cloud", "Security for the cloud"],
+          "correctAnswers": [1],
+          "explanation": "'Security OF the cloud' = AWS protects physical infrastructure. 'Security IN the cloud' = customer protects data and configs. OF vs IN is the key."
+        },
+        {
+          "id": "q1-3-4",
+          "type": "multi",
+          "question": "Which TWO are the CUSTOMER's responsibility with Amazon EC2? (Select 2)",
+          "options": ["Patching Host OS", "Configuring Security Groups", "Maintaining the hypervisor", "Patching Guest OS", "Physical DC security"],
+          "correctAnswers": [1, 3],
+          "explanation": "Customer is responsible for: Security Groups (firewall config) and Guest OS patching. Host OS, hypervisor, and physical security = AWS."
+        },
+        {
+          "id": "q1-3-5",
+          "type": "single",
+          "question": "A company uses Amazon S3. Who manages the underlying storage hardware?",
+          "options": ["The customer", "AWS", "Both", "Third-party vendor"],
+          "correctAnswers": [1],
+          "explanation": "S3 is abstracted — AWS manages ALL underlying hardware, OS, and software. Customer only configures access policies and encryption."
+        },
+        {
+          "id": "q1-3-6",
+          "type": "single",
+          "question": "Patch management is which type of IT control?",
+          "options": ["Inherited", "Customer-specific", "Shared", "AWS-exclusive"],
+          "correctAnswers": [2],
+          "explanation": "Patch management is SHARED: AWS patches Host OS, customer patches Guest OS and applications."
+        },
+        {
+          "id": "q1-3-7",
+          "type": "single",
+          "question": "Who manages IAM users and access keys?",
+          "options": ["AWS", "The customer", "Amazon Cognito", "AWS IAM team"],
+          "correctAnswers": [1],
+          "explanation": "IAM is entirely the customer's responsibility — users, roles, policies, and access keys are all 'security IN the cloud'."
+        },
+        {
+          "id": "q1-3-8",
+          "type": "single",
+          "question": "Who is responsible for the physical security of AWS data centers?",
+          "options": ["The customer", "AWS", "Both", "Local government"],
+          "correctAnswers": [1],
+          "explanation": "Physical DC security = purely AWS's responsibility (security OF the cloud). Customers inherit this control."
+        },
+        {
+          "id": "q1-3-9",
+          "type": "multi",
+          "question": "Which TWO are INHERITED controls customers get from AWS? (Select 2)",
+          "options": ["IAM user management", "Physical DC security", "Guest OS patching", "Environmental controls of DCs", "Security Group config"],
+          "correctAnswers": [1, 3],
+          "explanation": "Inherited controls: physical security (guards, cameras) and environmental controls (fire suppression, cooling, power). Customers inherit these without any action."
+        },
+        {
+          "id": "q1-3-10",
+          "type": "single",
+          "question": "Who is responsible for the server running AWS Lambda functions?",
+          "options": ["The customer (wrote the code)", "AWS (abstracted service)", "Both equally", "Customer's DevOps team"],
+          "correctAnswers": [1],
+          "explanation": "Lambda is abstracted — AWS manages ALL underlying servers, OS, and runtime. Customer is only responsible for their function code."
+        },
+        {
+          "id": "q1-3-11",
+          "type": "single",
+          "question": "Which correctly describes Security IN the Cloud?",
+          "options": ["AWS maintaining physical servers", "AWS updating hypervisor firmware", "Customer encrypting data in S3", "AWS patching EC2 host OS"],
+          "correctAnswers": [2],
+          "explanation": "'Security IN the cloud' = customer protecting their own data. Encrypting S3 data is a customer action. Other options are AWS responsibilities."
+        },
+        {
+          "id": "q1-3-12",
+          "type": "multi",
+          "question": "Which TWO are SHARED controls between AWS and customer? (Select 2)",
+          "options": ["Physical DC security", "Configuration management", "Patch management", "Zone security routing", "IAM key rotation"],
+          "correctAnswers": [1, 2],
+          "explanation": "Shared controls: Config management (AWS manages infra; customer manages apps) and Patch management (AWS patches Host OS; customer patches Guest OS)."
+        }
+      ]
+    },
+    {
+      "id": "1-4",
+      "title": "Well-Architected Framework",
+      "overview": "The AWS Well-Architected Framework (WAF) is a body of best practices for designing efficient, secure, and cost-effective workloads on AWS. Learn what it is, how to use it, and when trade-offs are acceptable.",
+      "sections": [
+        {
+          "level": "intro",
+          "label": "Overview",
+          "heading": "What is the AWS Well-Architected Framework?",
+          "contentHtml": "<p>The <strong>AWS Well-Architected Framework (WAF)</strong> is a body of knowledge that describes key concepts, design principles, and architectural best practices for designing and running efficient workloads in AWS.</p><div class=\"tip\"><em>\"A building is only as strong as its foundation.\"</em> — WAF is the foundation for sound cloud architecture.</div><p>WAF provides:</p><ul><li class=\"ck\"><strong>Core concepts</strong> and cloud design principles</li><li class=\"ck\"><strong>Evaluation questions</strong> that reveal weaknesses in your architecture</li><li class=\"ck\"><strong>Design patterns</strong> (proven blueprints) and <strong>anti-patterns</strong> (approaches that produce poor results)</li><li class=\"ck\"><strong>Best practices</strong> distilled from millions of real-world AWS workloads</li><li class=\"ck\">Related services and tools to measure overall efficiency</li></ul><div class=\"note\">WAF is a <strong>guide, not a strict requirement</strong> — especially for prototypes or test environments. For production workloads under regulatory compliance, it becomes essential.</div>",
+          "contentVi": "AWS Well-Architected Framework (WAF) là bộ kiến thức tập hợp các khái niệm cốt lõi, nguyên tắc thiết kế và best practices từ hàng triệu workload thực tế để giúp bạn xây dựng cloud architecture đúng chuẩn. WAF cung cấp câu hỏi đánh giá để phát hiện điểm yếu, design patterns (kết quả tốt) và anti-patterns (kết quả kém). Đây là hướng dẫn, không phải quy tắc bắt buộc — đặc biệt với môi trường test hoặc prototype."
+        },
+        {
+          "level": "core",
+          "label": "How It Works",
+          "heading": "How WAF Improves Your Architecture",
+          "contentHtml": "<p>WAF works by asking foundational questions about your architecture. Your answers reveal gaps and weaknesses that can then be fixed using the provided guidance.</p><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Question</span><span class=\"kv-v\">\"How do you protect your data at rest?\"</span></div><div class=\"kv-r\"><span class=\"kv-k\">Poor answer</span><span class=\"kv-v\">\"I don't know\" → indicates: no encryption, no tokenization, high vulnerability</span></div><div class=\"kv-r\"><span class=\"kv-k\">WAF guidance</span><span class=\"kv-v\">Implement key management, enforce encryption at rest, automate data protection, enforce access control</span></div></div><p>WAF questions also cover data in transit: if you don't protect data in transit, your architecture lacks firewall rules, network authentication, and security management. WAF gives specific remediation steps for each gap found.</p>",
+          "contentVi": "WAF hoạt động bằng cách đặt các câu hỏi nền tảng về kiến trúc của bạn. Câu trả lời kém (ví dụ: 'Tôi không biết bảo vệ dữ liệu at rest như thế nào') cho thấy kiến trúc thiếu mã hóa và có nhiều lỗ hổng bảo mật. WAF sau đó cung cấp hướng dẫn cụ thể để khắc phục: bật key management, bật encryption, tự động hóa data protection và kiểm soát quyền truy cập."
+        },
+        {
+          "level": "core",
+          "label": "Trade-offs",
+          "heading": "When Are Trade-offs Acceptable?",
+          "contentHtml": "<p>WAF helps you identify the optimal <strong>trade-offs</strong> for your specific use case. Not all design decisions are equal — some trade-offs are acceptable, others are not.</p><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Test / Dev env</span><span class=\"kv-v\">OK to trade Reliability for lower cost — no SLA; running redundant resources for a test app wastes money</span></div><div class=\"kv-r\"><span class=\"kv-k\">Production env</span><span class=\"kv-v\">NOT acceptable — strict RTO/RPO requirements; must run redundant DBs, app servers, etc.</span></div><div class=\"kv-r\"><span class=\"kv-k\">Security</span><span class=\"kv-v\">NEVER trade off — the consequences (breaches, fines, reputation damage) are too severe</span></div></div><div class=\"note\"><strong>RTO</strong> = Recovery Time Objective: max acceptable downtime | <strong>RPO</strong> = Recovery Point Objective: max acceptable data loss</div><div class=\"tip\">You can prioritize performance over cost for customer satisfaction, but security is never traded for anything.</div>",
+          "contentVi": "WAF giúp bạn xác định những đánh đổi phù hợp. Môi trường test không có SLA — hoàn toàn được phép giảm reliability để tiết kiệm chi phí. Môi trường production có RTO/RPO nghiêm ngặt — không được đánh đổi reliability. Bảo mật (Security) tuyệt đối không bao giờ được đánh đổi vì hậu quả của vi phạm bảo mật quá nghiêm trọng."
+        },
+        {
+          "level": "exam",
+          "label": "Exam Focus",
+          "heading": "Key WAF Facts for the SAA Exam",
+          "contentHtml": "<ul><li class=\"ck\">WAF consists of exactly <strong>6 pillars</strong></li><li class=\"ck\">WAF is a <strong>guide</strong>, not a strict mandatory requirement</li><li class=\"ck\">For test/dev environments: trading <strong>reliability for cost</strong> is acceptable</li><li class=\"xx\">Security: <strong>NEVER</strong> trade off under any circumstances</li><li class=\"ck\"><strong>Design pattern</strong> = proven blueprint that produces effective results</li><li class=\"xx\"><strong>Anti-pattern</strong> = commonly used approach that produces subpar or ineffective results</li><li class=\"ck\">WAF helps identify architectural weaknesses and valid trade-offs</li></ul>",
+          "contentVi": "Những điểm quan trọng về WAF trong kỳ thi SAA: WAF gồm 6 pillar, là hướng dẫn không bắt buộc, cho phép đánh đổi reliability ở môi trường test nhưng tuyệt đối không đánh đổi bảo mật. Design pattern là blueprint hiệu quả; anti-pattern là cách tiếp cận cho kết quả kém."
+        }
+      ],
+      "summary": [
+        "WAF = body of best practices from millions of AWS workloads — guides efficient cloud architecture design",
+        "Works via evaluation questions → surfaces weaknesses → provides specific remediation guidance",
+        "Trade-offs: test/dev OK to reduce reliability for cost savings; production NOT; security NEVER",
+        "WAF has 6 pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, Sustainability",
+        "Design pattern = proven blueprint; Anti-pattern = approach that produces consistently poor results"
+      ],
+      "quiz": [
+        {
+          "id": "q1-4-1",
+          "type": "single",
+          "question": "What is the PRIMARY purpose of the AWS Well-Architected Framework?",
+          "options": ["Automatic cost discounts", "Key concepts, design principles, and best practices for AWS workloads", "Automate infrastructure deployment", "Certify AWS partners"],
+          "correctAnswers": [1],
+          "explanation": "WAF provides key concepts, design principles, and architectural best practices to design and run efficient workloads in AWS."
+        },
+        {
+          "id": "q1-4-2",
+          "type": "single",
+          "question": "How many pillars does the AWS Well-Architected Framework have?",
+          "options": ["4", "5", "6", "8"],
+          "correctAnswers": [2],
+          "explanation": "WAF has exactly 6 pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and Sustainability."
+        },
+        {
+          "id": "q1-4-3",
+          "type": "single",
+          "question": "A NON-PRODUCTION test environment has no SLA. Which trade-off is acceptable?",
+          "options": ["Trade security for lower cost", "Trade reliability for lower cost", "Trade performance for better security", "Never trade anything"],
+          "correctAnswers": [1],
+          "explanation": "For non-production without SLAs, trading reliability for cost is acceptable — you'd waste money running redundant resources for a test app. Security should never be traded."
+        },
+        {
+          "id": "q1-4-4",
+          "type": "single",
+          "question": "Which WAF pillar should NEVER be traded off?",
+          "options": ["Cost Optimization", "Performance Efficiency", "Security", "Sustainability"],
+          "correctAnswers": [2],
+          "explanation": "Security should never be traded off — consequences of failures (breaches, fines, reputation) are too severe."
+        },
+        {
+          "id": "q1-4-5",
+          "type": "multi",
+          "question": "Which TWO describe a 'design pattern' in WAF context? (Select 2)",
+          "options": ["Consistently produces subpar results", "Proven blueprint by thousands of companies", "AWS discourages it", "A tested solution for a specific use case", "Always increases cost"],
+          "correctAnswers": [1, 3],
+          "explanation": "Design pattern = proven blueprint for a specific use case that thousands of companies use effectively. The opposite (poor results) is an anti-pattern."
+        },
+        {
+          "id": "q1-4-6",
+          "type": "single",
+          "question": "An app has RTO of 1 hour and RPO of 15 minutes. Which WAF pillar is MOST relevant?",
+          "options": ["Cost Optimization", "Sustainability", "Performance Efficiency", "Reliability"],
+          "correctAnswers": [3],
+          "explanation": "RTO and RPO are Reliability concepts — they define recovery speed and data loss tolerance after failures."
+        },
+        {
+          "id": "q1-4-7",
+          "type": "single",
+          "question": "Which statement about WAF is INCORRECT?",
+          "options": ["WAF is a guide, not strict requirement", "WAF identifies architectural weaknesses", "WAF requires every recommendation before deploying", "WAF includes security, reliability, and cost best practices"],
+          "correctAnswers": [2],
+          "explanation": "WAF is a GUIDE, not a strict requirement. Companies don't need to implement everything — especially for prototypes."
+        },
+        {
+          "id": "q1-4-8",
+          "type": "single",
+          "question": "What is an 'anti-pattern' in WAF context?",
+          "options": ["A proven best practice", "A common approach that consistently produces poor results", "A deprecated AWS service", "A security vulnerability"],
+          "correctAnswers": [1],
+          "explanation": "Anti-pattern = the OPPOSITE of a design pattern — a commonly used approach that produces ineffective or suboptimal results."
+        },
+        {
+          "id": "q1-4-9",
+          "type": "multi",
+          "question": "Which TWO does WAF help architects IDENTIFY? (Select 2)",
+          "options": ["AWS service pricing", "Architectural weaknesses via evaluation questions", "Trade-offs between design approaches", "Which regions to avoid", "AWS employee schedules"],
+          "correctAnswers": [1, 2],
+          "explanation": "WAF helps identify: architectural weaknesses (via questions like 'How do you protect data at rest?') and valid trade-offs (e.g., reliability vs cost in test environments)."
+        },
+        {
+          "id": "q1-4-10",
+          "type": "single",
+          "question": "Which scenario is ACCEPTABLE per WAF trade-off principles?",
+          "options": ["Remove all security from production to reduce cost", "Skip redundant resources in test environment to save money", "Trade compliance in production for performance", "Skip encryption in production DBs for speed"],
+          "correctAnswers": [1],
+          "explanation": "Not running redundant resources in a TEST environment is acceptable — test environments have no SLAs requiring HA. All other options involve unacceptable production or security trade-offs."
+        }
+      ]
+    },
+    {
+      "id": "1-5",
+      "title": "Pillars of the WAF",
+      "overview": "A detailed walkthrough of all 6 AWS Well-Architected Framework pillars — design principles, key concepts, best practice areas, and exam-relevant keywords for each pillar.",
+      "sections": [
+        {
+          "level": "core",
+          "label": "Pillar 1",
+          "heading": "Operational Excellence",
+          "contentHtml": "<p>The <strong>Operational Excellence</strong> pillar focuses on running and monitoring workloads effectively to deliver business value, and continually improving supporting processes and procedures.</p><p>Key concepts include: loosely coupled components that can be updated regularly, making changes in <strong>small, reversible increments</strong>, and running disaster recovery exercises (game days) to test response procedures.</p><h4>Design Principles</h4><ul><li class=\"ck\">Perform operations <strong>as code</strong></li><li class=\"ck\">Make <strong>frequent, small, reversible</strong> changes</li><li class=\"ck\">Refine operations procedures frequently</li><li class=\"ck\">Anticipate failure — identify and mitigate potential failure sources</li><li class=\"ck\">Learn from all operational failures</li></ul><h4>Best Practice Areas</h4><div class=\"tags\"><span class=\"tag\">Organization</span><span class=\"tag\">Prepare</span><span class=\"tag\">Operate</span><span class=\"tag\">Evolve</span></div>",
+          "contentVi": "Pillar Operational Excellence tập trung vào việc vận hành workload AWS hiệu quả để mang lại giá trị kinh doanh và liên tục cải tiến quy trình hỗ trợ. Các nguyên tắc thiết kế bao gồm: thực hiện vận hành như code, thực hiện thay đổi nhỏ và có thể hoàn tác thường xuyên, dự đoán sự cố và học hỏi từ các sự cố đã xảy ra. Bốn lĩnh vực best practice là Organization, Prepare, Operate và Evolve."
+        },
+        {
+          "level": "core",
+          "label": "Pillar 2",
+          "heading": "Security",
+          "contentHtml": "<p>The <strong>Security</strong> pillar focuses on protecting data, systems, and assets by leveraging cloud technologies. Security is the top priority and should <strong>never be traded off</strong> for any other concern.</p><p><strong>Traceability</strong> is central to this pillar — monitor and track all changes in real time by collecting API call logs and metric data to automatically investigate incidents and respond quickly.</p><h4>Design Principles</h4><ul><li class=\"ck\">Implement a strong <strong>identity foundation</strong></li><li class=\"ck\">Enable <strong>traceability</strong> — monitor and log all changes</li><li class=\"ck\">Apply security at <strong>all layers</strong></li><li class=\"ck\">Automate security best practices</li><li class=\"ck\">Protect data <strong>in transit and at rest</strong></li><li class=\"ck\">Keep people away from data (<strong>least privilege</strong>)</li><li class=\"ck\">Prepare for security events</li></ul><h4>Knowledge Areas</h4><div class=\"tags\"><span class=\"tag\">Identity and Access Management</span><span class=\"tag\">Detection</span><span class=\"tag\">Infrastructure Protection</span><span class=\"tag\">Data Protection</span><span class=\"tag\">Incident Response</span></div>",
+          "contentVi": "Pillar Security bảo vệ dữ liệu, hệ thống và tài sản của bạn — đây là ưu tiên hàng đầu, không bao giờ được đánh đổi. Traceability (khả năng theo dõi) là trọng tâm: giám sát và ghi lại tất cả thay đổi theo thời gian thực để phát hiện và xử lý sự cố bảo mật nhanh chóng. Các nguyên tắc thiết kế bao gồm: identity foundation vững chắc, bật traceability, bảo mật ở tất cả các tầng, least privilege và bảo vệ dữ liệu cả khi lưu trữ lẫn khi truyền tải."
+        },
+        {
+          "level": "core",
+          "label": "Pillar 3",
+          "heading": "Reliability",
+          "contentHtml": "<div class=\"note\"><strong>Keyword: RECOVERY</strong> — the single word that identifies the Reliability pillar in exam questions.</div><p>The <strong>Reliability</strong> pillar ensures your systems work correctly and consistently, and can <strong>recover</strong> from infrastructure disruptions, service failures, and natural disasters. It also covers the ability to dynamically acquire resources to meet demand.</p><p>Example: Amazon EC2 Auto Scaling across multiple AZs with an Application Load Balancer automatically recovers unhealthy instances and prevents degradation.</p><h4>Design Principles</h4><ul><li class=\"ck\">Automatically <strong>recover from failure</strong></li><li class=\"ck\">Test <strong>recovery procedures</strong></li><li class=\"ck\">Scale <strong>horizontally</strong> to increase aggregate availability</li><li class=\"ck\">Stop <strong>guessing capacity</strong></li><li class=\"ck\">Manage change through <strong>automation</strong></li></ul><h4>Best Practice Areas</h4><div class=\"tags\"><span class=\"tag\">Foundations</span><span class=\"tag\">Workload Architecture</span><span class=\"tag\">Change Management</span><span class=\"tag\">Failure Management</span></div>",
+          "contentVi": "Pillar Reliability đảm bảo hệ thống hoạt động đúng và có khả năng phục hồi từ các sự cố. Từ khóa quan trọng nhất là RECOVERY (phục hồi). Các nguyên tắc thiết kế bao gồm: tự động phục hồi từ lỗi, kiểm tra quy trình recovery, scale theo chiều ngang để tăng tính sẵn sàng, không đoán mò capacity và quản lý thay đổi qua automation."
+        },
+        {
+          "level": "core",
+          "label": "Pillar 4",
+          "heading": "Performance Efficiency",
+          "contentHtml": "<p>The <strong>Performance Efficiency</strong> pillar focuses on using computing resources efficiently to meet system requirements, and maintaining that efficiency even as customer demand changes.</p><p>This includes adopting new technologies (going serverless), experimenting with different approaches, and choosing architectures that make the best use of available resources.</p><h4>Design Principles</h4><ul><li class=\"ck\"><strong>Democratize</strong> advanced technologies — consume services instead of building expertise</li><li class=\"ck\"><strong>Go global in minutes</strong> — deploy across multiple regions easily</li><li class=\"ck\">Use <strong>serverless architectures</strong></li><li class=\"ck\"><strong>Experiment more often</strong></li><li class=\"ck\">Consider <strong>mechanical sympathy</strong> — understand your tools and use them most effectively</li></ul><h4>Best Practice Areas</h4><div class=\"tags\"><span class=\"tag\">Selection</span><span class=\"tag\">Review</span><span class=\"tag\">Monitoring</span><span class=\"tag\">Trade-offs</span></div>",
+          "contentVi": "Pillar Performance Efficiency tập trung vào việc sử dụng tài nguyên hiệu quả để đáp ứng yêu cầu hệ thống dù demand thay đổi. Các nguyên tắc thiết kế bao gồm: ứng dụng các công nghệ tiên tiến, triển khai toàn cầu trong vài phút, dùng kiến trúc serverless, thử nghiệm thường xuyên và áp dụng mechanical sympathy (hiểu và sử dụng công cụ hiệu quả nhất)."
+        },
+        {
+          "level": "core",
+          "label": "Pillar 5",
+          "heading": "Cost Optimization",
+          "contentHtml": "<p>The <strong>Cost Optimization</strong> pillar is about running systems and delivering business value at the lowest possible cost. This is a <strong>continual process</strong> of refining workloads to minimize costs while achieving expected business outcomes.</p><p>The <strong>consumption model</strong> (pay-as-you-go) removes the need for elaborate capacity forecasting — companies pay only for what they actually use and can scale up or down freely.</p><h4>Design Principles</h4><ul><li class=\"ck\">Implement <strong>cloud financial management</strong></li><li class=\"ck\">Adopt a <strong>consumption model</strong> (pay-as-you-go)</li><li class=\"ck\">Measure overall <strong>efficiency</strong></li><li class=\"ck\">Stop spending on <strong>undifferentiated heavy lifting</strong></li><li class=\"ck\">Analyze and <strong>attribute expenditure</strong></li></ul><h4>Best Practice Areas</h4><div class=\"tags\"><span class=\"tag\">Cloud Financial Management</span><span class=\"tag\">Expenditure Awareness</span><span class=\"tag\">Cost-Effective Resources</span><span class=\"tag\">Manage Demand and Supply</span><span class=\"tag\">Optimize Over Time</span></div>",
+          "contentVi": "Pillar Cost Optimization tập trung vào việc cung cấp giá trị kinh doanh với chi phí thấp nhất có thể. Mô hình tiêu thụ (consumption model / pay-as-you-go) cho phép chỉ trả tiền cho những gì thực sự sử dụng, loại bỏ nhu cầu dự báo capacity. Đây là quá trình liên tục cải tiến workload để tối thiểu hóa chi phí đồng thời đạt được mục tiêu kinh doanh."
+        },
+        {
+          "level": "core",
+          "label": "Pillar 6",
+          "heading": "Sustainability",
+          "contentHtml": "<p>The <strong>Sustainability</strong> pillar addresses the long-term environmental, economic, and societal impact of your business operations. It mirrors the Shared Responsibility Model — but for sustainability instead of security.</p><div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">AWS (OF the cloud)</span><span class=\"kv-v\">Optimize cloud infrastructure, source renewable energy, practice water stewardship, build efficient hardware</span></div><div class=\"kv-r\"><span class=\"kv-k\">Customer (IN the cloud)</span><span class=\"kv-v\">Optimize workloads, minimize total resources required, reduce downstream impact</span></div></div><h4>Design Principles</h4><ul><li class=\"ck\">Understand your impact</li><li class=\"ck\">Establish sustainability goals</li><li class=\"ck\">Maximize utilization</li><li class=\"ck\">Anticipate and adopt more efficient hardware and software</li><li class=\"ck\">Use managed services</li><li class=\"ck\">Reduce the downstream impact of your cloud workloads</li></ul>",
+          "contentVi": "Pillar Sustainability giải quyết tác động môi trường dài hạn của hoạt động kinh doanh. Giống như Shared Responsibility Model nhưng áp dụng cho tính bền vững: AWS chịu trách nhiệm tối ưu hạ tầng, sử dụng năng lượng tái tạo và quản lý nước (sustainability OF the cloud); khách hàng tối ưu workload và giảm tổng tài nguyên cần dùng (sustainability IN the cloud)."
+        },
+        {
+          "level": "exam",
+          "label": "Summary Table",
+          "heading": "6 Pillars — Keywords Reference",
+          "contentHtml": "<div class=\"kv\"><div class=\"kv-r\"><span class=\"kv-k\">Operational Excellence</span><span class=\"kv-v\">Operations as code · frequent small reversible changes · anticipate failure · learn from failures</span></div><div class=\"kv-r\"><span class=\"kv-k\">Security</span><span class=\"kv-v\">NEVER trade off · traceability · least privilege · all layers · protect in transit and at rest</span></div><div class=\"kv-r\"><span class=\"kv-k\">Reliability</span><span class=\"kv-v\"><strong>RECOVERY</strong> · auto-recover · horizontal scaling · test procedures · stop guessing capacity</span></div><div class=\"kv-r\"><span class=\"kv-k\">Performance Efficiency</span><span class=\"kv-v\">Serverless · go global in minutes · experiment often · mechanical sympathy · democratize tech</span></div><div class=\"kv-r\"><span class=\"kv-k\">Cost Optimization</span><span class=\"kv-v\">Pay-as-you-go · consumption model · measure efficiency · eliminate waste · attribute spend</span></div><div class=\"kv-r\"><span class=\"kv-k\">Sustainability</span><span class=\"kv-v\">OF/IN like shared responsibility · renewable energy · maximize utilization · managed services</span></div></div><div class=\"tip\"><strong>Quick recall trick:</strong> Op.Ex → Code | Security → Never trade | Reliability → Recovery | Perf → Serverless | Cost → Pay-as-you-go | Sustainability → OF/IN</div>",
+          "contentVi": "Bảng tóm tắt từ khóa của 6 pillar để ôn thi nhanh: Operational Excellence (operations as code), Security (không bao giờ đánh đổi, traceability), Reliability (RECOVERY), Performance Efficiency (serverless, go global), Cost Optimization (pay-as-you-go), Sustainability (OF/IN giống Shared Responsibility)."
+        }
+      ],
+      "summary": [
+        "6 Pillars: Operational Excellence | Security | Reliability | Performance Efficiency | Cost Optimization | Sustainability",
+        "Reliability keyword = RECOVERY | Performance Efficiency = Serverless / Go global in minutes | Cost = Pay-as-you-go consumption model",
+        "Security = the ONE pillar that should NEVER be traded off under any circumstance",
+        "Sustainability mirrors the Shared Responsibility Model: AWS optimizes infrastructure (OF); customer optimizes workloads (IN)"
+      ],
+      "quiz": [
+        {
+          "id": "q1-5-1",
+          "type": "single",
+          "question": "Which WAF pillar's PRIMARY keyword is 'RECOVERY'?",
+          "options": ["Operational Excellence", "Security", "Reliability", "Performance Efficiency"],
+          "correctAnswers": [2],
+          "explanation": "Reliability's keyword is RECOVERY — designing systems to automatically recover from failures, traffic surges, and unexpected events."
+        },
+        {
+          "id": "q1-5-2",
+          "type": "single",
+          "question": "'Make frequent, small, reversible changes' is a principle of which pillar?",
+          "options": ["Reliability", "Security", "Cost Optimization", "Operational Excellence"],
+          "correctAnswers": [3],
+          "explanation": "This is an Operational Excellence principle. 'Stop guessing capacity' = Reliability. 'Adopt consumption model' = Cost Optimization."
+        },
+        {
+          "id": "q1-5-3",
+          "type": "single",
+          "question": "A company replaces on-premises servers with AWS Lambda. Which pillar does this BEST represent?",
+          "options": ["Reliability", "Security", "Performance Efficiency", "Sustainability"],
+          "correctAnswers": [2],
+          "explanation": "Using serverless like Lambda is a Performance Efficiency principle ('Use serverless architectures')."
+        },
+        {
+          "id": "q1-5-4",
+          "type": "multi",
+          "question": "Which TWO are design principles of the SECURITY pillar? (Select 2)",
+          "options": ["Stop guessing capacity", "Enable traceability", "Perform operations as code", "Apply security at all layers", "Adopt consumption model"],
+          "correctAnswers": [1, 3],
+          "explanation": "Security principles: Enable traceability and Apply security at all layers. 'Stop guessing capacity' = Reliability. 'Operations as code' = Op. Excellence. 'Consumption model' = Cost Optimization."
+        },
+        {
+          "id": "q1-5-5",
+          "type": "single",
+          "question": "AWS sources renewable energy for data centers. Which pillar is this?",
+          "options": ["Cost Optimization", "Security", "Reliability", "Sustainability"],
+          "correctAnswers": [3],
+          "explanation": "Sustainability covers environmental responsibility. AWS's OF-the-cloud responsibility includes renewable energy and efficient infrastructure."
+        },
+        {
+          "id": "q1-5-6",
+          "type": "single",
+          "question": "'Enable traceability — monitor and track all changes in real time' belongs to which pillar?",
+          "options": ["Reliability", "Operational Excellence", "Security", "Performance Efficiency"],
+          "correctAnswers": [2],
+          "explanation": "Traceability is a Security principle — collecting API logs and metrics to detect and respond to incidents quickly."
+        },
+        {
+          "id": "q1-5-7",
+          "type": "multi",
+          "question": "Which TWO are design principles of the RELIABILITY pillar? (Select 2)",
+          "options": ["Democratize advanced technologies", "Automatically recover from failure", "Implement strong identity foundation", "Stop guessing capacity", "Adopt consumption model"],
+          "correctAnswers": [1, 3],
+          "explanation": "Reliability principles: Automatically recover from failure and Stop guessing capacity. 'Democratize technologies' = Performance Efficiency. 'Strong identity' = Security. 'Consumption model' = Cost Optimization."
+        },
+        {
+          "id": "q1-5-8",
+          "type": "single",
+          "question": "Which pillar covers 'pay only for what you use' and eliminating capacity forecasting?",
+          "options": ["Reliability", "Performance Efficiency", "Cost Optimization", "Operational Excellence"],
+          "correctAnswers": [2],
+          "explanation": "Cost Optimization covers the consumption model (pay-as-you-go) — paying only for resources actually used, eliminating upfront capacity forecasting."
+        },
+        {
+          "id": "q1-5-9",
+          "type": "single",
+          "question": "For Sustainability, what is the CUSTOMER responsible for?",
+          "options": ["Sourcing renewable energy for DCs", "Water stewardship in AWS facilities", "Optimizing workloads to minimize resources needed", "Building energy-efficient hardware"],
+          "correctAnswers": [2],
+          "explanation": "Sustainability (IN the cloud) = customer optimizes their workloads and minimizes total resources. AWS (OF the cloud) = renewable energy, water stewardship."
+        },
+        {
+          "id": "q1-5-10",
+          "type": "multi",
+          "question": "Which TWO belong to OPERATIONAL EXCELLENCE? (Select 2)",
+          "options": ["Anticipate failure", "Go global in minutes", "Learn from all operational failures", "Keep people away from data", "Maximize utilization"],
+          "correctAnswers": [0, 2],
+          "explanation": "Op. Excellence: Anticipate failure and Learn from all operational failures. 'Go global' = Performance. 'Keep people away' = Security. 'Maximize utilization' = Sustainability."
+        },
+        {
+          "id": "q1-5-11",
+          "type": "single",
+          "question": "'Mechanical sympathy' is a concept in which pillar?",
+          "options": ["Security", "Reliability", "Cost Optimization", "Performance Efficiency"],
+          "correctAnswers": [3],
+          "explanation": "Mechanical sympathy (understanding hardware to use it most efficiently) is a Performance Efficiency principle — choosing the right technology for the right job."
+        },
+        {
+          "id": "q1-5-12",
+          "type": "single",
+          "question": "Which pillar focuses on the ability to dynamically acquire resources to meet demand?",
+          "options": ["Cost Optimization", "Security", "Reliability", "Performance Efficiency"],
+          "correctAnswers": [2],
+          "explanation": "Reliability covers dynamically acquiring computing resources to meet demand (e.g., Auto Scaling) — avoiding capacity shortfalls that cause outages."
+        }
+      ]
+    }
+  ]
+}

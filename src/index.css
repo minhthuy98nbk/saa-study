@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    background-color: #F8F8F6;
+    color: #1A1A18;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #F1EFE8; }
+  ::-webkit-scrollbar-thumb { background: #C8C6BC; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #8C8B82; }
+}
+
+@layer components {
+  /* ─── Rich HTML content (dangerouslySetInnerHTML) ─── */
+  .rc { font-size: 13.5px; color: #1A1A18; }
+
+  .rc p { line-height: 1.75; margin-bottom: 0.65rem; }
+  .rc p:last-child { margin-bottom: 0; }
+
+  /* Lists */
+  .rc ul, .rc ol { list-style: none; padding-left: 0; margin: 0.5rem 0 0.75rem; }
+  .rc li { padding-left: 1.2rem; position: relative; margin-bottom: 0.35rem; line-height: 1.65; }
+  .rc li::before { content: '•'; position: absolute; left: 2px; color: #185FA5; font-weight: 800; }
+  .rc li.ck::before { content: '✓'; color: #1D9E75; font-weight: 700; }
+  .rc li.xx::before { content: '✗'; color: #E24B4A; font-weight: 700; }
+  .rc li.ok::before { content: '✓'; color: #1D9E75; font-weight: 700; }
+  .rc li.no::before { content: '✗'; color: #E24B4A; font-weight: 700; }
+  .rc li.nl { padding-left: 1.6rem; }
+  .rc li.nl::before { content: attr(data-n) '.'; color: #185FA5; font-weight: 600; font-size: 12px; }
+
+  /* Typography */
+  .rc strong { font-weight: 650; color: inherit; }
+  .rc em { font-style: italic; }
+  .rc h4 {
+    font-size: 11px; font-weight: 700; color: #8C8B82;
+    margin: 1rem 0 0.4rem;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+
+  /* Key-value table */
+  .rc .kv { display: grid; gap: 4px; margin: 0.5rem 0 0.75rem; }
+  .rc .kv-r {
+    display: flex; gap: 12px; font-size: 13px; line-height: 1.6;
+    padding: 6px 10px; border-radius: 6px; background: #F8F8F6;
+  }
+  .rc .kv-k { color: #185FA5; font-weight: 700; min-width: 90px; flex-shrink: 0; font-size: 12px; }
+  .rc .kv-v { color: #1A1A18; }
+
+  /* Callout boxes */
+  .rc .note {
+    background: #FAEEDA; border-left: 3px solid #BA7517;
+    padding: 8px 12px; border-radius: 0 6px 6px 0;
+    margin: 0.5rem 0 0.75rem; font-size: 13px; line-height: 1.65; color: #2C1A00;
+  }
+  .rc .tip {
+    background: #EAF3DE; border-left: 3px solid #1D9E75;
+    padding: 8px 12px; border-radius: 0 6px 6px 0;
+    margin: 0.5rem 0 0.75rem; font-size: 13px; line-height: 1.65; color: #052A1A;
+  }
+  .rc .warn {
+    background: #FCEBEB; border-left: 3px solid #E24B4A;
+    padding: 8px 12px; border-radius: 0 6px 6px 0;
+    margin: 0.5rem 0 0.75rem; font-size: 13px; line-height: 1.65; color: #5C0000;
+  }
+
+  /* Tag badges */
+  .rc .tags { display: flex; flex-wrap: wrap; gap: 5px; margin: 0.4rem 0 0.75rem; }
+  .rc .tag {
+    font-size: 11px; padding: 3px 9px; border-radius: 12px;
+    background: #F1EFE8; color: #5C5B55; border: 1px solid #E5E3DC;
+    font-weight: 500;
+  }
+  .rc .tag.b { background: #E6F1FB; color: #185FA5; border-color: #B5D4F4; }
+  .rc .tag.g { background: #EAF3DE; color: #085041; border-color: #9FE1CB; }
+  .rc .tag.r { background: #FCEBEB; color: #791F1F; border-color: #F7C1C1; }
+  .rc .tag.a { background: #FAEEDA; color: #854F0B; border-color: #FAC775; }
+
+  /* Clickable words for dictionary */
+  .cw { cursor: pointer; border-bottom: 1px dashed #185FA5; }
+  .cw:hover { background: #E6F1FB; border-radius: 2px; }
+}
