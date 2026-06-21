@@ -22,9 +22,10 @@ export function AppShell() {
   const { progress } = useProgressContext()
   const { getHistory, getBestScore } = useExam()
 
-  const chTestHistory = getHistory('chapter', '1')
+  const chTestBests = Object.fromEntries(
+    chapters.map(ch => [ch.id, getBestScore(getHistory('chapter', ch.id))])
+  )
   const mockHistory = getHistory('mock')
-  const chTestBest = getBestScore(chTestHistory)
   const mockBest = getBestScore(mockHistory)
 
   return (
@@ -40,7 +41,7 @@ export function AppShell() {
             chapters={chapters}
             lessons={allLessons}
             progress={progress}
-            chTestBest={chTestBest}
+            chTestBests={chTestBests}
             mockBest={mockBest}
           />
         </div>

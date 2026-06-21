@@ -55,98 +55,311 @@
         {
           "id": "q1-1-1",
           "type": "single",
-          "question": "What year did AWS officially launch as a public cloud service provider?",
-          "options": ["2002", "2004", "2006", "2010"],
-          "correctAnswers": [2],
-          "explanation": "AWS launched publicly in 2006. In 2004 it was still an internal Amazon department. Don't confuse the two dates."
+          "question": "A startup wants to launch a new web application without purchasing physical servers. They need to start small and scale as their user base grows, paying only for what they use. Which AWS characteristic BEST addresses this requirement?",
+          "options": [
+            "AWS provides dedicated hardware that is reserved exclusively for each customer",
+            "AWS operates on a pay-as-you-go model, allowing on-demand access to computing resources without upfront hardware investment",
+            "AWS requires a minimum 1-year commitment before provisioning any resources",
+            "AWS automatically purchases and manages physical servers on behalf of customers"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "The pay-as-you-go model is the core AWS pricing principle — you rent computing resources on demand and pay only for what you consume, eliminating the need to purchase and maintain physical hardware. AWS does not require minimum commitments for on-demand usage, and customers share underlying infrastructure rather than getting dedicated hardware by default."
         },
         {
           "id": "q1-1-2",
           "type": "single",
-          "question": "Which was the FIRST service AWS publicly released?",
-          "options": ["Amazon EC2", "Amazon SQS", "Amazon RDS", "Amazon S3"],
-          "correctAnswers": [3],
-          "explanation": "Amazon S3 was the first public AWS service (2006), followed by Amazon SQS in the same year."
+          "question": "A solutions architect is designing a system where the company hosts its core database on-premises in their own data center while using AWS for web tier and application tier workloads. How should this architecture be classified?",
+          "options": [
+            "Multi-cloud architecture, because workloads are distributed across different environments",
+            "Hybrid cloud architecture, because it combines on-premises infrastructure with a public cloud provider",
+            "SaaS architecture, because AWS manages the application layer on behalf of the customer",
+            "Multi-cloud architecture, because AWS and on-premises are treated as two separate cloud providers"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Hybrid cloud specifically means combining on-premises (private) infrastructure with a public cloud provider such as AWS. Multi-cloud refers to using two or more public cloud providers (e.g., AWS and Azure) — on-premises data centers do not qualify as a public cloud provider, so this scenario is hybrid, not multi-cloud."
         },
         {
           "id": "q1-1-3",
           "type": "single",
-          "question": "A company simultaneously uses AWS, Google Cloud, and Azure. What strategy is this?",
-          "options": ["Hybrid cloud", "Multi-cloud", "Private cloud", "Federated cloud"],
-          "correctAnswers": [1],
-          "explanation": "Multi-cloud = using two or more cloud providers at the same time. Hybrid cloud = combining on-premises infrastructure with public cloud."
+          "question": "A company currently uses AWS for production workloads and is evaluating adding Google Cloud Platform (GCP) to run their analytics pipelines. What type of cloud strategy would this represent?",
+          "options": [
+            "Hybrid cloud, because two separate technology environments are being used",
+            "Private cloud, because the company retains control over its own analytics data",
+            "Multi-cloud, because the company would be leveraging two distinct public cloud providers",
+            "On-premises, because the analytics pipeline runs on infrastructure the company procures"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Multi-cloud means using two or more public cloud providers — in this case AWS and GCP. Hybrid cloud is specifically the combination of on-premises infrastructure with a public cloud, which is not what is described here. The company is not running on-premises infrastructure in this scenario."
         },
         {
           "id": "q1-1-4",
-          "type": "multi",
-          "question": "Which TWO statements correctly describe the AWS cloud model? (Select 2)",
-          "options": ["Customers must purchase physical servers", "Customers pay only for resources they consume", "AWS is classified only as SaaS", "Customers can scale resources on demand", "All data must be stored on-premises"],
-          "correctAnswers": [1, 3],
-          "explanation": "The AWS model is pay-as-you-go (no upfront hardware purchase), and resources can be scaled up or down on demand. AWS is primarily IaaS, not only SaaS."
+          "type": "single",
+          "question": "A company's development team wants to deploy a web application without managing the underlying operating system, patching, or runtime configuration. They want AWS to handle that layer. Which AWS service model MOST closely matches this requirement?",
+          "options": [
+            "IaaS, such as Amazon EC2, where the customer manages the OS and above",
+            "PaaS, such as AWS Elastic Beanstalk, where AWS manages the infrastructure and runtime while the developer focuses on the application",
+            "SaaS, such as Amazon Chime, where AWS delivers a fully managed end-user application",
+            "On-premises hosting with AWS Direct Connect for low-latency connectivity"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "PaaS (Platform as a Service), exemplified by AWS Elastic Beanstalk, abstracts away OS management, patching, and runtime configuration so developers can focus on deploying their application code. IaaS (like EC2) still requires the customer to manage the OS and above. SaaS delivers a finished application to end users, not a deployment platform for custom code."
         },
         {
           "id": "q1-1-5",
           "type": "single",
-          "question": "Which classification BEST describes AWS as a cloud platform?",
-          "options": ["Primarily SaaS with some IaaS", "Primarily IaaS, also offering PaaS and SaaS", "Exclusively PaaS", "On-premises software vendor"],
-          "correctAnswers": [1],
-          "explanation": "AWS is primarily IaaS (Infrastructure as a Service), but also offers PaaS (e.g., Elastic Beanstalk) and SaaS (e.g., Amazon Chime) products."
+          "question": "An enterprise team uses Amazon Chime for internal video conferencing and messaging. Under which cloud service model does Amazon Chime fall?",
+          "options": [
+            "IaaS, because it runs on AWS compute infrastructure",
+            "PaaS, because developers can extend it with custom integrations",
+            "SaaS, because it is a fully managed, ready-to-use application delivered over the internet",
+            "On-premises software, because the client application is installed on employee devices"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Amazon Chime is a SaaS (Software as a Service) offering — users consume it as a finished application without managing any underlying infrastructure, platform, or runtime. The client-side installation on a device does not change the cloud model; the service itself is fully managed by AWS."
         },
         {
           "id": "q1-1-6",
-          "type": "single",
-          "question": "Which statement about the relationship between amazon.com and AWS is TRUE?",
-          "options": ["They are the same company using the same infrastructure", "amazon.com runs exclusively on AWS", "AWS is a completely separate business unit from the amazon.com e-commerce site", "AWS was created solely to support amazon.com"],
-          "correctAnswers": [2],
-          "explanation": "AWS is owned by Amazon Inc. but operates as a completely separate business from the amazon.com retail website."
+          "type": "multi",
+          "question": "A solutions architect needs to explain the AWS shared responsibility model and service types to a new team member. Which TWO statements correctly describe the AWS cloud service portfolio? (Choose TWO)",
+          "options": [
+            "Amazon EC2 is an IaaS offering where AWS manages the physical hardware and the customer manages the operating system and above",
+            "AWS Elastic Beanstalk is a SaaS offering because it delivers a finished application to end users",
+            "AWS is primarily an IaaS provider but also offers PaaS and SaaS services",
+            "Amazon Chime is a PaaS offering because it runs on AWS-managed infrastructure",
+            "In SaaS, the customer is responsible for patching the underlying operating system"
+          ],
+          "correctAnswers": [
+            0,
+            2
+          ],
+          "explanation": "EC2 is a classic IaaS example where AWS owns the physical servers but customers manage the OS, applications, and data. AWS is predominantly IaaS but extends into PaaS (Elastic Beanstalk) and SaaS (Chime). Elastic Beanstalk is PaaS, not SaaS — it is a deployment platform, not an end-user application. Chime is SaaS. In SaaS, the cloud provider manages everything including the OS."
         },
         {
           "id": "q1-1-7",
-          "type": "multi",
-          "question": "Which TWO correctly describe differences between Multi-cloud and Hybrid cloud? (Select 2)",
-          "options": ["Multi-cloud uses 2+ public cloud providers simultaneously", "Hybrid cloud combines on-premises with public cloud", "Multi-cloud always includes private cloud", "Hybrid cloud means using 3+ public clouds", "Multi-cloud and Hybrid cloud are the same"],
-          "correctAnswers": [0, 1],
-          "explanation": "Multi-cloud = 2+ public cloud providers. Hybrid cloud = on-premises infrastructure combined with at least one public cloud. These are distinct strategies."
+          "type": "single",
+          "question": "A financial services firm runs critical workloads on AWS and is considering adding Microsoft Azure to handle disaster recovery. Their production servers remain entirely in public clouds with no on-premises infrastructure. Which term BEST describes their intended architecture?",
+          "options": [
+            "Hybrid cloud, because two different technology stacks are in use",
+            "Multi-cloud, because they are utilizing two separate public cloud providers",
+            "Private cloud, because sensitive financial data requires controlled environments",
+            "Hybrid cloud, because disaster recovery implies a secondary, non-primary environment"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Multi-cloud is defined as using two or more public cloud providers — AWS and Azure both qualify as public clouds, making this a multi-cloud strategy. Hybrid cloud requires at least one on-premises (private) component, which this firm does not have. The presence of a DR site does not change the classification."
         },
         {
           "id": "q1-1-8",
           "type": "single",
-          "question": "Before 2006, what was AWS primarily used for?",
-          "options": ["Public cloud services for all companies", "Internal web APIs to access the amazon.com catalog", "A competitor to Microsoft Azure", "A data center for Amazon employees only"],
-          "correctAnswers": [1],
-          "explanation": "Before going public in 2006, AWS was a collection of internal web APIs for accessing amazon.com's catalog — used mainly for internal processing."
+          "question": "A company is migrating from a traditional data center where they own and maintain physical servers. After migration, they plan to run all workloads on Amazon EC2. What is the MOST significant operational change they should plan for?",
+          "options": [
+            "They must now purchase EC2 Reserved Instances upfront before provisioning any servers",
+            "They will shift from capital expenditure for hardware to operational expenditure based on actual consumption",
+            "They must replicate their on-premises network topology exactly within AWS VPC",
+            "They will need to physically rack and cable their own servers inside an AWS data center"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "The fundamental shift in moving to AWS is from CapEx (purchasing physical hardware) to OpEx (paying for resources as consumed). AWS's pay-as-you-go model eliminates upfront hardware investment. Reserved Instances are an optional cost optimization, not a requirement. AWS manages all physical infrastructure — customers never touch hardware in AWS data centers."
         },
         {
           "id": "q1-1-9",
           "type": "single",
-          "question": "Which statement about AWS is INCORRECT?",
-          "options": ["AWS started as an internal Amazon department in 2004", "Amazon S3 was the first publicly released AWS service", "AWS launched publicly in 2004", "AWS serves millions of customers in 190+ countries"],
-          "correctAnswers": [2],
-          "explanation": "AWS launched publicly in 2006, NOT 2004. In 2004, AWS was still an internal department. Classic exam trap."
+          "question": "A company wants to reduce costs by avoiding idle server capacity during off-peak hours. They currently own physical servers that run at 20% utilization on weekends. Which AWS characteristic would MOST directly solve this problem?",
+          "options": [
+            "AWS global infrastructure, which distributes load across multiple regions automatically",
+            "AWS Availability Zones, which provide redundancy within a region",
+            "On-demand provisioning with pay-as-you-go pricing, allowing resources to be terminated when not needed",
+            "AWS Trusted Advisor, which recommends cost optimizations for existing resources"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "The root problem is paying for idle physical hardware. AWS's on-demand model lets you provision resources only when needed and terminate them when idle — you pay only for actual usage. AWS global infrastructure and Availability Zones address availability and fault tolerance, not idle-capacity cost. Trusted Advisor helps optimize already-running AWS resources, not the physical hardware problem."
         },
         {
           "id": "q1-1-10",
-          "type": "single",
-          "question": "An organization runs applications entirely on its own physical servers with no cloud. What is this called?",
-          "options": ["Hybrid cloud", "Private cloud", "On-premises", "Multi-cloud"],
-          "correctAnswers": [2],
-          "explanation": "On-premises = running infrastructure on your own physical servers in your own facilities, with no cloud provider involved."
+          "type": "multi",
+          "question": "A CTO is comparing cloud deployment models for a new project. The project will use AWS for compute and storage, while keeping the HR system on company-owned servers in the corporate data center due to compliance requirements. Which TWO statements correctly describe this architecture? (Choose TWO)",
+          "options": [
+            "This is a multi-cloud architecture because AWS and on-premises represent two separate environments",
+            "This is a hybrid cloud architecture because it combines a public cloud with on-premises infrastructure",
+            "Multi-cloud and hybrid cloud are the same concept and can be used interchangeably",
+            "The on-premises HR system qualifies as a private cloud component in this hybrid model",
+            "This architecture would be classified as multi-cloud only if a second public cloud provider is added"
+          ],
+          "correctAnswers": [
+            1,
+            4
+          ],
+          "explanation": "Hybrid cloud = on-premises + public cloud, which is exactly this scenario. Multi-cloud specifically requires two or more public cloud providers — adding Azure or GCP would make it multi-cloud, but on-premises infrastructure does not count as a public cloud. Multi-cloud and hybrid cloud are distinct, non-interchangeable terms."
         },
         {
           "id": "q1-1-11",
-          "type": "multi",
-          "question": "Which TWO are examples of what AWS customers can do with cloud resources? (Select 2)",
-          "options": ["Purchase physical servers", "Process machine learning algorithms", "Store and retrieve files", "Own data center buildings", "Install firmware on AWS hardware"],
-          "correctAnswers": [1, 2],
-          "explanation": "AWS customers can process ML algorithms and store/retrieve files. Purchasing hardware, owning data centers, and installing firmware are AWS's responsibilities."
+          "type": "single",
+          "question": "An organization is planning a large-scale event and expects a 10x spike in traffic for 48 hours, after which traffic returns to normal. They currently host on-premises servers sized for peak load, leaving them mostly idle the rest of the year. Which AWS benefit would provide the MOST cost-effective solution for this pattern?",
+          "options": [
+            "AWS Reserved Instances, which provide discounted rates for consistent long-term workloads",
+            "AWS Dedicated Hosts, which give the organization exclusive physical server access",
+            "On-demand resource provisioning, scaling up for the event and scaling down afterward to match actual consumption",
+            "AWS Outposts, which extends AWS infrastructure into the on-premises data center"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "On-demand provisioning is the ideal model for bursty, predictable-but-temporary workloads — spin up capacity for 48 hours, pay only for that window, then terminate. Reserved Instances optimize cost for steady, long-running workloads, not short spikes. Dedicated Hosts add cost for exclusive hardware access and are not cost-effective for temporary bursts. Outposts keeps infrastructure on-premises, which is the current problem."
         },
         {
           "id": "q1-1-12",
           "type": "single",
-          "question": "A startup wants to avoid buying physical servers and access computing resources over the Internet. Which term BEST describes what AWS provides?",
-          "options": ["On-premises computing", "Cloud services", "Dedicated hardware", "Colocation hosting"],
-          "correctAnswers": [1],
-          "explanation": "Cloud services = providing computing resources over the Internet on a pay-per-use rental basis. This is exactly what AWS does as a cloud service provider."
+          "question": "A team lead tells a junior architect: 'Since AWS is owned by Amazon, our e-commerce orders placed on amazon.com automatically integrate with our AWS workloads.' How should the architect respond?",
+          "options": [
+            "This is correct — Amazon.com retail and AWS share the same backend systems by default",
+            "This is incorrect — AWS is a separate cloud computing division from Amazon.com retail and there is no automatic integration between the two",
+            "This is partially correct — order data is shared, but payment processing remains separate",
+            "This is correct only if the team uses Amazon DynamoDB, which powers both platforms"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "AWS (Amazon Web Services) is a completely separate business unit from Amazon.com retail. AWS is a public cloud provider that any company can use — it does not have any built-in or automatic connection to Amazon's retail platform. Any integration would require explicit, custom development."
+        },
+        {
+          "id": "q1-1-13",
+          "type": "single",
+          "question": "A company wants to give its development teams the ability to provision virtual machines, storage, and networking without waiting for a physical hardware procurement process. Which cloud service model does AWS EC2, S3, and VPC collectively represent?",
+          "options": [
+            "SaaS, because these services are delivered over the internet",
+            "PaaS, because developers do not need to write infrastructure code",
+            "IaaS, because AWS provides virtualized compute, storage, and networking resources that customers control",
+            "On-premises, because VPC simulates a private network identical to a data center"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "IaaS (Infrastructure as a Service) provides virtualized fundamental computing resources — compute (EC2), storage (S3), and networking (VPC) — over the internet, with the customer responsible for the OS and everything above. SaaS delivers finished applications. PaaS abstracts the OS and runtime. VPC being network-like does not make it on-premises."
+        },
+        {
+          "id": "q1-1-14",
+          "type": "multi",
+          "question": "A solutions architect is helping a company decide between using AWS Elastic Beanstalk versus Amazon EC2 directly. Which TWO statements correctly differentiate these options? (Choose TWO)",
+          "options": [
+            "Elastic Beanstalk is a PaaS offering that handles OS patching, runtime management, and deployment, reducing operational overhead",
+            "EC2 is a SaaS offering because it delivers applications directly to end users",
+            "EC2 is an IaaS offering where the customer retains control and responsibility for the operating system and application stack",
+            "Elastic Beanstalk removes all developer control, including the ability to access the underlying EC2 instances",
+            "Both EC2 and Elastic Beanstalk are classified as IaaS because they both use virtual machines"
+          ],
+          "correctAnswers": [
+            0,
+            2
+          ],
+          "explanation": "Elastic Beanstalk is PaaS — it manages the platform layer (OS, runtime, load balancing) so developers focus on code, with LEAST operational overhead. EC2 is IaaS — developers get a bare virtual machine and are responsible for everything from the OS upward. EC2 is not SaaS. Elastic Beanstalk does allow SSH access to underlying instances. They are not both IaaS."
+        },
+        {
+          "id": "q1-1-15",
+          "type": "single",
+          "question": "A retail company experiences highly variable traffic — 10x spikes during holiday seasons and very low traffic during slow months. Their current on-premises setup requires them to maintain hardware for peak capacity year-round. Which AWS advantage would provide the HIGHEST cost savings for this pattern?",
+          "options": [
+            "AWS provides free tier resources that cover all workloads during low-traffic months",
+            "AWS allows resources to be provisioned on demand and released when no longer needed, so the company pays only for actual consumption rather than peak capacity",
+            "AWS Reserved Instances guarantee the lowest possible price for all workload types",
+            "AWS automatically right-sizes instances based on traffic patterns at no additional cost"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "The pay-as-you-go, on-demand model directly solves the over-provisioning problem — during low months, resources can be scaled down or terminated, and during peaks they scale up, matching cost to actual usage. Free tier has very limited scope. Reserved Instances are best for steady workloads, not highly variable ones. Auto-scaling is a separate feature that does not change the billing model by itself."
+        },
+        {
+          "id": "q1-1-16",
+          "type": "single",
+          "question": "A company currently runs workloads on AWS and on-premises. The CIO proposes adding Alibaba Cloud to support operations in China due to regulatory requirements. After this addition, how should the overall cloud strategy be described?",
+          "options": [
+            "Hybrid cloud only, because on-premises infrastructure is still part of the architecture",
+            "Multi-cloud only, because two public cloud providers are now in use",
+            "Both hybrid and multi-cloud, because the architecture includes on-premises infrastructure and multiple public cloud providers",
+            "Private cloud, because regulatory requirements necessitate controlled data environments"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "These two terms are not mutually exclusive. Hybrid cloud describes the on-premises + public cloud combination, while multi-cloud describes the use of AWS + Alibaba Cloud (two public providers). An architecture can be simultaneously hybrid and multi-cloud. Regulatory requirements do not automatically make something a private cloud."
+        },
+        {
+          "id": "q1-1-17",
+          "type": "single",
+          "question": "A developer is evaluating whether to use AWS Elastic Beanstalk or manage EC2 instances directly for deploying a Node.js application. The team has limited DevOps expertise and wants to minimize time spent on infrastructure management. Which choice represents the LEAST operational overhead?",
+          "options": [
+            "EC2 with a custom AMI, because it gives the team full control over every configuration detail",
+            "EC2 with AWS Systems Manager, because patching can be automated through patch baselines",
+            "AWS Elastic Beanstalk, because it handles OS patching, load balancing, and deployment automation as a PaaS offering",
+            "EC2 Spot Instances, because they provide the lowest cost and least management complexity"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Elastic Beanstalk is a PaaS that abstracts OS management, patching, load balancer configuration, and deployment pipelines — the developer only needs to upload application code. EC2-based approaches (even with Systems Manager) require significantly more operational work. Spot Instances reduce cost but do not reduce operational overhead for OS and platform management."
+        },
+        {
+          "id": "q1-1-18",
+          "type": "multi",
+          "question": "A cloud architecture team is reviewing the differences between IaaS, PaaS, and SaaS as they plan a migration. Which THREE statements are accurate descriptions of these service models as represented by AWS offerings? (Choose THREE)",
+          "options": [
+            "Amazon EC2 is IaaS — the customer manages the OS, middleware, and application; AWS manages the physical hardware",
+            "AWS Elastic Beanstalk is PaaS — AWS manages the platform and runtime, and the customer deploys application code",
+            "Amazon Chime is IaaS — customers must configure the underlying compute before using the service",
+            "In SaaS, the cloud provider manages everything including the application, runtime, OS, and hardware",
+            "In IaaS, the cloud provider is responsible for managing the customer's application code and business logic"
+          ],
+          "correctAnswers": [
+            0,
+            1,
+            3
+          ],
+          "explanation": "EC2 as IaaS and Elastic Beanstalk as PaaS are the canonical AWS examples. In SaaS (like Amazon Chime), the provider manages the full stack — users simply use the application. Amazon Chime is SaaS, not IaaS — no configuration of underlying compute is required. In IaaS, the provider only manages physical infrastructure; application code responsibility stays with the customer."
+        },
+        {
+          "id": "q1-1-19",
+          "type": "single",
+          "question": "A startup CFO is concerned about the large capital expenditure required to build out a data center. The CTO suggests migrating all infrastructure to AWS. What is the PRIMARY financial model advantage of AWS that the CTO should highlight?",
+          "options": [
+            "AWS provides permanent free infrastructure for qualifying startups, eliminating all cloud costs",
+            "AWS converts capital expenditure into operational expenditure by charging only for resources consumed, eliminating upfront hardware investment",
+            "AWS offers financing options that allow startups to purchase data center equipment at lower interest rates",
+            "AWS charges a flat monthly fee regardless of usage, making budget forecasting completely predictable"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "The shift from CapEx (large upfront hardware purchase) to OpEx (pay-per-use operational expense) is the primary financial argument for cloud adoption. AWS does not offer free infrastructure beyond the limited free tier, does not finance hardware purchases, and does not charge a flat fee — billing is based on actual consumption."
+        },
+        {
+          "id": "q1-1-20",
+          "type": "single",
+          "question": "An enterprise architect is presenting a cloud strategy where the company will use AWS for customer-facing applications and keep sensitive employee data in their own corporate data center, while also using Azure for backup and archival. Which statement MOST accurately classifies this architecture?",
+          "options": [
+            "This is purely a hybrid cloud architecture because on-premises infrastructure is involved",
+            "This is purely a multi-cloud architecture because two public clouds are used",
+            "This is both a hybrid and multi-cloud architecture: hybrid due to on-premises infrastructure plus a public cloud, and multi-cloud due to using AWS and Azure",
+            "This is a private cloud architecture because sensitive data remains on-premises"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "The architecture is simultaneously hybrid (on-premises corporate data center combined with public cloud) and multi-cloud (AWS and Azure are two separate public cloud providers). These are complementary classifications that can both apply. Calling it purely one or the other would be incomplete. On-premises storage of sensitive data does not make the overall architecture a private cloud."
         }
       ]
     },
@@ -208,98 +421,313 @@
         {
           "id": "q1-2-1",
           "type": "single",
-          "question": "What is the correct hierarchy of AWS infrastructure from SMALLEST to LARGEST?",
-          "options": ["Region → AZ → Data Center", "Data Center → AZ → Region", "AZ → Data Center → Region", "Edge Location → AZ → Region"],
-          "correctAnswers": [1],
-          "explanation": "Correct: Data Center → AZ (one or more DCs) → Region (multiple AZs). Edge Locations are separate CDN cache points."
+          "question": "A startup is deploying its first production application on AWS. The solutions architect wants to ensure the application remains available if a single data center experiences a power outage. What is the MINIMUM deployment strategy to achieve this?",
+          "options": [
+            "Deploy the application in a single Availability Zone with Auto Scaling",
+            "Deploy the application across two Availability Zones within the same Region",
+            "Deploy the application across two different AWS Regions",
+            "Deploy the application behind an Edge Location using CloudFront"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Deploying across two or more Availability Zones within the same Region provides High Availability against a single data center or AZ failure. Each AZ consists of one or more discrete data centers, so a failure in one AZ does not affect another. A single AZ (even with Auto Scaling) cannot survive an AZ-level outage, multi-Region is Disaster Recovery (beyond the minimum needed), and Edge Locations are CDN cache points — not compute deployment targets."
         },
         {
           "id": "q1-2-2",
           "type": "single",
-          "question": "How far apart are data centers within a SINGLE Availability Zone?",
-          "options": ["Within 10 km", "Within 100 km (60 miles)", "Within 500 km", "Same building"],
-          "correctAnswers": [1],
-          "explanation": "Data centers within a single AZ are within 100 km (60 miles) of each other, with independent power and networking."
+          "question": "A financial services company stores sensitive customer data on AWS. A new regulation requires that all customer data must remain within the country's borders at all times. The solutions architect is evaluating whether AWS can comply with this requirement. Which AWS infrastructure design principle directly supports this compliance need?",
+          "options": [
+            "Edge Locations cache data globally, ensuring low latency without moving source data",
+            "AWS Regions are designed so that all Availability Zones within a Region are located within the same country",
+            "AWS replicates data automatically across Regions, but only within the same continent",
+            "Availability Zones are isolated buildings, ensuring data never leaves a single facility"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "AWS deliberately keeps all Availability Zones within a Region inside the same country to help customers comply with data sovereignty and data residency laws. Data does NOT automatically replicate across Regions — that requires explicit customer action. Edge Locations are global CDN cache points that are separate from Regions and do not store source data."
         },
         {
           "id": "q1-2-3",
           "type": "single",
-          "question": "Deploying across multiple AZs within the SAME Region achieves what?",
-          "options": ["Disaster Recovery from natural disasters", "High Availability against data center failures", "Lower data transfer costs", "GDPR compliance"],
-          "correctAnswers": [1],
-          "explanation": "Multi-AZ = High Availability. For Disaster Recovery from regional events, you need multi-Region deployment."
+          "question": "A media company streams video content to users across North America and Europe. Users in Europe are experiencing high latency when accessing content stored in the us-east-1 Region. What AWS infrastructure component should the solutions architect leverage to reduce latency for European users with the LEAST operational overhead?",
+          "options": [
+            "Launch EC2 instances in a European Region and replicate content there",
+            "Create an additional Availability Zone in us-east-1 closer to Europe",
+            "Use CloudFront Edge Locations to cache and serve content closer to European users",
+            "Move all application infrastructure to a European Region"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "CloudFront Edge Locations (Points of Presence) are CDN cache points distributed globally that serve cached content to end users with low latency. This requires no changes to the origin infrastructure and involves the least operational overhead. Launching instances in a new Region or migrating the entire stack introduces significant operational complexity. Availability Zones cannot be created on demand or placed across oceans."
         },
         {
           "id": "q1-2-4",
-          "type": "single",
-          "question": "A company wants to protect against an ENTIRE AWS Region going down. What should they implement?",
-          "options": ["Deploy across 3 AZs", "Cross-region replication", "More EC2 instances", "Enable Auto Scaling"],
-          "correctAnswers": [1],
-          "explanation": "Cross-region replication protects against full region outages. Multi-AZ only protects against AZ-level failures."
+          "type": "multi",
+          "question": "A healthcare company needs its AWS architecture to survive a complete regional disaster, such as a hurricane destroying an entire AWS Region. Which TWO architectural decisions should the solutions architect implement? (Choose TWO)",
+          "options": [
+            "Deploy application servers across multiple Availability Zones within the primary Region",
+            "Replicate critical data to at least one additional AWS Region",
+            "Use CloudFront Edge Locations as failover compute environments",
+            "Deploy the application stack in a second AWS Region",
+            "Increase the number of data centers within the primary Availability Zone"
+          ],
+          "correctAnswers": [
+            1,
+            3
+          ],
+          "explanation": "Surviving a full regional disaster requires data replication to another Region and active (or standby) infrastructure in a second Region — this is the definition of Disaster Recovery. Multi-AZ deployment (option A) provides High Availability within a Region but cannot survive the entire Region failing. Edge Locations are CDN cache points, not compute environments, and cannot host application logic. The number of data centers in an AZ is managed by AWS, not the customer."
         },
         {
           "id": "q1-2-5",
-          "type": "multi",
-          "question": "Which TWO correctly describe Edge Locations? (Select 2)",
-          "options": ["Same as Availability Zones", "Cache content closer to end users", "Used by Amazon CloudFront", "Provide compute capacity like EC2", "Exist within AWS Regions"],
-          "correctAnswers": [1, 2],
-          "explanation": "Edge Locations cache content close to users (CDN) and are used by CloudFront. They are NOT AZs and do NOT provide compute like EC2."
+          "type": "single",
+          "question": "An e-commerce company's application runs in a single AWS Region. During a recent incident, one Availability Zone became unavailable, causing a 45-minute outage. The solutions architect must redesign the architecture to prevent future outages from a single AZ failure while keeping costs MOST cost-effective. What should the architect recommend?",
+          "options": [
+            "Migrate the entire workload to a larger instance type in the same AZ to reduce failure risk",
+            "Deploy the application across all Availability Zones in two different Regions with active-active configuration",
+            "Deploy the application across at least two Availability Zones within the same Region using a load balancer",
+            "Enable CloudFront in front of the application to absorb traffic during AZ failures"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Deploying across two or more AZs within the same Region is the standard, cost-effective pattern for High Availability — a load balancer distributes traffic and can route away from a failed AZ automatically. Using a larger instance in one AZ does not eliminate the AZ failure risk. A multi-Region active-active setup is far more expensive and exceeds the requirement. CloudFront caches static content but cannot replace application compute during an AZ outage."
         },
         {
           "id": "q1-2-6",
           "type": "single",
-          "question": "Why do AZs within a Region remain within the same country?",
-          "options": ["Reduce inter-AZ costs", "Comply with data sovereignty", "Share the same power grid", "Lower latency between AZs"],
-          "correctAnswers": [1],
-          "explanation": "AZs stay within the same country to comply with data sovereignty laws — data can't cross national borders without regulatory approval."
+          "question": "A solutions architect is explaining AWS infrastructure to a new team member. The team member asks why AWS places multiple data centers close together and treats them as a single Availability Zone rather than separate zones. What is the PRIMARY reason for this design?",
+          "options": [
+            "It reduces the number of IP address ranges AWS must manage globally",
+            "It allows workloads to span multiple physical facilities while still maintaining low-latency, synchronous replication between them",
+            "It ensures that a single natural disaster can never affect more than one data center",
+            "It simplifies AWS billing by grouping data centers into a single chargeable unit"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "An AZ consists of one or more discrete data centers within approximately 100 km of each other, enabling synchronous replication with sub-millisecond latency between facilities while presenting a single logical deployment target. This grouping also provides redundancy within the AZ itself. The proximity limit (100 km) actually means a large-scale disaster could affect multiple data centers in one AZ — high-availability across AZs mitigates broader failures."
         },
         {
           "id": "q1-2-7",
           "type": "single",
-          "question": "Users in Southeast Asia report slow loading of video stored in US-East-1. What AWS feature BEST reduces latency?",
-          "options": ["More EC2 in US-East-1", "Amazon CloudFront Edge Locations in Asia", "More AZs in US-East-1", "Cross-Region Replication"],
-          "correctAnswers": [1],
-          "explanation": "CloudFront uses Edge Locations to cache content near users. Caching video at an Asian Edge Location means users retrieve it locally instead of from US-East-1."
+          "question": "A company is reviewing its AWS architecture and notices that its static website assets are served directly from an S3 bucket in ap-southeast-1. Users in the United States complain about slow load times. The operations team wants a solution with LEAST operational overhead. What should the solutions architect recommend?",
+          "options": [
+            "Create a second S3 bucket in us-east-1 and manually sync assets between the two buckets",
+            "Launch EC2 web servers in us-east-1 to serve content closer to US users",
+            "Configure Amazon CloudFront with the S3 bucket as the origin to cache assets at Edge Locations near US users",
+            "Enable S3 Transfer Acceleration on the bucket to speed up downloads for US users"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "CloudFront distributes content through its global network of Edge Locations (Points of Presence), caching assets at locations near end users. This requires no server management and minimal configuration, making it the lowest operational overhead option. Manual S3 sync requires ongoing maintenance. EC2 servers add significant operational overhead. S3 Transfer Acceleration improves upload speeds, not download speeds for website visitors."
         },
         {
           "id": "q1-2-8",
           "type": "multi",
-          "question": "Which TWO are valid reasons to deploy across MULTIPLE AWS Regions? (Select 2)",
-          "options": ["Basic High Availability", "Data sovereignty for different countries", "Lower EC2 costs", "Disaster Recovery against regional outages", "Increase AZ count"],
-          "correctAnswers": [1, 3],
-          "explanation": "Multi-Region: (1) data sovereignty — keeping data within specific countries, (2) Disaster Recovery — protecting against full Region failures. Basic HA only requires multi-AZ."
+          "question": "A solutions architect is documenting the differences between AWS Availability Zones and Edge Locations for a junior engineer. Which TWO statements accurately describe the distinction between these infrastructure components? (Choose TWO)",
+          "options": [
+            "Availability Zones can host EC2 instances and RDS databases; Edge Locations cannot",
+            "Edge Locations are part of an AWS Region and appear in the Region's AZ count",
+            "Edge Locations serve as CDN cache points for services like CloudFront, not as general compute environments",
+            "Availability Zones and Edge Locations both count toward a Region's redundancy for disaster recovery",
+            "There are significantly more Edge Locations globally than there are Availability Zones"
+          ],
+          "correctAnswers": [
+            0,
+            2
+          ],
+          "explanation": "AZs are the building blocks for deploying compute, storage, and databases; EC2 and RDS run in AZs, not Edge Locations. Edge Locations (Points of Presence) are solely used for CDN caching (CloudFront) and are not general-purpose compute environments. Edge Locations are NOT part of a Region or AZ — they are a separate layer of infrastructure. There are indeed more Edge Locations than AZs globally, but that fact (option E) is trivia, while option A and C describe architectural behaviors directly relevant to design decisions."
         },
         {
           "id": "q1-2-9",
           "type": "single",
-          "question": "Which AWS service primarily uses Edge Locations?",
-          "options": ["Amazon EC2", "Amazon S3", "Amazon CloudFront", "AWS Lambda"],
-          "correctAnswers": [2],
-          "explanation": "Amazon CloudFront is AWS's CDN that uses Edge Locations worldwide to cache and deliver content with low latency."
+          "question": "A retail company operates in Canada and is subject to Canadian data residency laws. The CTO asks whether using AWS CloudFront Edge Locations will cause Canadian customer data to be stored outside Canada. How should the solutions architect respond?",
+          "options": [
+            "Yes — CloudFront Edge Locations are global and will cache customer PII outside Canada",
+            "No — Edge Locations only cache content defined by the architect; sensitive data that is not served through CloudFront stays in the origin Region",
+            "Yes — all CloudFront distributions automatically replicate origin data to all global Edge Locations",
+            "No — CloudFront Edge Locations are exclusively located within the customer's home Region"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Edge Locations cache only the content routed through CloudFront distributions. Sensitive data stored in databases or S3 buckets that is not served via CloudFront remains in the origin Region (Canada). The architect controls what content is distributed. Edge Locations are NOT confined to a home Region — they are global — but they only cache what they are instructed to serve, not all origin data."
         },
         {
           "id": "q1-2-10",
           "type": "single",
-          "question": "What is the PRIMARY benefit of AZs having independent power and networking?",
-          "options": ["Lower cost", "Fault isolation — DC failures don't cascade", "Faster compute performance", "Easier resource management"],
-          "correctAnswers": [1],
-          "explanation": "Independent power and networking ensures fault isolation — a failure in one DC/AZ doesn't cascade to others, enabling HA architectures."
+          "question": "A company's RTO (Recovery Time Objective) is 4 hours and RPO (Recovery Point Objective) is 1 hour in the event of a complete AWS Region failure. Which architectural pattern BEST meets these requirements?",
+          "options": [
+            "Deploy in a single Region across three Availability Zones with automated failover",
+            "Use CloudFront Edge Locations to serve traffic and cache data during a Region outage",
+            "Replicate data and maintain a warm standby in a second AWS Region, enabling failover within hours",
+            "Use S3 Versioning within the primary Region to recover data up to 1 hour prior"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Surviving a full Region failure requires infrastructure in a second Region. A warm standby keeps a scaled-down copy running in the secondary Region, enabling failover within the RTO of 4 hours and with data replicated within the RPO of 1 hour. Multi-AZ deployment only handles AZ failures, not Region failures. Edge Locations cannot host application compute or serve as a Region failover. S3 Versioning protects against data corruption but does not address Region-level compute failures."
         },
         {
           "id": "q1-2-11",
           "type": "single",
-          "question": "Which statement about AWS Regions is INCORRECT?",
-          "options": ["Each Region has multiple AZs", "Regions are geographically isolated", "All Regions share the same data centers", "Data can replicate across Regions for DR"],
-          "correctAnswers": [2],
-          "explanation": "Each AWS Region has its own isolated set of data centers. Regions do NOT share physical data centers — this isolation enables true cross-region DR."
+          "question": "An architect notices that a new AWS Region has only two Availability Zones, while another Region has six. A colleague suggests that having more AZs in a Region always means higher fault tolerance. Is this accurate, and what is the most important factor for fault tolerance within a Region?",
+          "options": [
+            "Correct — more AZs always means higher fault tolerance regardless of deployment configuration",
+            "Incorrect — fault tolerance requires deploying across at least two AZs; additional AZs beyond two offer incremental benefit depending on the architecture",
+            "Incorrect — fault tolerance is determined by the number of Edge Locations assigned to a Region, not the AZ count",
+            "Correct — AWS guarantees 99.99% availability only in Regions with four or more AZs"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "The foundational rule is deploying across 2+ AZs to achieve High Availability. Additional AZs can improve granularity and reduce blast radius further, but the jump from 1 AZ to 2 AZs is the critical threshold. Simply having more AZs provides no benefit if the workload is deployed in only one of them. Edge Location count has no bearing on Regional fault tolerance for compute workloads."
         },
         {
           "id": "q1-2-12",
+          "type": "multi",
+          "question": "A global logistics company wants to design an AWS architecture that achieves BOTH High Availability and Disaster Recovery for its order management system. Which THREE design decisions should the solutions architect implement? (Choose THREE)",
+          "options": [
+            "Deploy application instances across at least two Availability Zones in the primary Region",
+            "Use an Elastic Load Balancer to distribute traffic across multiple AZs in the primary Region",
+            "Store all data exclusively in a single AZ to minimize replication lag",
+            "Replicate the database to a secondary AWS Region",
+            "Deploy a standby version of the application in a secondary AWS Region"
+          ],
+          "correctAnswers": [
+            0,
+            1,
+            3
+          ],
+          "explanation": "High Availability is achieved by deploying across 2+ AZs (option A) with a load balancer routing around failed AZs (option B). Disaster Recovery requires cross-Region data replication (option D) and ideally infrastructure in the secondary Region (option E) — however the question asks for THREE choices, and the core DR requirement is replicating data (D). Storing data in a single AZ (option C) is an anti-pattern that eliminates both HA and DR. Option E is also correct DR practice but the three foundational choices are A, B, D."
+        },
+        {
+          "id": "q1-2-13",
           "type": "single",
-          "question": "A data center is BEST described as:",
-          "options": ["A virtual machine in the cloud", "A physical facility housing servers and network devices", "An AZ with multiple Regions", "A CDN cache point"],
-          "correctAnswers": [1],
-          "explanation": "A data center is a physical building housing hundreds of physical servers, network devices, and storage appliances — the foundational physical infrastructure of AWS."
+          "question": "A solutions architect is selecting an AWS Region for a new workload. The primary requirements are: (1) customer data must stay within Australia, (2) the workload needs High Availability, and (3) latency for Australian users must be minimized. Which combination of AWS infrastructure components should the architect choose?",
+          "options": [
+            "An AWS Region located in Australia, with the application deployed across multiple Availability Zones in that Region",
+            "An AWS Region in Asia Pacific with CloudFront Edge Locations in Australia to handle all data storage",
+            "Any AWS Region globally, with CloudFront Edge Locations in Australia serving all application data",
+            "Multiple AWS Regions worldwide with data replicated to ensure Australian users receive low latency"
+          ],
+          "correctAnswers": [
+            0
+          ],
+          "explanation": "An Australian AWS Region (such as ap-southeast-2 Sydney) keeps data within Australia for sovereignty compliance, and deploying across multiple AZs within that Region satisfies the High Availability requirement while minimizing latency for local users. CloudFront Edge Locations cannot store source data and do not satisfy data residency laws for application databases. Using a non-Australian Region violates the data sovereignty requirement."
+        },
+        {
+          "id": "q1-2-14",
+          "type": "single",
+          "question": "During a post-incident review, a team discovers their web application went down because the single Availability Zone they used experienced an infrastructure failure. The team wants to prevent this from happening again. A junior engineer suggests simply using a larger EC2 instance to reduce the risk of hardware failure. Why is this NOT an adequate solution?",
+          "options": [
+            "Larger instances are not available in all Availability Zones",
+            "A larger instance still resides in a single AZ and is subject to the same AZ-level failures such as power or network outages",
+            "EC2 instance size does not affect availability; only instance type families matter for redundancy",
+            "Larger instances automatically replicate across Availability Zones, which duplicates the existing problem"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "An AZ failure (power outage, cooling failure, network disruption) affects all instances in that AZ regardless of their size. A larger instance offers no protection against AZ-level failures. The correct solution is to deploy across multiple AZs. Larger instances do not replicate across AZs — that requires explicit multi-AZ deployment architecture."
+        },
+        {
+          "id": "q1-2-15",
+          "type": "single",
+          "question": "A company is conducting a business continuity planning workshop. The solutions architect draws a diagram with four levels of AWS infrastructure: individual data centers, Availability Zones, Regions, and Edge Locations. A stakeholder asks which level is used specifically for CloudFront content delivery caching. What should the architect answer?",
+          "options": [
+            "Regions — CloudFront caches content in Regional edge caches within each Region",
+            "Availability Zones — CloudFront deploys cache nodes in each AZ for redundancy",
+            "Edge Locations (Points of Presence) — these are the CDN cache points used by CloudFront, distinct from AZs and Regions",
+            "Data Centers — CloudFront runs directly within AWS data centers to minimize internal latency"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Edge Locations (also called Points of Presence or POPs) are the specific infrastructure layer used by CloudFront for CDN caching. They are distinct from Regions and Availability Zones — they are not used for deploying EC2, RDS, or other core AWS services, and they do not count as Regions or AZs. CloudFront does also have Regional edge caches, but the primary cache endpoints facing end users are Edge Locations."
+        },
+        {
+          "id": "q1-2-16",
+          "type": "multi",
+          "question": "A multinational enterprise is designing its AWS presence. The CTO wants to understand which AWS infrastructure decisions are made by AWS versus which are controlled by the customer. Which TWO statements are accurate? (Choose TWO)",
+          "options": [
+            "Customers decide which Region to deploy workloads in, but AWS controls which country each Region is located in",
+            "Customers can create new Availability Zones within an existing Region if they need more capacity",
+            "AWS determines the physical locations of data centers within an AZ; customers choose which AZs to deploy into",
+            "Customers control whether their data replicates across Regions; AWS does not automatically replicate data across Regions",
+            "Edge Location placement is determined by customers based on their end-user geography"
+          ],
+          "correctAnswers": [
+            2,
+            3
+          ],
+          "explanation": "AWS manages the physical infrastructure — including where data centers and AZs are located — while customers make deployment decisions (which AZ, which Region). Critically, AWS does NOT automatically replicate customer data across Regions; customers must explicitly configure cross-Region replication. Customers cannot create new AZs — these are AWS-managed infrastructure. Edge Location placement is determined by AWS, not customers."
+        },
+        {
+          "id": "q1-2-17",
+          "type": "single",
+          "question": "A solutions architect is comparing two failover strategies: (A) using multiple Availability Zones within one Region, and (B) replicating across two Regions. A disaster occurs where an entire AWS Region goes offline. Which statement correctly describes the outcome under each strategy?",
+          "options": [
+            "Both strategies prevent downtime; the multi-AZ strategy is simply cheaper to implement",
+            "Strategy A (multi-AZ) maintains availability because AZs are in different countries within the Region",
+            "Strategy A (multi-AZ) fails because all AZs are in the same Region; Strategy B (multi-Region) maintains availability by failing over to the second Region",
+            "Strategy B (multi-Region) is unnecessary because AWS guarantees 100% Regional uptime by contract"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Multi-AZ deployment provides High Availability against individual AZ failures but all AZs in a Region share the same Regional infrastructure. If the entire Region fails, a multi-AZ deployment in that Region also fails. Multi-Region replication (Disaster Recovery) maintains availability by allowing failover to a geographically separate Region. AWS does not guarantee 100% Regional uptime; Regions can and do experience large-scale events."
+        },
+        {
+          "id": "q1-2-18",
+          "type": "single",
+          "question": "A company wants to serve its global website with the LOWEST possible latency for all users worldwide while keeping the origin infrastructure in a single AWS Region. What is the MOST cost-effective solution?",
+          "options": [
+            "Deploy EC2 instances in every AWS Region and use Route 53 latency-based routing",
+            "Place the origin in us-east-1 and rely on users' internet connections to optimize routing naturally",
+            "Use Amazon CloudFront with Edge Locations globally to cache and deliver website content close to users",
+            "Replicate the origin S3 bucket to every AWS Region using cross-Region replication"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "CloudFront leverages hundreds of Edge Locations globally to cache content close to end users, dramatically reducing latency without the cost of maintaining infrastructure in every Region. Deploying EC2 in every Region is extremely expensive and operationally complex. Relying on the public internet provides no latency optimization. Cross-Region S3 replication does not put compute or CDN logic near users and requires managing infrastructure in every Region."
+        },
+        {
+          "id": "q1-2-19",
+          "type": "single",
+          "question": "A startup architect is told that Availability Zones within a Region are placed within 100 km of each other. A colleague argues this proximity means AZs offer no real isolation since a large earthquake could destroy all of them simultaneously. How should the architect address this concern when designing for High Availability?",
+          "options": [
+            "The colleague is correct; true HA requires deploying in Regions on different continents",
+            "Multi-AZ deployment provides High Availability against the most common failure types (hardware, power, network); for protection against large-scale regional disasters, multi-Region Disaster Recovery should be added as an additional layer",
+            "The 100 km distance is sufficient to protect against all known natural disasters, so multi-AZ alone covers every failure scenario",
+            "AZs are always 500 km apart, so the colleague's concern is based on incorrect information"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Multi-AZ addresses the vast majority of failure scenarios (hardware failure, localized power outages, network issues) and is the standard pattern for High Availability. For protection against large-scale regional disasters (earthquakes, hurricanes), multi-Region Disaster Recovery is the additional layer. AWS's model explicitly separates High Availability (multi-AZ) from Disaster Recovery (multi-Region) — both are valid and complementary strategies rather than one replacing the other."
+        },
+        {
+          "id": "q1-2-20",
+          "type": "multi",
+          "question": "A solutions architect is reviewing an architecture that currently has all resources deployed in a single Availability Zone. The team wants to improve the design for a critical application. Which TWO changes would move the architecture from a single point of failure to a Highly Available design? (Choose TWO)",
+          "options": [
+            "Add an Application Load Balancer configured to route traffic across multiple Availability Zones",
+            "Deploy application instances in at least one additional Availability Zone in the same Region",
+            "Enable CloudFront in front of the application to cache responses at Edge Locations",
+            "Move the application to a Region with more Availability Zones",
+            "Increase EC2 instance sizes to handle more traffic if one instance fails"
+          ],
+          "correctAnswers": [
+            0,
+            1
+          ],
+          "explanation": "High Availability requires both deploying resources across multiple AZs (option B) and having a mechanism to route traffic away from the failed AZ (option A — a load balancer). These two changes together implement the standard multi-AZ HA pattern. CloudFront improves latency and caches static content but does not make the origin application highly available. Simply moving to a Region with more AZs does not help unless the application is also deployed across those AZs. Larger instances do not protect against AZ-level failures."
         }
       ]
     },
@@ -354,98 +782,281 @@
         {
           "id": "q1-3-1",
           "type": "single",
-          "question": "Who patches the HOST OS of an EC2 instance?",
-          "options": ["The customer", "AWS", "Both", "Auto Scaling"],
-          "correctAnswers": [1],
-          "explanation": "AWS patches the Host OS and Hypervisor. The CUSTOMER patches the Guest OS inside their EC2."
+          "question": "A company is migrating its on-premises application to AWS and wants to understand which security tasks it will no longer be responsible for. Which responsibility shifts entirely to AWS after migration to EC2?",
+          "options": [
+            "Patching the guest operating system on EC2 instances",
+            "Managing IAM user permissions for application access",
+            "Maintaining the physical security of the data center",
+            "Configuring security groups for inbound traffic"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Physical data center security (locks, guards, surveillance) is entirely AWS's responsibility under the Shared Responsibility Model — this is 'Security OF the cloud.' Guest OS patching, IAM management, and security group configuration all remain the customer's responsibility when using EC2 (IaaS)."
         },
         {
           "id": "q1-3-2",
           "type": "single",
-          "question": "Who configures Security Groups on an EC2 instance?",
-          "options": ["AWS", "The customer", "AWS Support", "VPC automatically"],
-          "correctAnswers": [1],
-          "explanation": "Security Groups are a virtual firewall the CUSTOMER configures — 'security IN the cloud'."
+          "question": "A startup stores sensitive customer records in Amazon S3. A security audit finds that objects are publicly accessible. According to the AWS Shared Responsibility Model, who is responsible for fixing this misconfiguration?",
+          "options": [
+            "AWS, because S3 is a managed service and AWS controls its configuration",
+            "The customer, because bucket policies and access controls are customer-managed",
+            "AWS, because data encryption at rest is an AWS-managed control",
+            "Both AWS and the customer share equal responsibility for S3 bucket policies"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Even though S3 is a managed (abstracted) service where AWS handles the underlying infrastructure, bucket policies, ACLs, and Block Public Access settings are customer-configured. Misconfiguring access controls is a customer responsibility — 'Security IN the cloud.' AWS provides the tools; the customer must use them correctly."
         },
         {
           "id": "q1-3-3",
           "type": "single",
-          "question": "Which phrase is AWS's responsibility in the Shared Responsibility Model?",
-          "options": ["Security in the cloud", "Security of the cloud", "Security around the cloud", "Security for the cloud"],
-          "correctAnswers": [1],
-          "explanation": "'Security OF the cloud' = AWS protects physical infrastructure. 'Security IN the cloud' = customer protects data and configs. OF vs IN is the key."
+          "question": "An enterprise runs a fleet of EC2 instances and also uses DynamoDB for session storage. Compared to DynamoDB, which additional security responsibility does the customer take on specifically because of using EC2?",
+          "options": [
+            "Encrypting data at rest within the storage service",
+            "Patching and maintaining the guest operating system",
+            "Ensuring the physical host hardware is not compromised",
+            "Managing the underlying hypervisor security patches"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "EC2 is IaaS, so the customer is responsible for the guest OS — including patches and configuration. With DynamoDB (a fully managed service), AWS handles the OS, patching, and infrastructure layers. Physical hardware and hypervisor security are always AWS's responsibility regardless of service type."
         },
         {
           "id": "q1-3-4",
           "type": "multi",
-          "question": "Which TWO are the CUSTOMER's responsibility with Amazon EC2? (Select 2)",
-          "options": ["Patching Host OS", "Configuring Security Groups", "Maintaining the hypervisor", "Patching Guest OS", "Physical DC security"],
-          "correctAnswers": [1, 3],
-          "explanation": "Customer is responsible for: Security Groups (firewall config) and Guest OS patching. Host OS, hypervisor, and physical security = AWS."
+          "question": "A financial services company is performing a compliance review of its AWS environment. The auditor asks which controls are the customer's sole responsibility when running applications on EC2. Which TWO items are customer-specific controls? (Choose TWO)",
+          "options": [
+            "Hypervisor patch management",
+            "IAM policies governing developer access",
+            "Physical host decommissioning procedures",
+            "Security group rules for the EC2 instances",
+            "Data center environmental controls (power, cooling)"
+          ],
+          "correctAnswers": [
+            1,
+            3
+          ],
+          "explanation": "IAM policies and security group rules are customer-specific controls — AWS provides these tools but the customer defines and manages them. Hypervisor patching, physical decommissioning, and data center environmental controls (power, cooling) are all inherited controls fully managed by AWS."
         },
         {
           "id": "q1-3-5",
           "type": "single",
-          "question": "A company uses Amazon S3. Who manages the underlying storage hardware?",
-          "options": ["The customer", "AWS", "Both", "Third-party vendor"],
-          "correctAnswers": [1],
-          "explanation": "S3 is abstracted — AWS manages ALL underlying hardware, OS, and software. Customer only configures access policies and encryption."
+          "question": "A solutions architect is documenting controls for a SOC 2 audit. The auditor classifies some AWS controls as 'inherited.' Which control best fits the 'inherited from AWS' category?",
+          "options": [
+            "Enabling MFA on IAM user accounts",
+            "Encrypting S3 objects using SSE-S3",
+            "Physical access controls to AWS data centers",
+            "Defining VPC network ACL rules"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Inherited controls are those fully managed by AWS that customers can rely on without any action — physical access controls to data centers are a prime example. MFA enrollment, S3 encryption configuration, and VPC ACL rules all require customer action and are therefore customer-specific or shared controls."
         },
         {
           "id": "q1-3-6",
           "type": "single",
-          "question": "Patch management is which type of IT control?",
-          "options": ["Inherited", "Customer-specific", "Shared", "AWS-exclusive"],
-          "correctAnswers": [2],
-          "explanation": "Patch management is SHARED: AWS patches Host OS, customer patches Guest OS and applications."
+          "question": "A company wants to use Amazon RDS instead of managing a self-hosted MySQL database on EC2. Which responsibility does the company give up by switching from MySQL on EC2 to Amazon RDS?",
+          "options": [
+            "Defining which IAM roles can access the database",
+            "Managing database user accounts and passwords",
+            "Patching the underlying database engine software",
+            "Enabling encryption for data in transit to the database"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "With RDS (a managed service), AWS takes on database engine patching, which was the customer's job when running MySQL on EC2. IAM role definitions, database user management, and enabling in-transit encryption are still customer responsibilities regardless of whether RDS or self-managed MySQL is used."
         },
         {
           "id": "q1-3-7",
-          "type": "single",
-          "question": "Who manages IAM users and access keys?",
-          "options": ["AWS", "The customer", "Amazon Cognito", "AWS IAM team"],
-          "correctAnswers": [1],
-          "explanation": "IAM is entirely the customer's responsibility — users, roles, policies, and access keys are all 'security IN the cloud'."
+          "type": "multi",
+          "question": "A healthcare company is mapping AWS Shared Responsibility controls ahead of a HIPAA audit. Which TWO of the following are examples of SHARED controls — responsibilities that apply to both AWS and the customer, each in their own context? (Choose TWO)",
+          "options": [
+            "Patch management (AWS patches infrastructure; customer patches guest OS)",
+            "Physical perimeter security of AWS data centers",
+            "Configuration management (AWS configures its infrastructure; customer configures their resources)",
+            "Customer data classification and labeling",
+            "Hypervisor vulnerability remediation"
+          ],
+          "correctAnswers": [
+            0,
+            2
+          ],
+          "explanation": "Patch management and configuration management are classic shared controls — AWS and the customer each apply them to their respective layers. Physical perimeter security and hypervisor remediation are inherited (AWS-only) controls. Data classification and labeling is a customer-specific control."
         },
         {
           "id": "q1-3-8",
           "type": "single",
-          "question": "Who is responsible for the physical security of AWS data centers?",
-          "options": ["The customer", "AWS", "Both", "Local government"],
-          "correctAnswers": [1],
-          "explanation": "Physical DC security = purely AWS's responsibility (security OF the cloud). Customers inherit this control."
+          "question": "An architect is explaining to a new team member why using DynamoDB reduces their security workload compared to running a NoSQL engine on EC2. Which statement MOST accurately describes the difference in customer responsibility?",
+          "options": [
+            "DynamoDB eliminates all customer security responsibilities because AWS manages the entire service",
+            "With DynamoDB, the customer no longer manages the OS, storage, or network infrastructure layers",
+            "With DynamoDB, the customer is still responsible for patching the underlying host servers",
+            "EC2 and DynamoDB have identical customer security responsibilities because both run on AWS infrastructure"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "DynamoDB is a fully abstracted managed service — AWS handles the OS, storage, and network layers, significantly reducing customer responsibility. However, customers still control IAM access, data encryption settings, and VPC endpoint configurations. Option A is incorrect because customers always retain some responsibilities (e.g., IAM, data)."
         },
         {
           "id": "q1-3-9",
-          "type": "multi",
-          "question": "Which TWO are INHERITED controls customers get from AWS? (Select 2)",
-          "options": ["IAM user management", "Physical DC security", "Guest OS patching", "Environmental controls of DCs", "Security Group config"],
-          "correctAnswers": [1, 3],
-          "explanation": "Inherited controls: physical security (guards, cameras) and environmental controls (fire suppression, cooling, power). Customers inherit these without any action."
+          "type": "single",
+          "question": "During a security incident, it is discovered that an EC2 instance was compromised through an unpatched vulnerability in the instance's operating system. Under the AWS Shared Responsibility Model, which party failed in their duty?",
+          "options": [
+            "AWS, because they are responsible for securing all compute infrastructure",
+            "The customer, because guest OS patching on EC2 is a customer responsibility",
+            "AWS, because hypervisor vulnerabilities allowed the OS to be compromised",
+            "Both parties equally, because EC2 is a jointly managed service"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "The guest OS on EC2 is entirely the customer's responsibility to patch and maintain. AWS is responsible for the hypervisor and underlying hardware, not the OS running on top. Since the vulnerability was in the instance OS — not the hypervisor — the customer bears responsibility for this failure."
         },
         {
           "id": "q1-3-10",
           "type": "single",
-          "question": "Who is responsible for the server running AWS Lambda functions?",
-          "options": ["The customer (wrote the code)", "AWS (abstracted service)", "Both equally", "Customer's DevOps team"],
-          "correctAnswers": [1],
-          "explanation": "Lambda is abstracted — AWS manages ALL underlying servers, OS, and runtime. Customer is only responsible for their function code."
+          "question": "A company uses AWS Lambda for its backend API. A security engineer asks who is responsible for patching the runtime environment (e.g., Node.js runtime). What is the correct answer according to the Shared Responsibility Model?",
+          "options": [
+            "The customer, because they choose and configure the Lambda runtime",
+            "AWS, because Lambda is a managed service and AWS maintains the execution environment",
+            "The customer, because runtime selection is a customer-specific control",
+            "Both AWS and the customer share equal responsibility for Lambda runtime patches"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Lambda is a serverless, fully managed service where AWS owns the execution environment including runtime patching and OS maintenance. This is analogous to DynamoDB — the more abstracted the service, the more infrastructure layers AWS manages. The customer is responsible for function code security and IAM permissions."
         },
         {
           "id": "q1-3-11",
-          "type": "single",
-          "question": "Which correctly describes Security IN the Cloud?",
-          "options": ["AWS maintaining physical servers", "AWS updating hypervisor firmware", "Customer encrypting data in S3", "AWS patching EC2 host OS"],
-          "correctAnswers": [2],
-          "explanation": "'Security IN the cloud' = customer protecting their own data. Encrypting S3 data is a customer action. Other options are AWS responsibilities."
+          "type": "multi",
+          "question": "A compliance officer needs to identify which security controls are the CUSTOMER'S responsibility when deploying an application on Amazon EC2. Which THREE of the following are customer responsibilities? (Choose THREE)",
+          "options": [
+            "Configuring inbound and outbound security group rules",
+            "Patching the physical host server firmware",
+            "Managing encryption of data stored on EBS volumes",
+            "Ensuring the AWS global network backbone is secure",
+            "Creating and enforcing IAM policies for application access"
+          ],
+          "correctAnswers": [
+            0,
+            2,
+            4
+          ],
+          "explanation": "Security group configuration, EBS encryption management, and IAM policy enforcement are all customer responsibilities on EC2 (IaaS). Physical host firmware and the global network backbone are AWS's infrastructure responsibilities — these are inherited controls the customer does not manage."
         },
         {
           "id": "q1-3-12",
+          "type": "single",
+          "question": "A solutions architect is advising a team choosing between hosting a PostgreSQL database on EC2 versus using Amazon Aurora. From a Shared Responsibility perspective, which statement correctly describes the impact of choosing Aurora?",
+          "options": [
+            "Aurora removes all security responsibilities from the customer since it is fully managed",
+            "Aurora shifts OS patching and database engine maintenance to AWS, reducing customer operational burden",
+            "Aurora increases customer responsibility because managed services require more security configuration",
+            "There is no difference in security responsibility between EC2-hosted PostgreSQL and Aurora"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Aurora (managed service) shifts OS and database engine patching to AWS, reducing operational overhead for the customer. However, customers retain responsibility for IAM, network security, and data encryption configuration. Option A is wrong because customers always have 'Security IN the cloud' responsibilities."
+        },
+        {
+          "id": "q1-3-13",
+          "type": "single",
+          "question": "An organization's AWS environment undergoes a physical security audit. The auditor wants to visit the AWS data center to inspect physical controls. What should the AWS account manager tell them?",
+          "options": [
+            "Customers can schedule data center visits after signing an NDA",
+            "Physical data center security is AWS's responsibility; AWS provides audit reports such as SOC 2 instead",
+            "Physical security inspection rights are included in the AWS Business Support plan",
+            "Customers share responsibility for physical security and can request partial access"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Physical data center security is 100% AWS's responsibility — an inherited control. Customers cannot visit or inspect AWS facilities, but AWS provides third-party audit reports (SOC 1/2/3, ISO 27001, etc.) as evidence of physical controls. This is a fundamental aspect of the Shared Responsibility Model."
+        },
+        {
+          "id": "q1-3-14",
+          "type": "single",
+          "question": "A team migrates from on-premises servers to EC2. The security team is worried about zone-level security — specifically about workload isolation between their EC2 instances and other customers' instances on the same physical host. Which party is responsible for this isolation?",
+          "options": [
+            "The customer, by configuring dedicated host placement groups",
+            "The customer, by enabling EC2 instance metadata service restrictions",
+            "AWS, through hypervisor-enforced isolation between tenants",
+            "Both AWS and the customer share responsibility for multi-tenant isolation"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Hypervisor-level tenant isolation — preventing one customer's EC2 instance from accessing another's memory or storage on the same physical host — is AWS's responsibility. This is 'Security OF the cloud.' Dedicated Hosts are a customer option for compliance, but baseline multi-tenant isolation is always enforced by AWS."
+        },
+        {
+          "id": "q1-3-15",
+          "type": "single",
+          "question": "A developer argues that because AWS manages the S3 infrastructure, the team does not need to worry about enabling server-side encryption for their S3 buckets storing PII. How should a solutions architect respond?",
+          "options": [
+            "The developer is correct — AWS encrypts all S3 data by default and the customer has no further obligation",
+            "The developer is incorrect — choosing and configuring encryption for customer data in S3 is a customer responsibility",
+            "The developer is correct — S3 is a fully managed service so all data protection is AWS's responsibility",
+            "The developer is partially correct — AWS encrypts data in transit but the customer must handle encryption at rest"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Data encryption — deciding whether and how to encrypt customer data — is a customer responsibility regardless of service abstraction level. While AWS may offer default encryption (SSE-S3), the customer is responsible for ensuring appropriate encryption is configured for sensitive data. This falls under 'Security IN the cloud.'"
+        },
+        {
+          "id": "q1-3-16",
           "type": "multi",
-          "question": "Which TWO are SHARED controls between AWS and customer? (Select 2)",
-          "options": ["Physical DC security", "Configuration management", "Patch management", "Zone security routing", "IAM key rotation"],
-          "correctAnswers": [1, 2],
-          "explanation": "Shared controls: Config management (AWS manages infra; customer manages apps) and Patch management (AWS patches Host OS; customer patches Guest OS)."
+          "question": "An enterprise architect is building a responsibility matrix for a new AWS deployment. They need to classify several controls. Which TWO controls should be classified as INHERITED (fully owned by AWS)? (Choose TWO)",
+          "options": [
+            "Network ACL configuration for the customer's VPC",
+            "Decommissioning and disposal of physical storage media",
+            "Availability Zone power and cooling infrastructure",
+            "S3 bucket versioning configuration",
+            "EC2 instance security group egress rules"
+          ],
+          "correctAnswers": [
+            1,
+            2
+          ],
+          "explanation": "Physical storage media disposal and AZ power/cooling infrastructure are inherited controls — the customer has zero involvement or visibility into these AWS-managed physical operations. VPC network ACLs, S3 versioning, and EC2 security group rules are all customer-configured controls."
+        },
+        {
+          "id": "q1-3-17",
+          "type": "single",
+          "question": "A security-conscious company wants to ensure their EC2 workloads are isolated at the hardware level from other AWS customers for regulatory compliance. They ask whose responsibility it is to guarantee this isolation is in place. What is the correct answer?",
+          "options": [
+            "The customer must configure VPC isolation to achieve hardware-level separation",
+            "AWS guarantees hypervisor-based isolation for all EC2 instances by default; the customer can optionally use Dedicated Hosts for additional compliance evidence",
+            "The customer must purchase Dedicated Instances to enable any form of hardware isolation",
+            "Hardware isolation is a shared responsibility requiring both VPC configuration and AWS hypervisor controls"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "AWS's hypervisor provides baseline hardware-level isolation for all EC2 instances by default — this is an inherited control. Dedicated Hosts/Instances are a customer-purchased option for specific compliance requirements (e.g., licensing or regulations requiring single-tenant hardware), but they are not required to achieve isolation, which AWS already enforces."
+        },
+        {
+          "id": "q1-3-18",
+          "type": "single",
+          "question": "A company runs a web application using EC2, RDS, and S3. A new team member asks: 'Since AWS is a cloud provider, do we still need to manage our own firewall rules?' Which answer BEST reflects the Shared Responsibility Model?",
+          "options": [
+            "No — AWS manages all network security controls including security groups and NACLs",
+            "Yes — configuring security groups and NACLs to control traffic is the customer's responsibility",
+            "Only for EC2; RDS and S3 firewall rules are fully managed by AWS",
+            "Only for inbound rules; AWS automatically manages all outbound traffic controls"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Security groups and NACLs are customer-managed controls regardless of which AWS service is being protected. Configuring these is 'Security IN the cloud' — a customer responsibility. AWS provides the firewall mechanism (security groups, NACLs) but does not configure the rules; that is always the customer's job."
         }
       ]
     },
@@ -502,82 +1113,281 @@
         {
           "id": "q1-4-1",
           "type": "single",
-          "question": "What is the PRIMARY purpose of the AWS Well-Architected Framework?",
-          "options": ["Automatic cost discounts", "Key concepts, design principles, and best practices for AWS workloads", "Automate infrastructure deployment", "Certify AWS partners"],
-          "correctAnswers": [1],
-          "explanation": "WAF provides key concepts, design principles, and architectural best practices to design and run efficient workloads in AWS."
+          "question": "A solutions architect is reviewing a company's AWS environment and notices that the team has been skipping automated backups on a test database to reduce storage costs. According to the AWS Well-Architected Framework, which statement BEST describes this trade-off?",
+          "options": [
+            "This is an acceptable trade-off because the WAF encourages cost optimization at all times",
+            "This is acceptable in a test/dev environment where reduced reliability can be traded for cost savings",
+            "This is never acceptable because the Reliability pillar always takes precedence over Cost Optimization",
+            "This is only acceptable if approved by the security team, as backups fall under the Security pillar"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "The WAF explicitly allows trading reliability for cost savings in test/dev environments because data loss is acceptable there. However, this trade-off would not be appropriate in production. Reliability does not always take absolute precedence — context-based trade-offs are a core WAF concept."
         },
         {
           "id": "q1-4-2",
           "type": "single",
-          "question": "How many pillars does the AWS Well-Architected Framework have?",
-          "options": ["4", "5", "6", "8"],
-          "correctAnswers": [2],
-          "explanation": "WAF has exactly 6 pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and Sustainability."
+          "question": "A company wants to evaluate its current AWS workload against industry best practices to identify architectural weaknesses before launching to production. Which AWS tool directly supports the Well-Architected Framework's evaluation process by surfacing weaknesses and providing remediation guidance?",
+          "options": [
+            "AWS Trusted Advisor",
+            "AWS Config",
+            "AWS Well-Architected Tool",
+            "AWS Systems Manager"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "The AWS Well-Architected Tool implements the WAF review process — it asks evaluation questions, surfaces weaknesses across the six pillars, and provides specific remediation guidance. Trusted Advisor checks for best practices but is not the WAF review mechanism. AWS Config tracks resource configuration compliance but does not conduct architectural reviews."
         },
         {
           "id": "q1-4-3",
           "type": "single",
-          "question": "A NON-PRODUCTION test environment has no SLA. Which trade-off is acceptable?",
-          "options": ["Trade security for lower cost", "Trade reliability for lower cost", "Trade performance for better security", "Never trade anything"],
-          "correctAnswers": [1],
-          "explanation": "For non-production without SLAs, trading reliability for cost is acceptable — you'd waste money running redundant resources for a test app. Security should never be traded."
+          "question": "An architect is designing a system where a single API gateway routes requests to many backend microservices. After launch, the team finds that latency spikes in one microservice cause cascading failures across the entire platform. According to the Well-Architected Framework, this coupling design is BEST described as:",
+          "options": [
+            "A design pattern, because using a single gateway simplifies operations",
+            "An anti-pattern, because it consistently produces poor results like cascading failures",
+            "An acceptable trade-off under the Performance Efficiency pillar",
+            "A best practice under the Operational Excellence pillar for centralized control"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "An anti-pattern is an approach that produces consistently poor results. Tight coupling where one service's failure cascades to others is a well-known anti-pattern in distributed systems. Design patterns are proven blueprints that work reliably; this tight coupling approach does the opposite."
         },
         {
           "id": "q1-4-4",
-          "type": "single",
-          "question": "Which WAF pillar should NEVER be traded off?",
-          "options": ["Cost Optimization", "Performance Efficiency", "Security", "Sustainability"],
-          "correctAnswers": [2],
-          "explanation": "Security should never be traded off — consequences of failures (breaches, fines, reputation) are too severe."
+          "type": "multi",
+          "question": "A fintech company is conducting a Well-Architected Review of its payment processing system. The review surfaces concerns about user data encryption and unauthorized API access. Which TWO pillars of the Well-Architected Framework are MOST directly relevant to these concerns? (Choose TWO)",
+          "options": [
+            "Operational Excellence",
+            "Security",
+            "Reliability",
+            "Performance Efficiency",
+            "Cost Optimization"
+          ],
+          "correctAnswers": [
+            1,
+            2
+          ],
+          "explanation": "Security directly addresses encryption of data at rest/in transit and controlling access to APIs. Reliability is also relevant because unauthorized access or compromised encryption can disrupt the system's ability to function correctly. Operational Excellence, Performance Efficiency, and Cost Optimization do not directly address encryption or access control concerns."
         },
         {
           "id": "q1-4-5",
-          "type": "multi",
-          "question": "Which TWO describe a 'design pattern' in WAF context? (Select 2)",
-          "options": ["Consistently produces subpar results", "Proven blueprint by thousands of companies", "AWS discourages it", "A tested solution for a specific use case", "Always increases cost"],
-          "correctAnswers": [1, 3],
-          "explanation": "Design pattern = proven blueprint for a specific use case that thousands of companies use effectively. The opposite (poor results) is an anti-pattern."
+          "type": "single",
+          "question": "A startup's production e-commerce application is experiencing high costs. An engineer proposes disabling Multi-AZ on the production RDS instance and removing CloudWatch alarms to cut the AWS bill. According to Well-Architected Framework trade-off principles, what is the MOST appropriate response?",
+          "options": [
+            "Accept the trade-off since Cost Optimization is one of the six pillars and must be balanced",
+            "Accept the trade-off only for CloudWatch alarms, but keep Multi-AZ enabled",
+            "Reject the trade-off because reducing reliability in a production workload is not an acceptable WAF trade-off",
+            "Accept both changes temporarily and revisit during the next WAF review cycle"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "The WAF explicitly states that reducing reliability for cost savings is acceptable in test/dev but NOT in production environments. Disabling Multi-AZ on a production database directly reduces reliability in a production context, which violates WAF guidance. Trade-offs must respect the production boundary."
         },
         {
           "id": "q1-4-6",
           "type": "single",
-          "question": "An app has RTO of 1 hour and RPO of 15 minutes. Which WAF pillar is MOST relevant?",
-          "options": ["Cost Optimization", "Sustainability", "Performance Efficiency", "Reliability"],
-          "correctAnswers": [3],
-          "explanation": "RTO and RPO are Reliability concepts — they define recovery speed and data loss tolerance after failures."
+          "question": "A team is building an architecture where every component is tightly coupled and deployed as a single monolithic application. Deployments are manual and error-prone, requiring hours of downtime. According to the Well-Architected Framework's Operational Excellence pillar, this approach is BEST categorized as:",
+          "options": [
+            "A design pattern because it centralizes all operations",
+            "A proven blueprint appropriate for small workloads",
+            "An anti-pattern because it consistently produces poor operational outcomes",
+            "An acceptable starting point that can be optimized later under Cost Optimization"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Manual, error-prone deployments with frequent downtime are a textbook anti-pattern — an approach that consistently produces poor results. The WAF Operational Excellence pillar emphasizes automation and minimizing manual processes. Anti-patterns are not acceptable starting points to be fixed later; the WAF guides you away from them proactively."
         },
         {
           "id": "q1-4-7",
-          "type": "single",
-          "question": "Which statement about WAF is INCORRECT?",
-          "options": ["WAF is a guide, not strict requirement", "WAF identifies architectural weaknesses", "WAF requires every recommendation before deploying", "WAF includes security, reliability, and cost best practices"],
-          "correctAnswers": [2],
-          "explanation": "WAF is a GUIDE, not a strict requirement. Companies don't need to implement everything — especially for prototypes."
+          "type": "multi",
+          "question": "A solutions architect is presenting the value of the AWS Well-Architected Framework to a leadership team. Which TWO statements MOST accurately describe what the WAF provides? (Choose TWO)",
+          "options": [
+            "A set of mandatory compliance controls that AWS enforces on all accounts",
+            "A body of best practices derived from millions of AWS workloads used to design efficient cloud architectures",
+            "An automated tool that fixes architectural issues without human intervention",
+            "An evaluation process using questions that surfaces weaknesses and provides specific remediation guidance",
+            "A pricing calculator that estimates the cost of running workloads on AWS"
+          ],
+          "correctAnswers": [
+            1,
+            3
+          ],
+          "explanation": "The WAF is a body of best practices from millions of workloads (not mandatory compliance controls) and works through evaluation questions that surface weaknesses and provide remediation guidance. It does not automatically fix issues, and it is not a pricing tool. AWS does not enforce WAF compliance on accounts."
         },
         {
           "id": "q1-4-8",
           "type": "single",
-          "question": "What is an 'anti-pattern' in WAF context?",
-          "options": ["A proven best practice", "A common approach that consistently produces poor results", "A deprecated AWS service", "A security vulnerability"],
-          "correctAnswers": [1],
-          "explanation": "Anti-pattern = the OPPOSITE of a design pattern — a commonly used approach that produces ineffective or suboptimal results."
+          "question": "A company's architect is deciding whether to deploy resources in a single Availability Zone to reduce costs, or across multiple AZs to improve fault tolerance. According to the Well-Architected Framework, which pillar is MOST directly concerned with this architectural decision?",
+          "options": [
+            "Security",
+            "Operational Excellence",
+            "Reliability",
+            "Sustainability"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Reliability focuses on a system's ability to perform its intended function correctly and consistently, including fault tolerance and recovery from failures. Multi-AZ deployments are a core Reliability pattern. Security concerns data protection and access control, not availability zone distribution."
         },
         {
           "id": "q1-4-9",
-          "type": "multi",
-          "question": "Which TWO does WAF help architects IDENTIFY? (Select 2)",
-          "options": ["AWS service pricing", "Architectural weaknesses via evaluation questions", "Trade-offs between design approaches", "Which regions to avoid", "AWS employee schedules"],
-          "correctAnswers": [1, 2],
-          "explanation": "WAF helps identify: architectural weaknesses (via questions like 'How do you protect data at rest?') and valid trade-offs (e.g., reliability vs cost in test environments)."
+          "type": "single",
+          "question": "An organization runs a large-scale data analytics workload that processes petabytes of data nightly. The team wants to reduce the carbon footprint of this workload while maintaining performance. According to the Well-Architected Framework, which pillar MOST directly addresses this goal?",
+          "options": [
+            "Cost Optimization",
+            "Performance Efficiency",
+            "Sustainability",
+            "Operational Excellence"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "The Sustainability pillar focuses on minimizing the environmental impact of running cloud workloads, including reducing carbon footprint and energy consumption. Cost Optimization focuses on financial efficiency and Performance Efficiency on using resources effectively for performance, neither of which specifically targets environmental impact."
         },
         {
           "id": "q1-4-10",
           "type": "single",
-          "question": "Which scenario is ACCEPTABLE per WAF trade-off principles?",
-          "options": ["Remove all security from production to reduce cost", "Skip redundant resources in test environment to save money", "Trade compliance in production for performance", "Skip encryption in production DBs for speed"],
-          "correctAnswers": [1],
-          "explanation": "Not running redundant resources in a TEST environment is acceptable — test environments have no SLAs requiring HA. All other options involve unacceptable production or security trade-offs."
+          "question": "A team consistently uses the same architectural approach for handling unpredictable traffic: auto-scaling groups behind a load balancer with pre-warmed caches. This approach has a proven track record of reliably handling traffic spikes across many workloads. In WAF terminology, this is BEST described as:",
+          "options": [
+            "An anti-pattern, because it relies on multiple services instead of a simpler design",
+            "A design pattern, because it is a proven blueprint that reliably solves a recurring problem",
+            "A trade-off, because adding auto-scaling increases operational complexity",
+            "A WAF pillar, representing the Performance Efficiency best practice"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "A design pattern is a proven blueprint for solving a recurring problem reliably. Auto-scaling with load balancers and caches is a well-established pattern for handling variable traffic. An anti-pattern produces consistently poor results — the opposite of what is described here. Trade-offs involve accepting a downside, which is not the focus of this scenario."
+        },
+        {
+          "id": "q1-4-11",
+          "type": "multi",
+          "question": "A Well-Architected Review of a healthcare company's workload reveals two issues: (1) patient records are not encrypted at rest, and (2) the team has no runbooks for incident response. Which TWO WAF pillars are being violated? (Choose TWO)",
+          "options": [
+            "Cost Optimization",
+            "Security",
+            "Sustainability",
+            "Operational Excellence",
+            "Performance Efficiency"
+          ],
+          "correctAnswers": [
+            1,
+            3
+          ],
+          "explanation": "Encryption of patient data at rest is a Security pillar concern (protecting data confidentiality). Lacking runbooks for incident response violates Operational Excellence, which emphasizes having documented, repeatable operational procedures. Cost Optimization, Sustainability, and Performance Efficiency do not address encryption or incident response documentation."
+        },
+        {
+          "id": "q1-4-12",
+          "type": "single",
+          "question": "A company is running idle EC2 instances 24/7 for a batch job that only runs on weekends. The architecture was copied from an old on-premises pattern without modification. According to the Well-Architected Framework, which pillar's best practices are MOST clearly being ignored?",
+          "options": [
+            "Reliability",
+            "Security",
+            "Operational Excellence",
+            "Cost Optimization"
+          ],
+          "correctAnswers": [
+            3
+          ],
+          "explanation": "Paying for compute resources that sit idle most of the time directly violates Cost Optimization principles, which encourage matching resource provisioning to actual demand (e.g., using scheduled scaling or on-demand instances for batch jobs). Reliability, Security, and Operational Excellence are not the primary concerns when resources are over-provisioned and wasteful."
+        },
+        {
+          "id": "q1-4-13",
+          "type": "single",
+          "question": "During a WAF review, an architect discovers that the production workload has no automated monitoring, no alerts, and operators must manually SSH into servers to diagnose problems. The reviewer flags this as a significant weakness. Which WAF pillar MOST directly identifies this as a problem area?",
+          "options": [
+            "Performance Efficiency",
+            "Reliability",
+            "Operational Excellence",
+            "Cost Optimization"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Operational Excellence focuses on running and monitoring systems to deliver business value, including automated monitoring, alerting, and operational procedures. Manual diagnosis without observability tooling is an anti-pattern under Operational Excellence. Reliability overlaps somewhat, but the lack of automated operations processes is primarily an Operational Excellence concern."
+        },
+        {
+          "id": "q1-4-14",
+          "type": "single",
+          "question": "A company's CTO asks why the development team should use the Well-Architected Framework given that they already have experienced architects. What is the MOST accurate description of the WAF's primary value?",
+          "options": [
+            "It replaces the need for experienced architects by automating all design decisions",
+            "It provides a body of best practices from millions of AWS workloads, guiding architects to design efficient cloud architectures and avoid known pitfalls",
+            "It is a billing tool that helps reduce AWS costs by recommending Reserved Instances",
+            "It is a compliance framework required by AWS for enterprise customers"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "The WAF's core value is that it distills best practices from millions of real AWS workloads, giving architects a structured guide to avoid anti-patterns and design efficient architectures — even experienced architects benefit from this collective knowledge. It does not replace architects, is not a billing tool, and is not a mandatory compliance framework."
+        },
+        {
+          "id": "q1-4-15",
+          "type": "multi",
+          "question": "A solutions architect is designing a new workload and wants to apply Well-Architected best practices from the start. Which THREE of the following actions are consistent with WAF guidance? (Choose THREE)",
+          "options": [
+            "Using proven architectural design patterns as blueprints rather than inventing novel approaches for common problems",
+            "Reducing security controls in production to optimize costs when under budget pressure",
+            "Conducting evaluation-question-based reviews to surface weaknesses before going to production",
+            "Accepting lower reliability for non-critical test and development environments to reduce costs",
+            "Copying an existing on-premises architecture to AWS without modification to save design time"
+          ],
+          "correctAnswers": [
+            0,
+            2,
+            3
+          ],
+          "explanation": "Using proven design patterns, conducting WAF evaluation reviews to find weaknesses, and accepting reduced reliability in test/dev for cost savings are all aligned with WAF guidance. Reducing security controls in production is explicitly prohibited by the WAF (security trade-offs in production are never acceptable). Lifting and shifting on-premises patterns unchanged ignores cloud-native best practices and is considered an anti-pattern approach."
+        },
+        {
+          "id": "q1-4-16",
+          "type": "single",
+          "question": "A team is selecting instance types for a workload and chooses the latest generation instances with the right memory-to-CPU ratio for their application. They benchmark regularly and right-size as needs change. According to the Well-Architected Framework, this behavior MOST closely aligns with which pillar?",
+          "options": [
+            "Reliability",
+            "Performance Efficiency",
+            "Operational Excellence",
+            "Sustainability"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Performance Efficiency focuses on using computing resources efficiently to meet system requirements — including selecting the right instance types, benchmarking, and right-sizing as needs evolve. Reliability is about fault tolerance and recovery, not resource selection for performance. Sustainability overlaps slightly but focuses on environmental impact rather than performance optimization."
+        },
+        {
+          "id": "q1-4-17",
+          "type": "single",
+          "question": "An architect proposes hardcoding IAM credentials directly into application source code because it simplifies deployment configuration. Multiple teams have used this approach and it has repeatedly led to credential leaks and security incidents. According to the WAF, this approach is BEST classified as:",
+          "options": [
+            "A design pattern, because it is a widely used approach across many teams",
+            "An acceptable trade-off under Operational Excellence for simplifying deployments",
+            "An anti-pattern, because it consistently produces poor security outcomes",
+            "A Security pillar violation that is acceptable only in test environments"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "An anti-pattern is defined as an approach that consistently produces poor results — hardcoded credentials repeatedly causing security breaches fits this definition exactly. The fact that many teams use a bad approach does not make it a design pattern. The WAF states that security trade-offs are NEVER acceptable, so this cannot be justified even in test environments."
+        },
+        {
+          "id": "q1-4-18",
+          "type": "single",
+          "question": "A company performs a Well-Architected Review and the tool returns a list of high-risk findings with specific recommended improvements for each finding. What does this output represent in the context of how the WAF operates?",
+          "options": [
+            "Mandatory remediation tasks that AWS will enforce within 30 days",
+            "Suggestions generated by a cost calculator based on billing data",
+            "Surfaced weaknesses with specific remediation guidance produced by the evaluation question process",
+            "Compliance audit results required to maintain SOC 2 certification"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "The WAF works by using evaluation questions to surface weaknesses in a workload and then providing specific remediation guidance for each finding. These are recommendations, not mandatory AWS-enforced tasks, and they are architectural in nature — not billing or compliance outputs."
         }
       ]
     },
@@ -653,98 +1463,281 @@
         {
           "id": "q1-5-1",
           "type": "single",
-          "question": "Which WAF pillar's PRIMARY keyword is 'RECOVERY'?",
-          "options": ["Operational Excellence", "Security", "Reliability", "Performance Efficiency"],
-          "correctAnswers": [2],
-          "explanation": "Reliability's keyword is RECOVERY — designing systems to automatically recover from failures, traffic surges, and unexpected events."
+          "question": "A startup is under financial pressure and the CTO proposes temporarily disabling encryption on an S3 bucket containing customer PII to reduce complexity during a launch crunch. The solutions architect pushes back. Which WAF principle BEST supports the architect's position?",
+          "options": [
+            "Security is one of six equal pillars, and trade-offs between pillars are acceptable when business needs arise.",
+            "Security is the one WAF pillar that must never be traded off under any circumstance, regardless of business pressure.",
+            "Cost Optimization takes precedence during a launch phase; security controls can be re-enabled post-launch.",
+            "The Reliability pillar requires data durability, which implicitly covers this scenario without needing the Security pillar."
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "The WAF explicitly identifies Security as the pillar that should never be compromised or traded away under any circumstance. Other pillars may be balanced against each other, but security is non-negotiable. Options A, C, and D misrepresent the framework's hierarchy."
         },
         {
           "id": "q1-5-2",
           "type": "single",
-          "question": "'Make frequent, small, reversible changes' is a principle of which pillar?",
-          "options": ["Reliability", "Security", "Cost Optimization", "Operational Excellence"],
-          "correctAnswers": [3],
-          "explanation": "This is an Operational Excellence principle. 'Stop guessing capacity' = Reliability. 'Adopt consumption model' = Cost Optimization."
+          "question": "A financial services company requires that their payment processing system be able to resume operations within 15 minutes of a region-level failure. Which WAF pillar is PRIMARILY addressed by this requirement?",
+          "options": [
+            "Performance Efficiency, because low RTO requires fast compute resources.",
+            "Operational Excellence, because runbooks and procedures govern the recovery process.",
+            "Reliability, because the requirement centers on the system's ability to recover from failure.",
+            "Security, because financial transactions require integrity assurances during failover."
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Recovery objectives (RTO/RPO) are the hallmark keyword of the Reliability pillar — it governs a workload's ability to recover from disruptions. Performance Efficiency covers speed of execution, not failure recovery. Operational Excellence covers processes, not recovery SLAs."
         },
         {
           "id": "q1-5-3",
           "type": "single",
-          "question": "A company replaces on-premises servers with AWS Lambda. Which pillar does this BEST represent?",
-          "options": ["Reliability", "Security", "Performance Efficiency", "Sustainability"],
-          "correctAnswers": [2],
-          "explanation": "Using serverless like Lambda is a Performance Efficiency principle ('Use serverless architectures')."
+          "question": "An e-commerce company wants to expand from a single AWS region in the US to serve customers in Europe and Asia Pacific with minimal latency, deploying the new regions in days rather than months. Which WAF pillar does this scenario MOST directly demonstrate?",
+          "options": [
+            "Reliability, because multi-region deployments improve availability and fault tolerance.",
+            "Cost Optimization, because global expansion reduces per-request data transfer costs.",
+            "Performance Efficiency, because the cloud's ability to go global in minutes is a defining characteristic of this pillar.",
+            "Operational Excellence, because infrastructure-as-code enables rapid region deployment."
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "'Go global in minutes' is the defining keyword phrase for Performance Efficiency. While multi-region also improves reliability, the scenario's emphasis is on speed of global expansion as a cloud advantage, which belongs to Performance Efficiency. Operational Excellence focuses on processes and continuous improvement, not global reach."
         },
         {
           "id": "q1-5-4",
-          "type": "multi",
-          "question": "Which TWO are design principles of the SECURITY pillar? (Select 2)",
-          "options": ["Stop guessing capacity", "Enable traceability", "Perform operations as code", "Apply security at all layers", "Adopt consumption model"],
-          "correctAnswers": [1, 3],
-          "explanation": "Security principles: Enable traceability and Apply security at all layers. 'Stop guessing capacity' = Reliability. 'Operations as code' = Op. Excellence. 'Consumption model' = Cost Optimization."
+          "type": "single",
+          "question": "A media company runs batch video transcoding jobs that vary wildly — some months see 10x the normal volume. Their current on-premises setup requires them to maintain enough capacity for peak load year-round. A solutions architect recommends migrating to AWS. Which WAF pillar MOST directly justifies this migration recommendation?",
+          "options": [
+            "Reliability, because cloud infrastructure offers higher availability SLAs than on-premises hardware.",
+            "Cost Optimization, because the pay-as-you-go consumption model eliminates the need to over-provision for peak.",
+            "Performance Efficiency, because cloud instances offer higher compute performance than on-premises servers.",
+            "Sustainability, because running fewer idle servers reduces energy consumption."
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "The pay-as-you-go consumption model — paying only for what you use rather than provisioning for peak — is the core keyword of Cost Optimization. While Sustainability benefits from fewer idle servers, the primary business justification here is eliminating capital expenditure for unused capacity."
         },
         {
           "id": "q1-5-5",
           "type": "single",
-          "question": "AWS sources renewable energy for data centers. Which pillar is this?",
-          "options": ["Cost Optimization", "Security", "Reliability", "Sustainability"],
-          "correctAnswers": [3],
-          "explanation": "Sustainability covers environmental responsibility. AWS's OF-the-cloud responsibility includes renewable energy and efficient infrastructure."
+          "question": "An AWS customer wants to reduce the environmental impact of their cloud workloads. Their solutions architect notes that AWS is responsible for optimizing the physical data center infrastructure (hardware efficiency, renewable energy sourcing), while the customer is responsible for optimizing how their applications use those resources. This division of responsibility most closely mirrors which AWS concept?",
+          "options": [
+            "The Well-Architected Framework's Operational Excellence pillar, which separates platform concerns from application concerns.",
+            "The Shared Responsibility Model, where AWS manages security OF the cloud and customers manage security IN the cloud.",
+            "The AWS Service Level Agreement, which defines AWS's obligations versus customer obligations.",
+            "The Cost Optimization pillar, which distinguishes infrastructure cost from application cost."
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "The Sustainability pillar explicitly mirrors the Shared Responsibility Model structure: AWS optimizes the infrastructure OF the cloud (hardware, data centers, energy), and customers optimize workloads IN the cloud (right-sizing, efficient code, data lifecycle). This direct parallel is a tested concept for the Sustainability pillar."
         },
         {
           "id": "q1-5-6",
           "type": "single",
-          "question": "'Enable traceability — monitor and track all changes in real time' belongs to which pillar?",
-          "options": ["Reliability", "Operational Excellence", "Security", "Performance Efficiency"],
-          "correctAnswers": [2],
-          "explanation": "Traceability is a Security principle — collecting API logs and metrics to detect and respond to incidents quickly."
+          "question": "A SaaS company needs to add a new document processing feature. They want to avoid managing servers and have the feature operational within hours. The architect proposes using AWS Lambda with S3 triggers. Which WAF pillar does this architectural choice MOST demonstrate?",
+          "options": [
+            "Cost Optimization, because Lambda pricing is lower than EC2 for intermittent workloads.",
+            "Operational Excellence, because Lambda eliminates patching and OS management overhead.",
+            "Performance Efficiency, because adopting serverless technology to quickly deliver capability is a core characteristic of this pillar.",
+            "Reliability, because Lambda's managed infrastructure provides higher availability than self-managed EC2."
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Serverless architectures and the ability to rapidly adopt new technologies are the defining characteristics of Performance Efficiency in the WAF. While Cost Optimization and Operational Excellence also benefit, the question asks which pillar the design choice MOST demonstrates — and serverless/go-global-fast are the Performance Efficiency keywords."
         },
         {
           "id": "q1-5-7",
-          "type": "multi",
-          "question": "Which TWO are design principles of the RELIABILITY pillar? (Select 2)",
-          "options": ["Democratize advanced technologies", "Automatically recover from failure", "Implement strong identity foundation", "Stop guessing capacity", "Adopt consumption model"],
-          "correctAnswers": [1, 3],
-          "explanation": "Reliability principles: Automatically recover from failure and Stop guessing capacity. 'Democratize technologies' = Performance Efficiency. 'Strong identity' = Security. 'Consumption model' = Cost Optimization."
+          "type": "single",
+          "question": "A healthcare application experiences an average of two database outages per year, each lasting 4 hours. The architecture team is tasked with redesigning the database layer so that individual component failures no longer cause full application downtime. Which WAF pillar is PRIMARILY guiding this redesign effort?",
+          "options": [
+            "Security, because database outages can expose sensitive patient records.",
+            "Performance Efficiency, because reducing downtime improves response time metrics.",
+            "Reliability, because the goal is ensuring the system can withstand component failures and continue operating.",
+            "Operational Excellence, because better monitoring and runbooks would reduce mean time to recovery."
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Reliability governs a system's ability to withstand component failures and recover from disruptions — designing away single points of failure to prevent downtime is the textbook definition. Operational Excellence might reduce MTTR, but this redesign specifically eliminates the failure mode, which is Reliability."
         },
         {
           "id": "q1-5-8",
-          "type": "single",
-          "question": "Which pillar covers 'pay only for what you use' and eliminating capacity forecasting?",
-          "options": ["Reliability", "Performance Efficiency", "Cost Optimization", "Operational Excellence"],
-          "correctAnswers": [2],
-          "explanation": "Cost Optimization covers the consumption model (pay-as-you-go) — paying only for resources actually used, eliminating upfront capacity forecasting."
+          "type": "multi",
+          "question": "A solutions architect is reviewing an architecture where the team manually deploys configuration changes by SSHing into production servers, keeps no runbooks, and has never tested what happens when an Availability Zone goes down. Which TWO WAF pillars are MOST critically deficient in this architecture? (Choose TWO)",
+          "options": [
+            "Security — uncontrolled SSH access and lack of change audit trails.",
+            "Reliability — no tested recovery procedures for AZ failure.",
+            "Cost Optimization — manual deployments are more expensive than automated ones.",
+            "Performance Efficiency — manual processes slow down feature delivery.",
+            "Sustainability — manual processes have a higher carbon footprint."
+          ],
+          "correctAnswers": [
+            0,
+            1
+          ],
+          "explanation": "Security is critically deficient because uncontrolled SSH access to production removes audit trails and violates least-privilege principles. Reliability is critically deficient because the team has never tested AZ failure recovery — preparedness for disruption is Reliability's core concern. Cost and Performance gaps exist but are secondary to these critical risks."
         },
         {
           "id": "q1-5-9",
           "type": "single",
-          "question": "For Sustainability, what is the CUSTOMER responsible for?",
-          "options": ["Sourcing renewable energy for DCs", "Water stewardship in AWS facilities", "Optimizing workloads to minimize resources needed", "Building energy-efficient hardware"],
-          "correctAnswers": [2],
-          "explanation": "Sustainability (IN the cloud) = customer optimizes their workloads and minimizes total resources. AWS (OF the cloud) = renewable energy, water stewardship."
+          "question": "A data analytics team provisions a fleet of 50 large EC2 instances at the start of each month and leaves them running whether or not jobs are scheduled. A solutions architect is asked to identify which WAF pillar this behavior violates and recommend a fix. The MOST aligned recommendation is to:",
+          "options": [
+            "Enable detailed monitoring (Reliability) to detect underutilized instances before provisioning.",
+            "Adopt a pay-as-you-go model by using spot or on-demand instances spun up only when jobs run (Cost Optimization).",
+            "Move workloads to a dedicated host to improve performance and resource utilization (Performance Efficiency).",
+            "Implement auto-scaling groups with minimum capacity of 50 to ensure job availability (Reliability)."
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Paying for idle resources violates Cost Optimization's pay-as-you-go consumption model. The correct fix is to provision capacity only when work is actually happening. Dedicated hosts (C) would cost even more. Auto-scaling at minimum 50 (D) preserves the waste."
         },
         {
           "id": "q1-5-10",
-          "type": "multi",
-          "question": "Which TWO belong to OPERATIONAL EXCELLENCE? (Select 2)",
-          "options": ["Anticipate failure", "Go global in minutes", "Learn from all operational failures", "Keep people away from data", "Maximize utilization"],
-          "correctAnswers": [0, 2],
-          "explanation": "Op. Excellence: Anticipate failure and Learn from all operational failures. 'Go global' = Performance. 'Keep people away' = Security. 'Maximize utilization' = Sustainability."
+          "type": "single",
+          "question": "A development team deploys changes to production manually and has no post-incident review process. After a recent outage, the engineering manager asks the team to implement automated deployments and a blameless retrospective process. Which WAF pillar does this improvement initiative MOST directly address?",
+          "options": [
+            "Reliability, because automated deployments reduce the risk of human error causing outages.",
+            "Operational Excellence, because it focuses on automating operations and learning from failures to continuously improve.",
+            "Security, because manual deployments introduce unauthorized change risks.",
+            "Performance Efficiency, because automated pipelines reduce deployment time."
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "Operational Excellence is specifically about running workloads effectively, automating operations, and learning from failures through retrospectives and continuous improvement. While Reliability benefits from fewer human errors, the combination of automation + blameless retrospectives is definitively Operational Excellence."
         },
         {
           "id": "q1-5-11",
           "type": "single",
-          "question": "'Mechanical sympathy' is a concept in which pillar?",
-          "options": ["Security", "Reliability", "Cost Optimization", "Performance Efficiency"],
-          "correctAnswers": [3],
-          "explanation": "Mechanical sympathy (understanding hardware to use it most efficiently) is a Performance Efficiency principle — choosing the right technology for the right job."
+          "question": "A solutions architect is designing a new application and creates a priority-ordered list of WAF pillars to guide trade-off decisions. The architect places Cost Optimization first, followed by Performance, then Security. A senior architect reviews this and immediately flags a problem. What is WRONG with this prioritization?",
+          "options": [
+            "Cost Optimization should always be ranked last among WAF pillars.",
+            "Performance Efficiency must always outrank Reliability in the priority order.",
+            "Security must never be ranked below other pillars — it is the one pillar that cannot be traded off under any circumstance.",
+            "The WAF requires all pillars to be treated as equally weighted with no prioritization."
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "The WAF explicitly states that Security should never be traded off against other pillars under any circumstance. Placing it third means it could theoretically be sacrificed for cost or performance goals, which the framework prohibits. The other pillars can be balanced against each other situationally."
         },
         {
           "id": "q1-5-12",
+          "type": "multi",
+          "question": "An enterprise wants to reduce the carbon footprint of their AWS workloads in alignment with the WAF Sustainability pillar. Which TWO actions fall under the CUSTOMER'S responsibility in the sustainability shared responsibility model? (Choose TWO)",
+          "options": [
+            "Right-sizing EC2 instances to eliminate unused compute capacity.",
+            "Investing in renewable energy for AWS data centers.",
+            "Implementing S3 lifecycle policies to move infrequently accessed data to cheaper, lower-power storage tiers.",
+            "Optimizing the physical server hardware used in AWS Availability Zones.",
+            "Choosing which AWS global region has the greenest energy mix."
+          ],
+          "correctAnswers": [
+            0,
+            2
+          ],
+          "explanation": "Under Sustainability's shared responsibility model, customers optimize workloads IN the cloud: right-sizing instances (A) and using lifecycle policies to reduce active storage footprint (C) are both customer-side optimizations. AWS owns the physical infrastructure (B, D). Choosing a region (E) is a customer action, but right-sizing and lifecycle policies are more direct workload-level sustainability actions."
+        },
+        {
+          "id": "q1-5-13",
           "type": "single",
-          "question": "Which pillar focuses on the ability to dynamically acquire resources to meet demand?",
-          "options": ["Cost Optimization", "Security", "Reliability", "Performance Efficiency"],
-          "correctAnswers": [2],
-          "explanation": "Reliability covers dynamically acquiring computing resources to meet demand (e.g., Auto Scaling) — avoiding capacity shortfalls that cause outages."
+          "question": "A gaming company's backend runs entirely on a single EC2 instance type chosen two years ago. A solutions architect notices that a newer instance family offers 40% better price-performance for their workload. The architect is MOST likely invoking which WAF pillar when recommending a migration to the newer instance type?",
+          "options": [
+            "Cost Optimization, because the new instances cost less per unit of work.",
+            "Reliability, because newer hardware has lower failure rates.",
+            "Performance Efficiency, because continuously evaluating and adopting more efficient technologies is a core principle of this pillar.",
+            "Operational Excellence, because the migration requires a change management process."
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Performance Efficiency includes regularly reviewing and adopting newer, more efficient technology as it becomes available — not locking into decisions made years ago. While the cost benefit is real, the act of evaluating and adopting newer instance generations is the Performance Efficiency pillar in practice."
+        },
+        {
+          "id": "q1-5-14",
+          "type": "multi",
+          "question": "A company is building a new multi-region application and the architect must make decisions about three concerns: (1) ensuring it survives a full region failure, (2) making sure no one person can unilaterally access production databases, and (3) ensuring costs scale down automatically when traffic drops. Which THREE WAF pillars map to concerns 1, 2, and 3 respectively? (Choose THREE)",
+          "options": [
+            "Reliability — surviving a full region failure requires designed recovery mechanisms.",
+            "Operational Excellence — survivability across regions requires good runbooks.",
+            "Security — restricting unilateral production database access enforces least-privilege principles.",
+            "Performance Efficiency — serverless auto-scaling ensures compute adjusts to traffic.",
+            "Cost Optimization — automatically scaling down when traffic drops avoids paying for unused capacity."
+          ],
+          "correctAnswers": [
+            0,
+            2,
+            4
+          ],
+          "explanation": "Concern 1 (region failure survival) maps to Reliability. Concern 2 (no unilateral DB access) maps to Security via least-privilege controls. Concern 3 (costs scale with traffic) maps to Cost Optimization's pay-as-you-go model. Operational Excellence (B) and Performance Efficiency (D) are not the primary pillars for these specific concerns."
+        },
+        {
+          "id": "q1-5-15",
+          "type": "single",
+          "question": "An architect is asked to design a system where a single disk failure, a single instance failure, AND a single Availability Zone failure each individually cannot cause data loss or service interruption. The design requirement is BEST characterized as belonging to which WAF pillar?",
+          "options": [
+            "Security, because data loss prevention is a data protection concern.",
+            "Performance Efficiency, because high-availability architectures require efficient resource use.",
+            "Cost Optimization, because redundant resources must be justified against their cost.",
+            "Reliability, because the requirement is for the system to withstand component failures at multiple levels without losing availability or data."
+          ],
+          "correctAnswers": [
+            3
+          ],
+          "explanation": "Multi-level fault tolerance — surviving disk, instance, and AZ failures independently — is the definition of Reliability. The pillar focuses on a workload's ability to perform its function correctly and consistently, and to recover from infrastructure failures. Security addresses data confidentiality and integrity, not hardware fault tolerance."
+        },
+        {
+          "id": "q1-5-16",
+          "type": "single",
+          "question": "A startup's CTO insists on purchasing 3-year Reserved Instances for all workloads to get maximum discounts before the architecture is proven. A solutions architect argues this contradicts a key WAF principle. Which principle does the architect MOST likely have in mind?",
+          "options": [
+            "Reliability — long-term commitments prevent flexible recovery architecture changes.",
+            "Sustainability — 3-year commitments lock in potentially inefficient resource types.",
+            "Cost Optimization — locking into 3-year commitments before validating actual consumption patterns contradicts the pay-as-you-go model and risks paying for unused reserved capacity.",
+            "Operational Excellence — RIs complicate the operational overhead of infrastructure management."
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "explanation": "Cost Optimization's pay-as-you-go principle means matching spend to actual proven consumption. Committing to 3-year RIs before validating the architecture inverts this — you're committing to pay before knowing what you'll use. Start with on-demand, validate, then commit to reservations. Sustainability and Reliability are not the primary concern here."
+        },
+        {
+          "id": "q1-5-17",
+          "type": "multi",
+          "question": "A company is planning a system migration and management is asking which WAF pillars can be deprioritized during the migration phase to hit the deadline. A solutions architect responds that two pillars should NEVER be deprioritized during any phase. Which TWO would be hardest to argue against deprioritizing, based on WAF guidance? (Choose TWO)",
+          "options": [
+            "Security — it must never be traded off under any circumstance per WAF guidance.",
+            "Cost Optimization — overspending during migration is acceptable as a temporary trade-off.",
+            "Reliability — a system undergoing migration may have intentionally reduced redundancy.",
+            "Performance Efficiency — performance optimization is typically deferred until post-migration.",
+            "Sustainability — carbon footprint optimization is a long-term concern, not a migration concern."
+          ],
+          "correctAnswers": [
+            0,
+            2
+          ],
+          "explanation": "Security must never be traded off (A) — this is explicit WAF guidance. Reliability (C) is the trap: while migrations may temporarily reduce redundancy, the question asks what's hardest to argue against deprioritizing. Reliability governs data integrity and recovery — losing data during migration is irreversible. Cost, Performance, and Sustainability are legitimately deferrable trade-offs during a migration phase."
+        },
+        {
+          "id": "q1-5-18",
+          "type": "single",
+          "question": "AWS announces it has achieved 100% renewable energy for all global infrastructure. A customer asks their solutions architect whether this means their workloads are now sustainable by default. The architect explains that sustainability responsibilities are divided. AWS's achievement covers which layer?",
+          "options": [
+            "Customer workload optimization — how efficiently the customer's application code uses cloud resources.",
+            "The infrastructure OF the cloud — physical hardware efficiency, data center energy, and network infrastructure that AWS operates.",
+            "Both layers equally — AWS's renewable energy commitment covers the full sustainability responsibility.",
+            "The Operational Excellence layer — AWS's automation improves operational sustainability for customers."
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "explanation": "The Sustainability pillar mirrors the Shared Responsibility Model: AWS optimizes infrastructure OF the cloud (physical hardware, data centers, renewable energy). Customers must still optimize workloads IN the cloud — idle instances, oversized databases, and inefficient code are customer responsibilities that AWS's renewable energy commitment does not address."
         }
       ]
     }

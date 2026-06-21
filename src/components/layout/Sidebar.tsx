@@ -1,20 +1,30 @@
 import { useState } from 'react'
 import { Link, useParams, useLocation } from 'react-router-dom'
-import { CheckCircle, Circle, Star, Trophy, ClipboardCheck, GraduationCap } from 'lucide-react'
+import { CheckCircle, Circle, Star, Trophy, ClipboardCheck, GraduationCap, ChevronDown, ChevronRight } from 'lucide-react'
 import type { Chapter, Lesson, Progress } from '@/types'
 
 interface SidebarProps {
   chapters: Chapter[]
   lessons: Lesson[]
   progress: Progress
-  chTestBest: number | null
+  chTestBests: Record<string, number | null>
   mockBest: number | null
 }
 
-export function Sidebar({ chapters, lessons, progress, chTestBest, mockBest }: SidebarProps) {
+export function Sidebar({ chapters, lessons, progress, chTestBests, mockBest }: SidebarProps) {
   const [search, setSearch] = useState('')
+  const [collapsedChapters, setCollapsedChapters] = useState<Set<string>>(new Set())
   const location = useLocation()
   const { lessonId } = useParams()
+
+  const toggleChapter = (chId: string) => {
+    setCollapsedChapters(prev => {
+      const next = new Set(prev)
+      if (next.has(chId)) next.delete(chId)
+      else next.add(chId)
+      return next
+    })
+  }
 
   const doneCount = lessons.filter(l => progress[l.id]?.done).length
   const pct = lessons.length > 0 ? Math.round((doneCount / lessons.length) * 100) : 0
@@ -27,10 +37,8 @@ export function Sidebar({ chapters, lessons, progress, chTestBest, mockBest }: S
     ),
   }))
 
-  let globalIndex = 0
-
   return (
-    <aside className="w-[260px] bg-card border-r border-border flex flex-col flex-shrink-0 overflow-hidden">
+    <aside className="w-[260px] h-full bg-card border-r border-border flex flex-col flex-shrink-0 overflow-hidden">
       {/* Overall progress header */}
       <div className="p-3 pb-2.5 border-b border-border flex-shrink-0">
         <p className="text-[10px] text-text-faint uppercase tracking-widest font-semibold mb-0.5">AWS SAA-C03</p>
@@ -59,14 +67,23 @@ export function Sidebar({ chapters, lessons, progress, chTestBest, mockBest }: S
 
       {/* Lesson list grouped by chapter */}
       <div className="overflow-y-auto flex-1 py-1">
-        {lessonsByChapter.map(({ chapter, lessons: chLessons }, chIdx) => (
+        {lessonsByChapter.map(({ chapter, lessons: chLessons }, chIdx) => {
+          const isCollapsed = collapsedChapters.has(chapter.id)
+          return (
           <div key={chapter.id}>
             {chIdx > 0 && <div className="h-px bg-border mx-3 my-1" />}
-            <p className="px-4 pt-2 pb-1 text-[10px] font-semibold text-text-faint uppercase tracking-widest">
-              Chapter {chapter.id} · {chapter.title}
-            </p>
-            {chLessons.map(lesson => {
-              const idx = globalIndex++
+            <button
+              onClick={() => toggleChapter(chapter.id)}
+              className="w-full flex items-center gap-1 px-3 pt-2 pb-1 text-left hover:text-text-muted transition-colors"
+            >
+              {isCollapsed
+                ? <ChevronRight size={11} className="text-text-faint flex-shrink-0" />
+                : <ChevronDown size={11} className="text-text-faint flex-shrink-0" />}
+              <span className="text-[10px] font-semibold text-text-faint uppercase tracking-widest">
+                Chapter {chapter.id} · {chapter.title}
+              </span>
+            </button>
+            {!isCollapsed && chLessons.map((lesson, lessonIdx) => {
               const p = progress[lesson.id]
               const isDone = p?.done
               const quizBest = p?.quizBest ?? null
@@ -88,9 +105,9 @@ export function Sidebar({ chapters, lessons, progress, chTestBest, mockBest }: S
                       isActive ? 'bg-brand-blue text-white' : isDone ? 'bg-light-green-done-num text-done-num-text' : 'bg-secondary text-text-faint'
                     }`}
                   >
-                    {idx + 1}
+                    {lessonIdx + 1}
                   </span>
-                  <span className="flex-1 truncate">{lesson.title}</span>
+                  <span className="flex-1">{lesson.title}</span>
                   <span className="flex gap-0.5 items-center flex-shrink-0">
                     {isDone ? (
                       <CheckCircle size={12} className="text-brand-green" />
@@ -105,27 +122,34 @@ export function Sidebar({ chapters, lessons, progress, chTestBest, mockBest }: S
                 </Link>
               )
             })}
+            {!isCollapsed && (() => {
+              const best = chTestBests[chapter.id] ?? null
+              const isChTestActive = location.pathname === `/chapter-test/${chapter.id}`
+              return (
+                <Link
+                  to={`/chapter-test/${chapter.id}`}
+                  className={`flex items-center gap-1.5 px-2.5 py-2 mx-1.5 mt-0.5 mb-1 rounded text-xs font-medium transition-colors ${
+                    isChTestActive
+                      ? 'bg-light-purple text-brand-purple'
+                      : 'text-text-muted hover:bg-secondary'
+                  }`}
+                >
+                  <ClipboardCheck size={13} className="flex-shrink-0" />
+                  <span className="flex-1">Chapter {chapter.id} Test</span>
+                  {best !== null && (
+                    <span className="text-[10px] font-semibold text-brand-purple">{best}%</span>
+                  )}
+                </Link>
+              )
+            })()}
           </div>
-        ))}
+          )
+        })}
       </div>
 
       {/* Footer links */}
       <div className="px-2 pb-2.5 flex-shrink-0">
         <div className="h-px bg-border my-1.5 mx-1" />
-        <Link
-          to="/chapter-test/1"
-          className={`flex items-center gap-1.5 px-2.5 py-2 mx-1.5 rounded text-xs font-medium transition-colors ${
-            location.pathname.startsWith('/chapter-test')
-              ? 'bg-light-purple text-brand-purple'
-              : 'text-text-muted hover:bg-secondary'
-          }`}
-        >
-          <ClipboardCheck size={14} />
-          <span className="flex-1">Chapter Test</span>
-          {chTestBest !== null && (
-            <span className="text-[10px] font-semibold text-brand-purple">{chTestBest}%</span>
-          )}
-        </Link>
         <Link
           to="/mock-exam"
           className={`flex items-center gap-1.5 px-2.5 py-2 mx-1.5 rounded text-xs font-medium transition-colors ${

@@ -27,13 +27,9 @@ export function buildChapterExam(allQuestions: Question[][]): Question[] {
   return shuffle(pool).slice(0, 20)
 }
 
-// Lấy 65 questions cho mock exam (repeat nếu cần)
+// Lấy tối đa 65 questions cho mock exam, không trùng câu
 export function buildMockExam(allQuestions: Question[][]): Question[] {
-  let pool: Question[] = allQuestions.flat()
-  if (pool.length === 0) return []
-  while (pool.length < 65) {
-    pool = [...pool, ...pool]
-  }
+  const pool = allQuestions.flat()
   return shuffle(pool).slice(0, 65)
 }
 
