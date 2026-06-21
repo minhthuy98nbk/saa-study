@@ -1,0 +1,473 @@
+{
+  "questions": [
+    {
+      "id": "ch1-test-1",
+      "type": "single",
+      "question": "A company wants to deploy a mission-critical application that must remain available even if an entire AWS data center fails. They also need to ensure that customer data is encrypted at rest. According to the AWS Shared Responsibility Model, which combination of actions is correct?",
+      "options": [
+        "Deploy the application across multiple Availability Zones; the customer is responsible for enabling data encryption.",
+        "Deploy the application in a single large Region; AWS is responsible for enabling data encryption.",
+        "Deploy the application across multiple Availability Zones; AWS is responsible for enabling data encryption on EC2.",
+        "Deploy the application in multiple Edge Locations; the customer is responsible for enabling data encryption."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Multi-AZ deployment protects against individual data center (AZ) failure and provides high availability. Under the Shared Responsibility Model, encryption of data at rest on EC2 (guest OS and above) is the customer's responsibility. AWS manages physical infrastructure security, not data encryption choices on compute instances. Edge Locations are for CDN caching, not application HA."
+    },
+    {
+      "id": "ch1-test-2",
+      "type": "single",
+      "question": "An architect is reviewing a startup's AWS environment. The startup deployed all resources in a single Availability Zone to reduce costs and skipped IAM role usage, instead hardcoding credentials in their EC2 application. Which statement BEST describes this situation in the context of the Well-Architected Framework and the Shared Responsibility Model?",
+      "options": [
+        "The single-AZ choice is a valid cost trade-off in the WAF, but hardcoding credentials violates Security pillar principles that can never be traded off.",
+        "Both decisions are acceptable trade-offs allowed under the WAF Cost Optimization pillar.",
+        "AWS is responsible for both reliability and credential management on EC2, so neither decision violates customer obligations.",
+        "The single-AZ choice violates the Security pillar, and hardcoding credentials is an acceptable Reliability trade-off."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "The WAF allows trade-offs between pillars (e.g., sacrificing reliability for cost in dev/test), but Security is the one pillar that can NEVER be traded off. Hardcoding credentials is a Security pillar violation. Deploying in a single AZ is a Reliability trade-off that can be acceptable in some contexts. AWS does not manage IAM or application credentials on EC2 — that is the customer's responsibility."
+    },
+    {
+      "id": "ch1-test-3",
+      "type": "single",
+      "question": "A global media company wants to serve cached video content to users worldwide with the lowest latency possible, while keeping the origin infrastructure in a single AWS Region for cost reasons. Which AWS Global Infrastructure component should they use for content delivery, and what does this represent in terms of cloud service model?",
+      "options": [
+        "Edge Locations for CDN caching; this is an example of using a managed PaaS/CDN service where AWS handles the caching infrastructure.",
+        "Additional Availability Zones in the home Region; this scales compute using an IaaS model.",
+        "Multiple Regions with full stack replication; this is a SaaS deployment model managed entirely by AWS.",
+        "A second Region connected via AWS Direct Connect; this is a hybrid cloud model."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Edge Locations are the AWS Global Infrastructure component designed for CDN caching (used by CloudFront), delivering content close to end users globally. Using CloudFront is a PaaS/managed service model where AWS operates the caching infrastructure. Adding AZs addresses availability, not global latency. Full multi-region replication is Disaster Recovery, not low-latency CDN delivery."
+    },
+    {
+      "id": "ch1-test-4",
+      "type": "single",
+      "question": "A financial services company operates an on-premises data center and extends it to AWS for burst compute capacity during peak periods. Their security team manages firewall rules and OS patching on all AWS EC2 instances. Which deployment model and responsibility alignment does this scenario represent?",
+      "options": [
+        "Hybrid cloud model; the customer is responsible for guest OS patching and security group configuration on EC2.",
+        "Multi-cloud model; AWS is responsible for all security including guest OS patching since they own the infrastructure.",
+        "Private cloud model; AWS and the customer share equal responsibility for OS-level security.",
+        "Public cloud model; the customer delegates OS patching to AWS under the Shared Responsibility Model."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Using both on-premises and AWS together describes a hybrid cloud model. On EC2, which is an IaaS service, the customer has high responsibility including guest OS patching and security group management — AWS only handles the physical host, hypervisor, and underlying infrastructure. Multi-cloud refers to using multiple cloud providers, not combining on-premises with cloud."
+    },
+    {
+      "id": "ch1-test-5",
+      "type": "single",
+      "question": "During a Well-Architected Review, an architect finds that a team deploys infrastructure changes manually through the console, makes large infrequent releases, and runs EC2 instances 24/7 even when usage is near zero overnight. Which TWO WAF pillars are MOST violated by these practices?",
+      "options": [
+        "Operational Excellence and Cost Optimization",
+        "Security and Reliability",
+        "Performance Efficiency and Sustainability",
+        "Reliability and Operational Excellence"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Operational Excellence emphasizes operations as code (not manual console changes) and frequent small reversible changes (not large infrequent releases). Cost Optimization emphasizes pay-as-you-go consumption — running EC2 24/7 with near-zero overnight usage wastes money. Security and Reliability are not the primary violations here; the question focuses on deployment practices and cost waste."
+    },
+    {
+      "id": "ch1-test-6",
+      "type": "single",
+      "question": "A company stores sensitive customer data in Amazon S3 and uses Amazon DynamoDB for their application database. Their security audit reveals that S3 bucket policies are misconfigured, exposing data publicly. According to the Shared Responsibility Model and WAF Security pillar, who is responsible for this exposure and can this ever be traded off?",
+      "options": [
+        "The customer is responsible for S3 bucket policies; the Security pillar violation cannot be traded off under any WAF scenario.",
+        "AWS is responsible for S3 bucket policies since S3 is a managed service; this is an inherited control.",
+        "Responsibility is shared equally between AWS and the customer; trade-offs are acceptable in development environments.",
+        "The customer is responsible, but WAF allows trading off security for cost optimization in non-production environments."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Although S3 is a managed service (less customer responsibility than EC2), bucket policies, access controls, and data classification remain the customer's responsibility — this is a customer-specific control. The WAF Security pillar is explicit: security must never be traded off against other pillars in any environment. AWS secures the S3 infrastructure itself but not the customer's data access policies."
+    },
+    {
+      "id": "ch1-test-7",
+      "type": "single",
+      "question": "An e-commerce company experiences a Region-level outage during a major sales event, taking their entire application offline. Their architecture used multiple AZs within one Region. Which WAF pillar failure does this PRIMARILY represent, and what infrastructure strategy should they adopt to prevent future outages of this type?",
+      "options": [
+        "Reliability pillar failure; they should deploy across multiple Regions for disaster recovery capability.",
+        "Performance Efficiency pillar failure; they should use serverless to avoid regional dependencies.",
+        "Operational Excellence pillar failure; they should automate deployments to recover faster.",
+        "Cost Optimization pillar failure; they should use reserved instances across multiple AZs."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Reliability is the WAF pillar associated with recovery from failures, including regional outages. Multi-AZ provides High Availability within a Region, but Multi-Region deployment is required for Disaster Recovery against Region-wide failures. Performance Efficiency and Operational Excellence address different concerns. Cost Optimization with reserved instances does not address regional failure scenarios."
+    },
+    {
+      "id": "ch1-test-8",
+      "type": "single",
+      "question": "A company is evaluating AWS versus building their own data center. Their CTO wants to understand the cloud service model where AWS provides virtualized compute, storage, and networking while the company manages the OS, middleware, and applications. Which model is this, and how does it relate to the Shared Responsibility Model?",
+      "options": [
+        "IaaS; the customer has high responsibility for everything above the hypervisor including OS, security groups, and application security.",
+        "PaaS; AWS manages the OS and runtime, leaving only application code as the customer's responsibility.",
+        "SaaS; AWS manages all layers including the application, with the customer responsible only for data.",
+        "IaaS; AWS manages all security including OS patching because they own the physical infrastructure."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "IaaS (Infrastructure as a Service) provides virtualized compute, storage, and networking — EC2 is the primary AWS IaaS example. Under the Shared Responsibility Model, IaaS means the customer has high responsibility: guest OS, middleware, applications, security groups, IAM, and data encryption. AWS manages physical hardware and hypervisor only. PaaS and SaaS reduce customer responsibility by having AWS manage more layers."
+    },
+    {
+      "id": "ch1-test-9",
+      "type": "multi",
+      "question": "A solutions architect is designing a new application on AWS. The team wants to follow the Well-Architected Framework and the Shared Responsibility Model from day one. (Choose TWO) Which practices directly address BOTH the WAF Security pillar AND the customer's responsibilities under the Shared Responsibility Model?",
+      "options": [
+        "Using IAM roles instead of hardcoded credentials for EC2 instances.",
+        "Deploying the application across three Availability Zones.",
+        "Enabling encryption at rest for all customer data stored in S3.",
+        "Using AWS managed hardware security modules for physical key storage.",
+        "Selecting the Region closest to customers for lowest latency."
+      ],
+      "correctAnswers": [
+        0,
+        2
+      ],
+      "explanation": "IAM role usage (not hardcoding credentials) is explicitly a customer responsibility under the Shared Responsibility Model and directly addresses the WAF Security pillar's identity management principle. Enabling encryption at rest for S3 data is also a customer responsibility (data protection) and a core Security pillar practice. Multi-AZ deployment addresses Reliability, not Security. AWS-managed HSMs are an AWS infrastructure responsibility. Region selection addresses Performance Efficiency."
+    },
+    {
+      "id": "ch1-test-10",
+      "type": "multi",
+      "question": "A company is migrating to AWS and their architect needs to explain the AWS Global Infrastructure hierarchy to stakeholders. (Choose TWO) Which statements CORRECTLY describe the relationship between infrastructure components and their primary use cases?",
+      "options": [
+        "Availability Zones are located within 100km of each other within a Region, enabling low-latency synchronous replication for High Availability.",
+        "Regions always consist of exactly two Availability Zones to maintain geographic redundancy.",
+        "Edge Locations serve as CDN cache points and are used by services like CloudFront to reduce latency for end users.",
+        "A Region spans multiple countries to maximize geographic distribution of Availability Zones.",
+        "Availability Zones and Edge Locations serve the same purpose but differ only in physical size."
+      ],
+      "correctAnswers": [
+        0,
+        2
+      ],
+      "explanation": "AZs within a Region are positioned within 100km of each other, allowing low-latency connections suitable for synchronous replication and HA architectures. Edge Locations are globally distributed CDN cache points used by CloudFront and other services. Regions require a minimum of 2 AZs (not exactly 2). Regions are within the same country/geography, not spanning multiple countries. AZs and Edge Locations serve fundamentally different purposes."
+    },
+    {
+      "id": "ch1-test-11",
+      "type": "single",
+      "question": "A startup is building a mobile application on AWS. To minimize costs, they want to use a deployment model where they pay only for actual compute usage (no idle time) and let AWS manage the underlying server infrastructure. According to the WAF Cost Optimization pillar and cloud service models, which approach BEST meets their needs?",
+      "options": [
+        "Adopt a serverless architecture (e.g., AWS Lambda); this aligns with pay-as-you-go consumption and is classified as PaaS/FaaS.",
+        "Use reserved EC2 instances across three AZs; this provides the lowest per-hour cost under the IaaS model.",
+        "Deploy on-demand EC2 instances in a single AZ; this minimizes costs through IaaS pay-as-you-go.",
+        "Use Dedicated Hosts for EC2; this eliminates idle costs by guaranteeing physical server utilization."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Serverless (Lambda/FaaS) exemplifies the Cost Optimization pillar's pay-as-you-go consumption model — you pay only for actual invocations, eliminating idle compute costs. AWS manages all server infrastructure, making it PaaS/FaaS. Reserved instances reduce per-hour cost but require upfront commitment and still run continuously. On-demand single-AZ EC2 is IaaS with idle costs. Dedicated Hosts are the most expensive option."
+    },
+    {
+      "id": "ch1-test-12",
+      "type": "single",
+      "question": "An organization's security team is performing a compliance audit of their AWS environment. They want to understand which security controls are fully managed by AWS, which are shared, and which are entirely their responsibility. In the Shared Responsibility Model, which control type covers physical data center access controls at AWS facilities?",
+      "options": [
+        "Inherited controls — fully managed by AWS; the customer inherits compliance without needing to implement or verify them.",
+        "Shared controls — AWS implements the physical layer and the customer must add logical access controls on top.",
+        "Customer-specific controls — the customer must configure physical security policies in the AWS console.",
+        "Shared controls — both AWS and the customer share equal responsibility for data center physical access."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Physical data center access controls at AWS facilities are Inherited controls — AWS fully manages and is responsible for them. Customers inherit the compliance benefit without needing to implement anything. Shared controls cover items like patch management and configuration management where both parties have responsibilities. Customer-specific controls cover items like IAM, security groups, and data encryption which customers must configure themselves."
+    },
+    {
+      "id": "ch1-test-13",
+      "type": "multi",
+      "question": "A Well-Architected Review of a three-tier web application reveals: (1) the database has no automated backups, (2) security groups allow all inbound traffic (0.0.0.0/0 on all ports), and (3) the team manually scales EC2 instances during traffic spikes. (Choose TWO) Which WAF pillar violations require IMMEDIATE remediation that cannot be deferred, and why?",
+      "options": [
+        "Lack of automated backups violates the Reliability pillar and should be remediated, but can be deferred for non-production environments.",
+        "Overly permissive security groups violate the Security pillar and must be remediated immediately — Security can never be traded off.",
+        "Manual scaling violates Operational Excellence; it cannot be deferred because all operational issues are treated as security risks.",
+        "Overly permissive security groups violate both Security and Reliability pillars equally, both requiring immediate action.",
+        "All three issues violate the Security pillar and cannot be deferred under WAF principles."
+      ],
+      "correctAnswers": [
+        0,
+        1
+      ],
+      "explanation": "Under WAF principles, Security violations (like overly permissive security groups exposing the application to attack) can NEVER be traded off and require immediate action. The lack of automated backups is a Reliability violation — while serious, the WAF acknowledges that reliability trade-offs may be acceptable in development/test environments. Manual scaling is an Operational Excellence concern that can be deferred. Not all issues are Security violations."
+    },
+    {
+      "id": "ch1-test-14",
+      "type": "single",
+      "question": "A company runs identical workloads across AWS and Google Cloud Platform, with neither cloud provider hosting the company's own on-premises servers. Their AWS workloads use EC2 (IaaS), and the team manages all OS-level security. Which deployment model is this, and what does the Shared Responsibility Model require of the customer for the EC2 workloads?",
+      "options": [
+        "Multi-cloud deployment; the customer must manage guest OS patching, security groups, IAM, and data encryption on EC2.",
+        "Hybrid cloud deployment; AWS manages OS patching on EC2 since the company has no on-premises infrastructure.",
+        "Multi-cloud deployment; AWS is responsible for all security on EC2 because it is a managed service.",
+        "Private cloud deployment; the customer is responsible only for application code since they don't own any hardware."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Using multiple cloud providers (AWS + GCP) with no on-premises infrastructure is a multi-cloud model. On EC2 (IaaS), the customer has high responsibility including: guest OS updates and patching, security group configuration, IAM access management, and data encryption. Hybrid cloud combines on-premises with cloud. AWS does NOT manage OS patching on EC2 — that is a customer-specific control."
+    },
+    {
+      "id": "ch1-test-15",
+      "type": "single",
+      "question": "A sustainability-focused company wants to reduce the carbon footprint of their AWS workloads. Their architect suggests using serverless functions instead of always-on EC2 instances and sharing resources across multiple customer workloads on the same physical hardware. Which WAF pillar does this PRIMARILY address, and how does the Shared Responsibility Model apply to sustainability?",
+      "options": [
+        "Sustainability pillar; responsibility mirrors the Shared Responsibility Model — AWS optimizes the physical infrastructure, while customers optimize their workload resource usage.",
+        "Cost Optimization pillar; AWS is solely responsible for sustainability since they own the physical data centers.",
+        "Performance Efficiency pillar; the customer is responsible for all sustainability measures including AWS infrastructure efficiency.",
+        "Operational Excellence pillar; sustainability is an inherited control fully managed by AWS."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "The Sustainability pillar directly addresses reducing environmental impact of cloud workloads. The WAF explicitly states that sustainability responsibility mirrors the Shared Responsibility Model: AWS optimizes the physical infrastructure (hardware efficiency, renewable energy, cooling), while customers optimize their workloads (right-sizing, using serverless, avoiding over-provisioning). Sustainability is not purely Cost Optimization, Performance Efficiency, or Operational Excellence, though there is overlap."
+    },
+    {
+      "id": "ch1-test-16",
+      "type": "multi",
+      "question": "A company is planning their AWS architecture. They want HIGHEST availability for their application and need to comply with data residency laws that require all data to stay within their country. (Choose TWO) Which architectural decisions correctly apply AWS Global Infrastructure concepts?",
+      "options": [
+        "Deploy across multiple Availability Zones within a single Region to achieve High Availability while keeping data within the country.",
+        "Use Edge Locations in other countries to cache data for faster access — Edge Location data does not count toward residency requirements.",
+        "Deploy across multiple Regions within the same country if multiple domestic Regions exist, for both HA and DR while meeting residency requirements.",
+        "Use a single large Availability Zone with redundant EC2 instances to maximize availability within one physical location.",
+        "Deploy in a single AZ and rely on AWS to automatically replicate data across AZs for compliance."
+      ],
+      "correctAnswers": [
+        0,
+        2
+      ],
+      "explanation": "Multi-AZ within a single Region provides High Availability while keeping data within the country (Regions are within the same country). If the country has multiple AWS Regions, deploying across them adds Disaster Recovery while still meeting residency requirements. Edge Locations cache data globally and would violate data residency laws if used for sensitive data. A single AZ provides no HA. AWS does NOT automatically replicate data across AZs — customers must architect for this."
+    },
+    {
+      "id": "ch1-test-17",
+      "type": "single",
+      "question": "A solutions architect conducts a Well-Architected Review and identifies that a team wants to skip multi-AZ deployment to save costs during a product launch. The team argues that reliability is less important than speed to market. According to the WAF, is this trade-off acceptable, and what AWS Global Infrastructure concept are they sacrificing?",
+      "options": [
+        "The trade-off may be acceptable under WAF since reliability trade-offs are permitted (unlike security); they are sacrificing High Availability provided by multi-AZ deployment.",
+        "The trade-off is never acceptable under WAF because reliability is equivalent to security in importance.",
+        "The trade-off is acceptable and they are sacrificing Disaster Recovery capability by staying in one Region.",
+        "The trade-off is unacceptable because WAF requires all 6 pillars to be fully implemented before any launch."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "The WAF explicitly allows trade-offs between pillars — reliability sacrifices for cost or speed can be acceptable decisions, particularly in early-stage or dev/test contexts. Only Security can never be traded off. Multi-AZ deployment provides High Availability (surviving AZ failures); this is distinct from Disaster Recovery which requires multi-Region. WAF does not require all pillars to be perfect before launch — it surfaces trade-offs for informed decisions."
+    },
+    {
+      "id": "ch1-test-18",
+      "type": "single",
+      "question": "An enterprise company uses Amazon RDS (managed database service) and Amazon EC2 (IaaS). Their CISO asks which service requires MORE customer effort for security configuration. Which answer CORRECTLY combines the Shared Responsibility Model with service type knowledge?",
+      "options": [
+        "EC2 requires more customer security effort; it is IaaS where customers manage the guest OS, security patches, and network configuration, while RDS as a managed service shifts OS and engine patching to AWS.",
+        "RDS requires more customer security effort because databases contain sensitive data that must be encrypted by the customer.",
+        "Both services require identical customer security effort since the Shared Responsibility Model applies uniformly across all AWS services.",
+        "Neither requires customer security effort; AWS manages all security for both managed and unmanaged services under the Shared Responsibility Model."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "The Shared Responsibility Model explicitly recognizes that customer security responsibility varies by service type. EC2 (IaaS) places high responsibility on customers: guest OS patching, security groups, instance-level firewall rules, and more. RDS is a managed service where AWS handles the underlying OS and database engine patching — customers are responsible for database access controls and data encryption, but have less operational security burden than EC2."
+    },
+    {
+      "id": "ch1-test-19",
+      "type": "multi",
+      "question": "A team is designing an AWS workload and wants to align with the Performance Efficiency and Reliability pillars of the WAF. (Choose TWO) Which architectural choices BEST demonstrate both pillars simultaneously?",
+      "options": [
+        "Deploying application servers across multiple AZs with Auto Scaling to handle failures and traffic spikes.",
+        "Using serverless computing (Lambda) to automatically scale globally without managing servers, reducing latency for international users.",
+        "Running all workloads on the largest available EC2 instance type to ensure maximum performance headroom.",
+        "Storing all data in a single AZ database to minimize replication latency.",
+        "Hardcoding region-specific endpoints to ensure requests always reach the nearest infrastructure."
+      ],
+      "correctAnswers": [
+        0,
+        1
+      ],
+      "explanation": "Multi-AZ Auto Scaling directly addresses Reliability (recovering from AZ failures) and Performance Efficiency (scaling resources to match demand without over-provisioning). Serverless computing exemplifies Performance Efficiency (go global in minutes, no server management) and supports Reliability (automatic scaling and fault tolerance). Using the largest instance type is over-provisioning, violating Cost Optimization and Performance Efficiency. Single-AZ databases are a Reliability anti-pattern. Hardcoding endpoints reduces flexibility and operational agility."
+    },
+    {
+      "id": "ch1-test-20",
+      "type": "single",
+      "question": "A company's developer team wants to understand why AWS performs Well-Architected Reviews. The architect explains the primary purpose. Based on the WAF, which statement BEST describes the purpose of a Well-Architected Review combined with an understanding of its trade-off principles?",
+      "options": [
+        "It surfaces architectural weaknesses and informs teams of trade-offs; teams can then make conscious decisions to accept trade-offs except in Security, which can never be compromised.",
+        "It certifies that an architecture meets all 6 pillar requirements before it can be deployed to production.",
+        "It identifies only cost inefficiencies in the architecture, recommending cheaper alternatives for each service.",
+        "It is a mandatory AWS compliance check that must be passed before an account can be used for production workloads."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "The WAF's primary purpose is to surface weaknesses and enable informed architectural decisions — not to mandate perfection. Teams can knowingly accept trade-offs between pillars (e.g., choosing lower reliability for faster time to market) in most cases. The only absolute rule is that Security can never be traded off. The review is not a certification, not cost-only focused, and not a mandatory compliance requirement."
+    },
+    {
+      "id": "ch1-test-21",
+      "type": "single",
+      "question": "A healthcare company is deploying a patient records system on AWS EC2. They need to ensure HIPAA compliance. The compliance officer asks whether AWS automatically ensures HIPAA compliance once they use AWS infrastructure. Which answer correctly applies the Shared Responsibility Model and the WAF Security pillar?",
+      "options": [
+        "No; AWS secures the physical infrastructure (inherited controls), but the customer must implement access controls, encryption, and audit logging — all customer-specific controls required by the Security pillar.",
+        "Yes; when using HIPAA-eligible AWS services, AWS automatically handles all compliance requirements including encryption and access logs.",
+        "Yes; HIPAA compliance is an inherited control fully managed by AWS since they own and operate the infrastructure.",
+        "No; neither AWS nor the customer is responsible for HIPAA compliance — it is managed by a third-party compliance service."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "HIPAA compliance on AWS requires a shared effort. AWS provides a compliant infrastructure (inherited controls like physical security and hardware disposal), but customers must implement: encryption at rest and in transit, IAM access controls, audit logging, and business associate agreements. These are customer-specific controls under the Shared Responsibility Model. The WAF Security pillar reinforces that customers must actively implement security and never assume it is automatic."
+    },
+    {
+      "id": "ch1-test-22",
+      "type": "multi",
+      "question": "A startup with limited staff wants to build a new SaaS product on AWS. They want to minimize operational overhead while maintaining security best practices. (Choose TWO) Which approaches BEST align with the WAF Operational Excellence pillar AND the Shared Responsibility Model?",
+      "options": [
+        "Use AWS managed services (RDS, Lambda) instead of self-managed EC2, reducing OS-level operational burden and shifting infrastructure responsibility to AWS.",
+        "Automate infrastructure deployments using Infrastructure as Code (IaC) tools, enabling frequent small changes and reducing manual errors.",
+        "Disable CloudTrail logging to reduce storage costs and operational overhead since logs are AWS's responsibility.",
+        "Grant all developers Administrator access to simplify permission management and reduce IAM overhead.",
+        "Run all workloads in a single AZ to reduce cross-AZ data transfer costs and simplify architecture."
+      ],
+      "correctAnswers": [
+        0,
+        1
+      ],
+      "explanation": "Using managed services reduces operational burden and shifts infrastructure-layer responsibilities to AWS (fewer inherited responsibilities for the customer to manage), aligning with Operational Excellence's low overhead goal. IaC automation is a core Operational Excellence practice (operations as code, frequent small reversible changes). Disabling CloudTrail violates the Security pillar (customer responsibility for audit logging). Granting Admin access violates least-privilege (Security pillar). Single-AZ reduces Reliability and is not an Operational Excellence best practice."
+    },
+    {
+      "id": "ch1-test-23",
+      "type": "single",
+      "question": "An AWS Region in Southeast Asia consists of three Availability Zones. A company deploys their web application across all three AZs with a load balancer. One AZ experiences a complete hardware failure. Which combination of WAF pillar and AWS infrastructure concept BEST describes the outcome?",
+      "options": [
+        "The Reliability pillar is demonstrated; multi-AZ deployment ensures the application remains available because AZs are isolated failure domains within 100km of each other.",
+        "The Performance Efficiency pillar is demonstrated; the load balancer redirects traffic globally using Edge Locations when an AZ fails.",
+        "The Disaster Recovery capability is demonstrated; a multi-Region failover activates automatically when an AZ fails.",
+        "The Security pillar is demonstrated; AZ isolation prevents the hardware failure from spreading to other AZs due to security boundaries."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "AZ isolation means hardware failures in one AZ don't affect others — this is the foundation of multi-AZ High Availability. The Reliability pillar covers recovery from infrastructure failures, making multi-AZ a direct Reliability demonstration. AZs are within 100km of each other (same Region), enabling low-latency replication. Load balancers redirect within the Region, not to Edge Locations. Multi-Region is Disaster Recovery, not needed for a single AZ failure. AZ boundaries are physical/operational, not security boundaries."
+    },
+    {
+      "id": "ch1-test-24",
+      "type": "single",
+      "question": "A company is considering migrating from a traditional software licensing model to AWS. Their CTO wants to understand how the cloud's pay-as-you-go model relates to the WAF Cost Optimization pillar. Which statement MOST accurately connects these concepts?",
+      "options": [
+        "Pay-as-you-go consumption is a core Cost Optimization pillar principle; it allows companies to match spending to actual usage rather than procuring capacity upfront for peak demand.",
+        "Pay-as-you-go is primarily a Performance Efficiency concept because it enables automatic scaling based on demand.",
+        "Pay-as-you-go eliminates the need for Cost Optimization practices since AWS automatically charges the minimum possible amount.",
+        "Pay-as-you-go is relevant only to SaaS services; IaaS services like EC2 require upfront reserved capacity for cost optimization."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "The Cost Optimization pillar explicitly names pay-as-you-go consumption as a key principle — matching resource usage (and therefore cost) to actual demand rather than over-provisioning for peak load. This is a fundamental cloud advantage over traditional licensing. Pay-as-you-go is a billing model relevant across all service types (IaaS, PaaS, SaaS). It requires active architectural decisions (right-sizing, auto-scaling, serverless) to realize cost benefits — it doesn't automatically minimize costs."
+    },
+    {
+      "id": "ch1-test-25",
+      "type": "multi",
+      "question": "A large enterprise is designing a disaster recovery strategy for their business-critical application. The RTO (Recovery Time Objective) must be under 15 minutes. (Choose THREE) Which combination of AWS Global Infrastructure decisions and WAF pillar alignments is correct?",
+      "options": [
+        "Deploy across multiple AWS Regions (not just multiple AZs) because multi-Region protects against full Regional outages, aligning with the Reliability pillar's disaster recovery goal.",
+        "Multi-AZ deployment alone is sufficient for disaster recovery with a 15-minute RTO since AZ failover is nearly instantaneous.",
+        "The Reliability pillar is the PRIMARY WAF pillar addressed by a multi-Region DR strategy.",
+        "Automating failover processes (rather than manual procedures) aligns with both the Reliability pillar and Operational Excellence pillar principles.",
+        "Using Edge Locations as the secondary DR site provides the fastest possible failover since they are globally distributed."
+      ],
+      "correctAnswers": [
+        0,
+        2,
+        3
+      ],
+      "explanation": "Multi-Region deployment is required for true Disaster Recovery (protecting against full Regional failures) — this is a core Reliability pillar practice. Reliability is the primary WAF pillar for DR (keyword: RECOVERY). Automating failover aligns with both Reliability (faster recovery) and Operational Excellence (operations as code, reducing manual intervention). Multi-AZ alone does not protect against Regional failures. Edge Locations are CDN caches, not compute environments suitable for DR failover."
+    },
+    {
+      "id": "ch1-test-26",
+      "type": "single",
+      "question": "A company is reviewing which AWS service responsibilities are shared between AWS and the customer. For Amazon DynamoDB, which statement CORRECTLY describes the Shared Responsibility Model compared to Amazon EC2?",
+      "options": [
+        "DynamoDB is a managed service so AWS handles infrastructure, OS, and database engine maintenance; the customer is responsible for data, access controls, and encryption settings. EC2 requires the customer to additionally manage the guest OS, patches, and network configuration.",
+        "DynamoDB and EC2 have identical shared responsibility boundaries since both run on AWS infrastructure.",
+        "DynamoDB places MORE responsibility on the customer than EC2 because database data is more sensitive.",
+        "For DynamoDB, AWS is responsible for all security including data encryption and access management because it is a fully managed service."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "The Shared Responsibility Model explicitly states that customer responsibility varies by service. For managed services like DynamoDB, AWS manages the underlying infrastructure, OS, and database engine, reducing the customer's operational security burden. Customers remain responsible for data, IAM access controls, and enabling encryption. EC2 (IaaS) requires customers to additionally handle guest OS patching, instance security configurations, and network ACLs. Data sensitivity doesn't change the responsibility model."
+    },
+    {
+      "id": "ch1-test-27",
+      "type": "single",
+      "question": "An architect reviews a system that uses Lambda functions (serverless) deployed across multiple AZs, with data stored in DynamoDB and served globally via CloudFront Edge Locations. A stakeholder asks which WAF pillars this architecture MOST strongly demonstrates. Which answer is MOST complete and accurate?",
+      "options": [
+        "Performance Efficiency (serverless, go global via Edge Locations), Reliability (multi-AZ Lambda), and Cost Optimization (pay-per-invocation consumption model).",
+        "Security (CloudFront encrypts data) and Operational Excellence (Lambda requires no operational management).",
+        "Sustainability (shared hardware) and Reliability (multi-Region deployment via Edge Locations).",
+        "Cost Optimization only, since serverless eliminates all other architecture concerns."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "This architecture demonstrates multiple WAF pillars: Performance Efficiency (serverless = no server management, go global in minutes via CloudFront Edge Locations), Reliability (Lambda multi-AZ redundancy, DynamoDB built-in replication), and Cost Optimization (Lambda pay-per-invocation consumption model). While Security and Operational Excellence benefits exist, they are not the defining demonstrations of this architecture. Edge Locations are not Regions — they don't provide multi-Region DR."
+    },
+    {
+      "id": "ch1-test-28",
+      "type": "multi",
+      "question": "A company's architect is explaining the AWS Global Infrastructure to a new team. A junior engineer asks why Regions require a minimum of 2 Availability Zones and why AZs are kept within 100km of each other. (Choose TWO) Which explanations are CORRECT and also connect to WAF pillar benefits?",
+      "options": [
+        "A minimum of 2 AZs per Region ensures customers can architect for High Availability (Reliability pillar) by distributing workloads across isolated failure domains.",
+        "AZs are kept within 100km to enable low-latency synchronous replication between AZs, which supports data consistency requirements for Reliability.",
+        "The 100km limit is a security requirement that prevents data from leaving the country, satisfying inherited compliance controls.",
+        "Multiple AZs per Region are required so AWS can charge customers for cross-AZ data transfer fees, funding infrastructure investments.",
+        "AZs within 100km ensures they are in the same city, making physical network cables shorter and reducing AWS infrastructure costs."
+      ],
+      "correctAnswers": [
+        0,
+        1
+      ],
+      "explanation": "Two or more AZs per Region is designed to enable HA architectures — distributing workloads across isolated failure domains so one AZ failure doesn't affect the other. This directly serves the Reliability pillar. The 100km proximity is specifically chosen to allow low-latency (single-digit millisecond) synchronous replication between AZs, which is critical for data consistency in HA deployments. The 100km limit is not a data residency security control, and AZ design is not driven by transfer fee revenue."
+    },
+    {
+      "id": "ch1-test-29",
+      "type": "single",
+      "question": "A company is deploying a new application and their architect is justifying infrastructure decisions to leadership. The architect says: 'We are deploying across 2 AZs for high availability, using IAM roles for all EC2 instances, enabling encryption at rest, and using Auto Scaling.' A senior executive asks which of these decisions are REQUIRED by AWS and which are the company's own responsibility. Which answer is MOST accurate?",
+      "options": [
+        "None of these are required by AWS; all four decisions (multi-AZ, IAM roles, encryption, Auto Scaling) are customer-specific choices and responsibilities under the Shared Responsibility Model.",
+        "Multi-AZ and encryption are required by AWS; IAM roles and Auto Scaling are customer choices.",
+        "AWS requires IAM roles and encryption for all workloads; multi-AZ and Auto Scaling are customer choices.",
+        "All four decisions are required by AWS for production workloads under the Well-Architected Framework compliance rules."
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Under the Shared Responsibility Model, all four decisions are customer responsibilities and choices, not AWS requirements. AWS provides the infrastructure (AZs, IAM service, encryption capabilities, Auto Scaling service), but customers decide whether and how to use them. AWS does not mandate multi-AZ deployment, IAM role usage, encryption at rest, or Auto Scaling — these are architectural best practices customers choose to implement. The WAF evaluates and recommends but does not enforce compliance."
+    },
+    {
+      "id": "ch1-test-30",
+      "type": "multi",
+      "question": "A company is conducting a WAF review before a major product launch. The review finds: (1) infrastructure deployed in one AZ only, (2) no encryption on the production database, (3) manual deployment process with no CI/CD. The team must prioritize what to fix before launch. (Choose TWO) Which issues MUST be resolved before launch according to WAF principles, and why?",
+      "options": [
+        "No encryption on the production database must be fixed immediately — the WAF Security pillar cannot be traded off under any circumstances, and database encryption is a customer responsibility under the Shared Responsibility Model.",
+        "Single-AZ deployment must be fixed before launch — the Reliability pillar, like Security, can never be traded off.",
+        "Manual deployments must be fixed before launch — Operational Excellence violations are treated as Security risks and cannot be deferred.",
+        "Single-AZ deployment is a Reliability concern that may be acceptable to defer post-launch with a documented trade-off decision.",
+        "All three issues must be fixed before launch because the WAF requires all 6 pillars to be fully implemented in production."
+      ],
+      "correctAnswers": [
+        0,
+        3
+      ],
+      "explanation": "The WAF Security pillar is the only pillar that can NEVER be traded off — lack of database encryption on production is a Security violation that must be fixed before launch. Customer responsibility for data encryption under the Shared Responsibility Model reinforces this. Single-AZ deployment is a Reliability concern where WAF explicitly allows trade-offs — teams can document the decision and defer it post-launch. Manual deployments are an Operational Excellence concern that can also be deferred. The WAF does not require all pillars to be perfect before launch."
+    }
+  ]
+}

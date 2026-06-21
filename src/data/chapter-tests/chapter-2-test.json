@@ -1,0 +1,472 @@
+{
+  "questions": [
+    {
+      "id": "ch2-test-1",
+      "type": "single",
+      "question": "A startup runs a web API on EC2 instances behind an Application Load Balancer. Security engineers want to block SQL injection attacks AND ensure EC2 instances are automatically patched for OS vulnerabilities — with the least operational overhead. Which combination of services satisfies BOTH requirements?",
+      "options": [
+        "AWS WAF on the ALB to block SQL injection; AWS Systems Manager Patch Manager to automate EC2 OS patching",
+        "AWS Shield Advanced to block SQL injection; AWS Inspector to automate EC2 OS patching",
+        "AWS WAF on the ALB to block SQL injection; AWS GuardDuty to automate EC2 OS patching",
+        "AWS Firewall Manager to block SQL injection; AWS Config to automate EC2 OS patching"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "WAF inspects HTTP/HTTPS traffic at the ALB for SQL injection and XSS patterns. Systems Manager Patch Manager automates OS-level patching on EC2 instances at scale — exactly the managed patching use case. Shield Advanced protects against DDoS, not SQL injection at the application layer. Inspector identifies vulnerabilities but does not patch them. GuardDuty detects threats but does not remediate. Config audits compliance but does not patch."
+    },
+    {
+      "id": "ch2-test-2",
+      "type": "single",
+      "question": "A development team containerizes a microservices application using Docker and wants to store container images privately in AWS. They need a serverless orchestration option so they never manage the underlying hosts. Which TWO-service combination is MOST appropriate?",
+      "options": [
+        "Amazon ECS with Fargate launch type, and Amazon ECR for private image storage",
+        "Amazon EKS with EC2 node groups, and Amazon S3 for private image storage",
+        "Amazon ECS with EC2 launch type, and Amazon ECR for private image storage",
+        "AWS Lambda container images, and Amazon EFS for private image storage"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "ECS with Fargate is a serverless container orchestration option — AWS manages the underlying infrastructure. ECR is the native AWS container registry for private Docker images. EKS with EC2 requires managing node groups. S3 is not a container registry. EC2 launch type requires managing EC2 hosts. Lambda has container support but is designed for function-based workloads, not long-running microservices, and EFS is a file system, not an image registry."
+    },
+    {
+      "id": "ch2-test-3",
+      "type": "multi",
+      "question": "A company is migrating its on-premises Oracle database to Amazon Aurora PostgreSQL. They need to minimize downtime during the cutover and ensure the primary database can automatically fail over to a standby in another Availability Zone. Which TWO actions should the architect take? (Choose TWO)",
+      "options": [
+        "Use AWS Database Migration Service (DMS) to replicate data continuously from Oracle to Aurora during the migration window",
+        "Use AWS DataSync to perform the database migration from Oracle to Aurora",
+        "Enable Multi-AZ deployment on the Aurora cluster so a standby replica can take over automatically on failure",
+        "Use AWS Snowball to transfer the Oracle database files to Aurora",
+        "Enable Read Replicas in a second AZ as the primary failover mechanism"
+      ],
+      "correctAnswers": [
+        0,
+        2
+      ],
+      "explanation": "DMS supports heterogeneous database migrations (Oracle to Aurora) with continuous replication, minimizing downtime. Multi-AZ on Aurora provides automatic failover to a standby in another AZ for high availability. DataSync is designed for file/object storage migration, not database migration. Snowball is an offline bulk transfer device, not suited for database migrations requiring minimal downtime. Read Replicas support read scaling but are not the primary failover mechanism — Multi-AZ standbys serve that role."
+    },
+    {
+      "id": "ch2-test-4",
+      "type": "single",
+      "question": "A security team needs two things: a record of every API call made in their AWS account including who deleted an S3 bucket, AND an automated way to detect whether any EC2 instances are communicating with known malicious IP addresses. Which combination of services provides BOTH capabilities?",
+      "options": [
+        "AWS CloudTrail for API call logging; Amazon GuardDuty for threat detection of malicious IP communication",
+        "AWS Config for API call logging; Amazon Inspector for threat detection of malicious IP communication",
+        "AWS CloudWatch Logs for API call logging; Amazon Macie for threat detection of malicious IP communication",
+        "AWS CloudTrail for API call logging; AWS Security Hub for threat detection of malicious IP communication"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "CloudTrail records every AWS API call including S3 bucket deletion events, capturing the identity, time, and source IP. GuardDuty analyzes VPC Flow Logs, DNS logs, and CloudTrail to detect EC2 instances communicating with known malicious IPs. Config tracks resource configuration changes, not API call details. Inspector assesses application vulnerabilities, not network-level threat detection. Macie focuses on sensitive data in S3. Security Hub aggregates findings from other services but does not independently detect malicious IPs."
+    },
+    {
+      "id": "ch2-test-5",
+      "type": "single",
+      "question": "A data engineering team needs to run serverless SQL queries directly against raw JSON files stored in Amazon S3 without loading them into a database first. They also need to catalog the schema of those files for use by other teams. Which combination of services is MOST appropriate?",
+      "options": [
+        "Amazon Athena to run serverless SQL queries on S3 data; AWS Glue Data Catalog to store and share schema metadata",
+        "Amazon Redshift to run SQL queries on S3 data; AWS Lake Formation to store schema metadata",
+        "Amazon EMR to run SQL queries on S3 data; Amazon DynamoDB to store schema metadata",
+        "Amazon RDS to run SQL queries on S3 data; AWS Glue Data Catalog to store schema metadata"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Athena is a serverless SQL engine that queries data directly in S3 without needing to load it elsewhere. Glue Data Catalog automatically discovers and stores schema metadata, making it available for Athena and other services. Redshift is an OLAP data warehouse that requires data to be loaded into it. EMR is a managed Hadoop/Spark cluster, not a serverless SQL option. RDS requires structured data loaded into a relational engine and cannot query S3 directly."
+    },
+    {
+      "id": "ch2-test-6",
+      "type": "multi",
+      "question": "A large enterprise wants to automatically enforce a baseline security configuration across 50 AWS accounts — ensuring all S3 buckets block public access and all EC2 instances are patched. They also want to deploy identical infrastructure stacks in every account using infrastructure-as-code. Which TWO services are BEST suited for this? (Choose TWO)",
+      "options": [
+        "AWS CloudFormation StackSets to deploy identical infrastructure across multiple accounts simultaneously",
+        "AWS CodeDeploy to deploy identical infrastructure across multiple accounts",
+        "AWS Config with Conformance Packs to enforce and audit the security baseline across all accounts",
+        "AWS CloudTrail to enforce the security baseline across all accounts",
+        "AWS OpsWorks to deploy identical infrastructure across multiple accounts"
+      ],
+      "correctAnswers": [
+        0,
+        2
+      ],
+      "explanation": "CloudFormation StackSets extend CloudFormation to deploy stacks across multiple accounts and regions simultaneously — the standard multi-account IaC deployment mechanism. Config Conformance Packs bundle multiple Config rules into a deployable package that can be applied across an AWS Organization to enforce compliance. CodeDeploy deploys application code to existing resources, not infrastructure stacks. CloudTrail audits API calls but does not enforce configuration. OpsWorks uses Chef/Puppet and is not designed for multi-account baseline enforcement."
+    },
+    {
+      "id": "ch2-test-7",
+      "type": "single",
+      "question": "A financial application must process stock trade events in real time with millisecond latency AND guarantee that trades are processed in strict chronological order with no duplicates. Which combination of services BEST meets these requirements?",
+      "options": [
+        "Amazon Kinesis Data Streams for real-time ingestion; Amazon SQS FIFO queue to guarantee strict order and exactly-once processing",
+        "Amazon SQS Standard queue for real-time ingestion; Amazon Kinesis Data Analytics for strict ordering",
+        "Amazon SNS for real-time ingestion; Amazon SQS Standard queue for strict order and deduplication",
+        "Amazon EventBridge for real-time ingestion; Amazon SQS FIFO queue for strict order"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Kinesis Data Streams is built for real-time, high-throughput streaming with millisecond latency — appropriate for stock trade event ingestion. SQS FIFO queues guarantee exactly-once processing and strict first-in-first-out ordering, preventing duplicate or out-of-order trade processing. SQS Standard offers best-effort ordering and at-least-once delivery — unsuitable for financial order guarantees. SNS is a push-based pub/sub service, not an ingestion stream. EventBridge targets event routing, not high-throughput real-time streaming."
+    },
+    {
+      "id": "ch2-test-8",
+      "type": "single",
+      "question": "A company's web application is served through Amazon CloudFront. The security team wants to block requests containing cross-site scripting (XSS) payloads targeting the app, and they want a single policy applied consistently across all 12 AWS accounts in their organization. Which services satisfy both requirements?",
+      "options": [
+        "AWS WAF attached to CloudFront to block XSS; AWS Firewall Manager to centrally deploy and enforce the WAF policy across all accounts",
+        "AWS Shield Advanced attached to CloudFront to block XSS; AWS Organizations SCPs to enforce the policy across all accounts",
+        "AWS WAF attached to CloudFront to block XSS; AWS Security Hub to enforce the WAF policy across all accounts",
+        "Amazon GuardDuty to block XSS on CloudFront; AWS Firewall Manager to enforce the policy across all accounts"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "WAF can be attached to CloudFront distributions and inspects HTTP/HTTPS traffic for XSS payloads using managed or custom rule groups. Firewall Manager is specifically designed to centrally manage and enforce WAF policies across multiple accounts in an AWS Organization. Shield Advanced protects against volumetric DDoS attacks, not application-layer XSS. SCPs restrict IAM permissions, not network-level policies. Security Hub aggregates security findings but does not deploy or enforce WAF rules. GuardDuty performs threat detection, not request filtering."
+    },
+    {
+      "id": "ch2-test-9",
+      "type": "single",
+      "question": "A team wants to deploy a .NET web application to AWS. They need the platform to handle OS patching, runtime updates, and capacity provisioning automatically, but they still need direct SSH access to the underlying EC2 instances for debugging custom application errors. Which deployment option BEST meets these requirements?",
+      "options": [
+        "AWS Elastic Beanstalk, which manages the platform while still allowing SSH access to the EC2 instances it provisions",
+        "AWS Lambda, which manages the runtime and allows SSH access to the underlying compute",
+        "Amazon ECS with Fargate, which manages the infrastructure and allows SSH access to the containers",
+        "AWS LightSail, which fully manages infrastructure and allows SSH access for debugging"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Elastic Beanstalk is a PaaS that automatically handles OS patching, runtime management, and capacity provisioning while still running on EC2 — giving developers SSH access to the instances when needed. Lambda is serverless with no server access whatsoever. ECS Fargate is serverless containers; there is no SSH access to the underlying compute. LightSail is designed for simple workloads with SSH access available, but it does not provide the same automated platform management for complex .NET applications that Elastic Beanstalk does."
+    },
+    {
+      "id": "ch2-test-10",
+      "type": "multi",
+      "question": "A media company has 2 petabytes of video archive files in an on-premises NAS. They want to migrate all files to Amazon S3 once, as quickly as possible, and the internet connection is too slow for an online transfer. After migration, they need ongoing hybrid access so on-premises video editing workstations can still read files from S3 as if they were local. Which TWO services should the architect recommend? (Choose TWO)",
+      "options": [
+        "AWS Snowball Edge Storage Optimized to physically ship the 2PB of data to AWS for the one-time migration",
+        "AWS DataSync over the internet connection to migrate the 2PB of video files online",
+        "AWS Storage Gateway File Gateway to provide on-premises workstations with NFS/SMB access to S3 after migration",
+        "AWS Transfer Family to provide on-premises workstations with FTP access to S3 after migration",
+        "AWS Direct Connect to migrate the 2PB of video files as a one-time transfer"
+      ],
+      "correctAnswers": [
+        0,
+        2
+      ],
+      "explanation": "Snowball Edge Storage Optimized handles petabyte-scale offline data transfer — the internet connection is insufficient, so physical shipment is the right one-time migration path. Storage Gateway File Gateway presents S3 buckets as NFS or SMB file shares to on-premises systems, giving video workstations seamless hybrid access with local caching. DataSync is an online migration tool — ineffective when the internet link is the bottleneck. Transfer Family provides SFTP/FTP access but is client-driven and not designed for transparent filesystem mounting. Direct Connect is a dedicated network link, not a bulk migration service."
+    },
+    {
+      "id": "ch2-test-11",
+      "type": "single",
+      "question": "A SaaS company builds a mobile app where users sign in with their email/password. After authentication, the app must call AWS APIs directly (e.g., read objects from a user-specific S3 prefix). The architect wants a managed, scalable solution. Which configuration is CORRECT?",
+      "options": [
+        "Cognito User Pool for user authentication; Cognito Identity Pool to exchange the User Pool token for temporary AWS credentials for S3 access",
+        "Cognito User Pool for user authentication; IAM users to provide each mobile user with long-term AWS credentials for S3 access",
+        "Cognito Identity Pool for user authentication; Cognito User Pool to exchange identity tokens for temporary AWS credentials",
+        "AWS Directory Service for user authentication; Cognito Identity Pool for temporary AWS credentials"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Cognito User Pool handles user authentication — sign-up, sign-in, and token issuance. Cognito Identity Pool (Federated Identities) accepts the User Pool JWT token and exchanges it for temporary AWS credentials via STS, allowing the mobile app to call AWS APIs like S3 directly. Creating IAM users for each mobile user is not scalable and is a security anti-pattern. The roles of User Pool and Identity Pool cannot be swapped — User Pool authenticates, Identity Pool vends AWS credentials. Directory Service is for corporate AD integration, not consumer mobile apps."
+    },
+    {
+      "id": "ch2-test-12",
+      "type": "single",
+      "question": "A compliance team needs to verify that no one has made unauthorized changes to production IAM policies over the past 90 days AND be alerted in real time whenever a root account login occurs. Which pair of services addresses BOTH needs?",
+      "options": [
+        "AWS CloudTrail to review the 90-day history of IAM policy change API calls; CloudWatch Alarm triggered by a CloudTrail metric filter detecting root login events",
+        "AWS Config to review the 90-day history of IAM policy change API calls; AWS CloudTrail to alert on root login events",
+        "AWS Security Hub to review the 90-day history of IAM policy changes; Amazon GuardDuty to alert on root login events",
+        "AWS Artifact to review the 90-day history of IAM policy changes; CloudWatch Events to alert on root login events"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "CloudTrail records all IAM API calls (CreatePolicy, AttachRolePolicy, etc.) for 90 days in Event History, providing the audit trail for unauthorized changes. A CloudWatch metric filter on CloudTrail logs can detect root user authentication events and trigger a CloudWatch Alarm that sends an SNS notification — a standard AWS security best practice. Config tracks resource configuration state changes but the question specifically asks for API call history. Security Hub aggregates findings but does not independently maintain API call history. Artifact provides compliance documentation downloads, not audit logs."
+    },
+    {
+      "id": "ch2-test-13",
+      "type": "multi",
+      "question": "A healthcare company wants to automatically transcribe doctor-patient audio recordings stored in S3 into text, then detect sensitive patient information (such as social security numbers) in the resulting transcripts before storing them. Which TWO services should be used? (Choose TWO)",
+      "options": [
+        "Amazon Transcribe to convert the audio recordings to text",
+        "Amazon Rekognition to convert the audio recordings to text",
+        "Amazon Comprehend to detect sensitive entities (PII) in the transcribed text",
+        "Amazon Macie to detect sensitive entities in the transcribed text stored in S3",
+        "Amazon Translate to detect sensitive entities in the transcribed text"
+      ],
+      "correctAnswers": [
+        0,
+        2
+      ],
+      "explanation": "Transcribe is AWS's speech-to-text service, designed for converting audio recordings to text transcripts. Comprehend is an NLP service that can detect entities, sentiment, and specifically PII (personally identifiable information) in text — the right tool for finding SSNs and other sensitive data in transcripts. Rekognition analyzes images and video, not audio. Macie detects sensitive data in S3 objects at rest (scans files) but is not an inline text-analysis service for detecting PII in newly generated text. Translate converts text between languages."
+    },
+    {
+      "id": "ch2-test-14",
+      "type": "single",
+      "question": "A company runs a globally distributed e-commerce site with an RDS MySQL database in us-east-1. Read-heavy product catalog queries from users in Asia and Europe are causing high latency. The database must stay in us-east-1 for write operations. What is the MOST cost-effective way to reduce read latency for global users?",
+      "options": [
+        "Create RDS Read Replicas in ap-southeast-1 and eu-west-1, and use Amazon Route 53 latency-based routing to direct read traffic to the nearest replica",
+        "Enable RDS Multi-AZ in us-east-1 to handle global read traffic from the standby instance",
+        "Create RDS Read Replicas in ap-southeast-1 and eu-west-1, and use Amazon CloudFront to cache all database query results globally",
+        "Migrate the RDS database to Amazon DynamoDB Global Tables to reduce global read latency"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "RDS Read Replicas can be created in other AWS regions. Route 53 latency-based routing directs users to the nearest read replica, reducing latency for global users while keeping writes at the primary in us-east-1. Multi-AZ standby is for failover within a single region and does not serve read traffic — it is a hot standby, not a read replica. CloudFront caches static content, not dynamic database query results. Migrating to DynamoDB is a significant schema redesign and is not cost-effective for an existing relational workload."
+    },
+    {
+      "id": "ch2-test-15",
+      "type": "single",
+      "question": "A media processing pipeline receives video upload events. Each upload should trigger a series of steps: validate the file, transcode to multiple resolutions, generate thumbnails, and update a database record — in strict sequence, with error handling and retry at each step. Which AWS service BEST orchestrates this workflow?",
+      "options": [
+        "AWS Step Functions to define and execute the sequential workflow with built-in error handling and retries at each step",
+        "Amazon SQS FIFO queue to pass messages between each processing step in sequence",
+        "Amazon SNS to fan out the upload event to Lambda functions that run each step in parallel",
+        "Amazon EventBridge to trigger each step in the workflow based on events from the previous step"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Step Functions is a serverless workflow orchestration service that defines state machines with sequential or parallel steps, built-in error handling, retries, and timeouts — precisely designed for multi-step processing pipelines like this. SQS FIFO guarantees order within a queue but does not orchestrate multi-step workflows with branching logic or retry policies across different services. SNS is a push notification service for parallel fan-out, not sequential workflows. EventBridge can chain events but lacks the built-in state management, retry logic, and step sequencing that Step Functions provides."
+    },
+    {
+      "id": "ch2-test-16",
+      "type": "multi",
+      "question": "A large enterprise uses AWS Organizations with 30 accounts. The security team wants to prevent any account from disabling AWS CloudTrail, and they want to automatically set up a new account with a baseline configuration (VPC, IAM roles, CloudTrail enabled) whenever a new account is created. Which TWO services best address these requirements? (Choose TWO)",
+      "options": [
+        "AWS Control Tower to automate the baseline setup of new accounts using Account Factory, and to enforce guardrails that prevent CloudTrail from being disabled",
+        "AWS CloudFormation StackSets to automate baseline setup, and Service Control Policies (SCPs) via AWS Organizations to prevent CloudTrail from being disabled",
+        "AWS Config to automate baseline setup of new accounts and prevent CloudTrail from being disabled",
+        "AWS Systems Manager to automate baseline setup and enforce CloudTrail policy across accounts",
+        "AWS Security Hub to automate baseline account setup and enforce the CloudTrail guardrail"
+      ],
+      "correctAnswers": [
+        0,
+        1
+      ],
+      "explanation": "Both answers are valid architectures. Control Tower is the purpose-built service for automated secure multi-account setup — its Account Factory provisions new accounts with a baseline, and its guardrails (implemented as SCPs) prevent actions like disabling CloudTrail. CloudFormation StackSets can deploy baseline infrastructure stacks to new accounts, and SCPs at the Organizations level can explicitly deny the cloudtrail:StopLogging action — a valid alternative architecture. Config audits compliance after the fact but does not enforce preventive controls. Systems Manager manages EC2 at scale and does not set up new accounts."
+    },
+    {
+      "id": "ch2-test-17",
+      "type": "single",
+      "question": "A genomics research company runs HPC jobs that require shared, high-throughput storage accessible simultaneously from hundreds of EC2 instances. After the compute jobs finish, results must be stored cost-effectively for at least 7 years with very infrequent access (retrieved at most once per year). Which storage combination is MOST appropriate?",
+      "options": [
+        "Amazon FSx for Lustre as the high-throughput shared storage during HPC jobs; Amazon S3 Glacier Deep Archive for long-term 7-year archival of results",
+        "Amazon EFS as the high-throughput shared storage during HPC jobs; Amazon EBS for long-term 7-year archival",
+        "Amazon FSx for Lustre during HPC jobs; Amazon S3 Standard-IA for long-term 7-year archival",
+        "Amazon Instance Store for high-throughput shared storage during HPC jobs; Amazon S3 Glacier for long-term archival"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "FSx for Lustre is a high-performance parallel file system designed specifically for HPC workloads — it provides the sub-millisecond latency and high throughput needed for genomics jobs and can be accessed by hundreds of EC2 instances simultaneously. S3 Glacier Deep Archive has a 180-day minimum storage duration and is the lowest-cost option for data accessed less than once a year — ideal for 7-year compliance archives. EFS is a general-purpose NFS file system, not optimized for HPC. EBS is block storage attached to a single instance, not shared across hundreds. S3 Standard-IA costs more than Deep Archive for rarely accessed data. Instance Store is ephemeral and cannot be shared."
+    },
+    {
+      "id": "ch2-test-18",
+      "type": "single",
+      "question": "A platform team wants to give development teams a repeatable way to deploy containerized microservices on Amazon EKS, including all networking and IAM resources, using code checked into Git. They want changes to infrastructure to go through code review before being applied. Which deployment approach BEST meets these requirements?",
+      "options": [
+        "AWS CDK to define EKS infrastructure as code in a familiar programming language, with CloudFormation change sets reviewed before deployment",
+        "AWS OpsWorks with Chef recipes to deploy EKS clusters and networking resources with peer review",
+        "AWS Elastic Beanstalk to deploy containerized services on EKS with code-reviewed changes",
+        "AWS CodeDeploy to provision new EKS clusters and networking resources from Git"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "CDK allows teams to define AWS infrastructure (EKS clusters, VPCs, IAM roles) in TypeScript, Python, or other languages, which can be committed to Git and reviewed like application code. CDK synthesizes to CloudFormation, and change sets can be reviewed before applying, providing the required approval gate. OpsWorks uses Chef/Puppet for configuration management, not container orchestration IaC. Elastic Beanstalk is a PaaS layer that does not deploy raw EKS infrastructure. CodeDeploy deploys application code to existing resources — it does not provision new infrastructure like EKS clusters or networking."
+    },
+    {
+      "id": "ch2-test-19",
+      "type": "multi",
+      "question": "A security team wants to continuously monitor an AWS account for resources that are out of compliance with their security policies (e.g., security groups open to 0.0.0.0/0), AND detect if any IAM credentials appear to be compromised based on unusual API call patterns. Which TWO services should be configured? (Choose TWO)",
+      "options": [
+        "AWS Config with Config Rules to continuously evaluate security group configurations against the defined policies",
+        "Amazon Inspector to continuously monitor security groups for open CIDR ranges",
+        "Amazon GuardDuty to analyze API call patterns and detect anomalous behavior indicating compromised credentials",
+        "AWS CloudTrail to detect compromised IAM credentials by setting up metric filters",
+        "Amazon Macie to detect compromised IAM credentials and misconfigured security groups"
+      ],
+      "correctAnswers": [
+        0,
+        2
+      ],
+      "explanation": "AWS Config continuously records resource configurations and evaluates them against Config Rules — it has built-in managed rules to flag open security groups. GuardDuty uses machine learning on CloudTrail and VPC Flow Logs to detect anomalous API call patterns indicating credential compromise, such as calls from unusual geographic locations or at abnormal times. Inspector assesses application vulnerabilities on EC2/containers, not network-level policy compliance. While CloudTrail can feed metric filters, this requires manual setup and lacks the ML-based anomaly detection GuardDuty provides. Macie discovers sensitive data in S3, not security group or IAM analysis."
+    },
+    {
+      "id": "ch2-test-20",
+      "type": "single",
+      "question": "A company keyword search of AWS services finds 'managed NAT,' 'VPC,' 'subnets,' and 'Internet Gateway' in a documentation page. According to AWS service categorization and naming conventions, this documentation most likely describes configuration steps for which category?",
+      "options": [
+        "AWS Networking and Content Delivery, specifically Amazon VPC configuration for internet connectivity",
+        "AWS Compute, specifically EC2 instance networking configuration",
+        "AWS Security, Identity, and Compliance, specifically network access control configuration",
+        "AWS Management and Governance, specifically network monitoring configuration"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "VPC, subnets, Internet Gateway, and NAT are all core components of AWS Networking and Content Delivery — specifically Amazon VPC. This illustrates the SAA-C03 exam strategy from Lesson 2-1: recognizing category keywords helps narrow down the relevant service domain quickly. These terms are not Compute-specific (EC2 networking is a subset but the VPC construct belongs to networking), nor Security-specific (security groups and NACLs are the security-layer networking controls), nor Management/Governance-specific."
+    },
+    {
+      "id": "ch2-test-21",
+      "type": "single",
+      "question": "A broadcasting company needs to allow on-premises video production partners to upload large video files to Amazon S3 using their existing SFTP clients without changing their workflow. Which service enables SFTP uploads directly to S3?",
+      "options": [
+        "AWS Transfer Family, which provides a managed SFTP endpoint that stores files directly into Amazon S3",
+        "AWS DataSync, which accepts SFTP connections from on-premises clients and stores data in Amazon S3",
+        "AWS Storage Gateway File Gateway, which accepts SFTP connections and stores data in Amazon S3",
+        "Amazon S3 Transfer Acceleration, which provides an SFTP endpoint for faster uploads from on-premises"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "AWS Transfer Family provides fully managed SFTP, FTPS, and FTP endpoints. Clients connect using their existing SFTP tools, and files are stored directly in S3 — no workflow changes required. DataSync is an automated migration/sync tool using its own agent protocol, not an SFTP server. Storage Gateway File Gateway provides NFS and SMB access to S3, not SFTP. S3 Transfer Acceleration uses the CloudFront edge network to speed up HTTP/HTTPS PUT operations — it does not provide an SFTP endpoint."
+    },
+    {
+      "id": "ch2-test-22",
+      "type": "single",
+      "question": "A fintech application stores sensitive customer credit card data in Amazon RDS. A compliance audit requires that the database credentials used by the application be automatically rotated every 30 days without manual intervention and without application downtime. Which service BEST meets this requirement?",
+      "options": [
+        "AWS Secrets Manager, which stores RDS credentials and supports automatic rotation on a configurable schedule using a managed Lambda rotation function",
+        "AWS KMS, which stores RDS credentials and rotates the encryption keys every 30 days automatically",
+        "AWS Systems Manager Parameter Store, which stores RDS credentials and triggers automatic rotation via CloudWatch Events",
+        "AWS IAM, which creates database-specific roles and rotates their access keys automatically every 30 days"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Secrets Manager is specifically designed for credential storage with built-in automatic rotation. For RDS, it uses a managed Lambda function to rotate the database password on a schedule and updates the secret — the application retrieves the current secret from Secrets Manager at runtime, so there is no downtime. KMS manages encryption keys for data at rest, not application-level database credentials. SSM Parameter Store can store credentials but requires custom Lambda functions for rotation — it is not as turnkey as Secrets Manager. IAM roles provide identity-based access but cannot rotate RDS database passwords inside the database engine."
+    },
+    {
+      "id": "ch2-test-23",
+      "type": "multi",
+      "question": "A DevOps team wants to: (1) receive an alert within minutes if their production EC2 Auto Scaling group's average CPU exceeds 80% for 5 minutes, and (2) ensure every EC2 instance in the group automatically has the latest security patches applied. Which TWO services/features best address these requirements? (Choose TWO)",
+      "options": [
+        "Amazon CloudWatch Alarm on the AutoScalingGroup CPUUtilization metric configured to send an SNS notification when the threshold is breached",
+        "AWS CloudTrail configured to monitor CPU metrics and send alerts when thresholds are breached",
+        "AWS Systems Manager Patch Manager to create a patch baseline and maintenance window that automatically patches EC2 instances",
+        "Amazon Inspector to automatically apply security patches to EC2 instances on a schedule",
+        "AWS Config to automatically patch EC2 instances when configuration drift is detected"
+      ],
+      "correctAnswers": [
+        0,
+        2
+      ],
+      "explanation": "CloudWatch Alarms monitor metrics like EC2 CPUUtilization and trigger notifications via SNS when thresholds are exceeded — this is the standard alerting mechanism for operational metrics. Systems Manager Patch Manager defines patch baselines and maintenance windows to automatically scan and patch EC2 instances at scale, reducing operational overhead. CloudTrail records API calls and does not monitor performance metrics. Inspector identifies software vulnerabilities and does not apply patches automatically. Config evaluates configuration compliance but does not perform patching."
+    },
+    {
+      "id": "ch2-test-24",
+      "type": "single",
+      "question": "An e-commerce platform's order processing service writes order events to a message queue. Downstream services consume these events independently: one updates inventory, another sends email confirmations, and a third updates the analytics database. Each downstream service must receive every event. Which messaging architecture is MOST appropriate?",
+      "options": [
+        "Amazon SNS topic to publish order events; three SQS Standard queues subscribed to the SNS topic as separate subscribers — one per downstream service",
+        "A single Amazon SQS Standard queue for all order events; all three downstream services poll the same queue and process each message",
+        "Amazon SQS FIFO queue for order events; three consumer groups reading from the same FIFO queue",
+        "Amazon EventBridge to publish order events directly to each downstream service's Lambda function"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "The SNS fan-out pattern to SQS queues is the correct architecture when multiple independent consumers each need their own copy of every message. SNS delivers the message to all subscribed SQS queues simultaneously, and each downstream service processes its own queue independently without affecting others. A single SQS queue would result in each message being consumed by only one service — SQS is not a pub/sub system. SQS FIFO does not support multiple independent consumer groups where each group receives all messages. EventBridge is valid for event routing but using it to directly trigger Lambda functions bypasses the buffering and decoupling benefits of SQS, and delivery guarantees differ."
+    },
+    {
+      "id": "ch2-test-25",
+      "type": "single",
+      "question": "A data scientist runs memory-intensive ML training jobs on EC2 instances. The training requires very high IOPS temporary scratch storage during computation, but the data does not need to persist after the job completes. Cost is a top priority. Which storage option is MOST appropriate?",
+      "options": [
+        "EC2 Instance Store, which provides ephemeral, high-performance NVMe storage directly attached to the instance at no additional cost",
+        "Amazon EBS gp3 volume, which provides persistent high-IOPS storage at low cost attached to the EC2 instance",
+        "Amazon EFS, which provides shared high-throughput temporary storage across multiple EC2 instances",
+        "Amazon S3 with S3 Transfer Acceleration, which provides high-throughput temporary object storage during ML training"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Instance Store provides ephemeral block storage physically attached to the host hardware — it offers the highest IOPS performance and is included in the instance price with no additional cost. Since the data does not need to persist after job completion, Instance Store's ephemeral nature is acceptable and is actually the most cost-effective choice. EBS gp3 provides persistent storage at extra cost — unnecessary when persistence is not required. EFS is a shared NFS file system with higher latency than locally-attached storage, and it incurs additional cost. S3 is object storage accessed via API, not a block device — unsuitable as a local scratch disk."
+    },
+    {
+      "id": "ch2-test-26",
+      "type": "single",
+      "question": "A retail company runs daily batch analytics on 12 months of sales transaction data to generate regional reports. The queries involve complex joins across multiple large tables. They also need to visualize results as dashboards shared with 200 business stakeholders. Which pair of services is MOST appropriate?",
+      "options": [
+        "Amazon Redshift for OLAP queries on the historical sales data; Amazon QuickSight for BI dashboards shared with stakeholders",
+        "Amazon RDS Aurora for OLAP queries on historical sales data; Amazon QuickSight for BI dashboards",
+        "Amazon DynamoDB for OLAP queries on historical sales data; Amazon QuickSight for BI dashboards",
+        "Amazon Redshift for OLAP queries on historical sales data; Amazon CloudWatch Dashboards for sharing reports with stakeholders"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Redshift is a petabyte-scale OLAP data warehouse optimized for complex analytical queries with joins across large tables — precisely the use case for historical sales analytics. QuickSight is AWS's managed BI and dashboarding service that connects to Redshift and can publish dashboards to hundreds of users via a browser. RDS Aurora is an OLTP database optimized for transactional workloads, not large-scale analytical queries. DynamoDB is a NoSQL key-value/document store with no native support for complex SQL joins. CloudWatch Dashboards display operational metrics (CPU, requests, errors) and are not designed for business intelligence reporting."
+    },
+    {
+      "id": "ch2-test-27",
+      "type": "multi",
+      "question": "A company's security policy requires: (1) all traffic between their on-premises data center and AWS must travel over a private, dedicated network connection — NOT the public internet, and (2) a full audit log of every AWS API call must be stored in a centralized S3 bucket accessible by a separate security account. Which TWO actions implement these requirements? (Choose TWO)",
+      "options": [
+        "AWS Direct Connect to establish a private dedicated network link between on-premises and AWS",
+        "AWS Site-to-Site VPN over the internet with encryption to connect on-premises to AWS",
+        "AWS CloudTrail configured with an organization trail, delivering logs to an S3 bucket in the centralized security account",
+        "AWS Config to record API calls and deliver logs to an S3 bucket in the security account",
+        "AWS CloudWatch Logs to capture API calls and forward them to an S3 bucket in the security account"
+      ],
+      "correctAnswers": [
+        0,
+        2
+      ],
+      "explanation": "Direct Connect provides a dedicated private network connection between on-premises and AWS that does not traverse the public internet — meeting the strict private connectivity requirement. CloudTrail Organization Trail covers all accounts in an AWS Organization and delivers consolidated logs to a single S3 bucket in a designated security account — the standard pattern for centralized, cross-account API auditing. Site-to-Site VPN uses IPSec encryption but still travels over the public internet. Config tracks resource configurations, not API call details. CloudWatch Logs captures application and service logs but CloudTrail is the authoritative source for AWS API call auditing."
+    },
+    {
+      "id": "ch2-test-28",
+      "type": "single",
+      "question": "An IoT platform ingests sensor readings from 50,000 devices every second. Data analysts need to query the last 7 days of readings using time-based functions like time-series aggregations. The solution must scale automatically without managing database servers. Which database service is MOST purpose-built for this use case?",
+      "options": [
+        "Amazon Timestream, a serverless time-series database optimized for IoT sensor data with built-in time-series query functions",
+        "Amazon DynamoDB with time-based sort keys to store and query sensor readings",
+        "Amazon RDS Aurora with time-series extensions to store and query sensor readings",
+        "Amazon Redshift to store and query IoT sensor readings using time-series SQL"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Timestream is a purpose-built, serverless time-series database for IoT and operational data. It automatically scales to trillions of events per day, stores recent data in memory for fast queries, and has native time-series SQL functions. DynamoDB can store time-series data with sort keys but lacks native time-series query functions and requires more engineering effort. Aurora is a general-purpose relational database without native time-series optimizations for IoT scale. Redshift is an OLAP warehouse optimized for batch analytics, not real-time ingestion from 50,000 concurrent device streams."
+    },
+    {
+      "id": "ch2-test-29",
+      "type": "multi",
+      "question": "A company uses Microsoft Active Directory on-premises for user identity. They want employees to sign in once with their AD credentials and access both the AWS Management Console and internal SaaS applications (Salesforce, Office 365) — without creating separate IAM users. Which TWO services enable this federated single sign-on architecture? (Choose TWO)",
+      "options": [
+        "AWS IAM Identity Center (SSO) to provide single sign-on access to AWS accounts and integrated SaaS applications using the existing identity source",
+        "Amazon Cognito User Pool to federate with on-premises Active Directory for employee access to AWS and SaaS applications",
+        "AWS Directory Service AD Connector (or Managed Microsoft AD) to connect or replicate the on-premises AD, providing the identity source for IAM Identity Center",
+        "AWS IAM with SAML 2.0 federation to provide access to every individual SaaS application through separate role configurations",
+        "Amazon Cognito Identity Pool to exchange AD credentials for temporary AWS credentials for Console access"
+      ],
+      "correctAnswers": [
+        0,
+        2
+      ],
+      "explanation": "IAM Identity Center (AWS SSO) is the purpose-built service for single sign-on across multiple AWS accounts and pre-integrated SaaS applications like Salesforce and Office 365 — it eliminates separate IAM users. AWS Directory Service (Managed Microsoft AD or AD Connector) connects IAM Identity Center to the on-premises Active Directory, allowing employees to authenticate with their existing AD credentials. Cognito User Pools are designed for consumer-facing application authentication, not enterprise employee SSO. IAM SAML federation works per-account and requires complex per-app role configuration — not a scalable SSO solution. Cognito Identity Pool vends AWS credentials but is not an SSO platform."
+    },
+    {
+      "id": "ch2-test-30",
+      "type": "single",
+      "question": "A fraud detection system must process credit card transactions in real time (under 100ms), run an ML model to score each transaction, and store ALL raw transaction records in a data lake for retrospective analysis. Which architecture BEST meets these requirements?",
+      "options": [
+        "Amazon Kinesis Data Streams to ingest transactions in real time; Amazon SageMaker endpoint invoked by a Kinesis consumer for sub-100ms ML scoring; Amazon S3 as the data lake for raw transaction archival",
+        "Amazon SQS FIFO to ingest transactions; AWS Lambda invoking SageMaker for ML scoring; Amazon RDS for raw transaction storage",
+        "Amazon SNS to ingest transactions; Amazon Rekognition for ML fraud scoring; Amazon Redshift for raw transaction storage",
+        "Amazon EventBridge to ingest transactions; AWS Step Functions invoking SageMaker for ML scoring; Amazon DynamoDB for raw transaction storage"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "explanation": "Kinesis Data Streams handles real-time ingestion at high throughput with millisecond latency. A Kinesis consumer (Lambda or KDA) can invoke a SageMaker real-time endpoint for ML scoring under 100ms. S3 as a data lake stores raw transaction records at low cost with unlimited scale for retrospective analysis. SQS FIFO adds queue wait time that can exceed 100ms under load. Rekognition is a vision service, not a general ML inference platform. Redshift is optimized for batch analytics, not as a raw event store. EventBridge with Step Functions introduces orchestration overhead incompatible with sub-100ms latency requirements."
+    }
+  ]
+}
